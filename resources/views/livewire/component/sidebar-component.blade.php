@@ -1,6 +1,7 @@
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
-        <div> <a href="#" class="nav_logo">
+        <div>
+            <a href="#" class="nav_logo">
                 <i class='bx bx-layer nav_logo-icon'></i>
                 <span class="nav_logo-name">LawFirm Name</span>
             </a>
@@ -31,9 +32,13 @@
                 </a>
             </div>
         </div>
-        <a href="#" class="nav_link">
-            <i class='bx bx-log-out nav_icon'></i>
-            <span class="nav_name">SignOut</span>
-        </a>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="nav_link btn btn-link" style="
+            text-decoration: none;">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">SignOut</span>
+            </button>
+        </form>
     </nav>
 </div>

@@ -20,13 +20,12 @@
 </head>
 
 <body id="body-pd">
-    <header class="header" id="header">
-        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-        <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
-    </header>
+    <livewire:component.header-component />
     <livewire:component.sidebar-component />
+    <div class="after-class">
+    </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light p-2" style="margin-top: 8%;">
+    <div class="height-100 bg-light p-2">
         {{ $slot }}
     </div>
     <!--Container Main end-->
