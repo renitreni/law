@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class ClientFactory extends Factory
     {
         return [
             'name' => $this->faker->company,
-            'code' => $this->faker->swiftBicNumber(),
+            'code' => Str::lower($this->faker->swiftBicNumber()),
         ];
     }
 }
