@@ -5,21 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Matter extends Model
+class SubMatter extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'matter_id',
         'name',
         'code',
     ];
-
-    protected $with = [
-        'subMatters'
-    ];
-
-    public function subMatters()
-    {
-        return $this->hasMany(SubMatter::class, 'matter_id', 'id');
-    }
 }

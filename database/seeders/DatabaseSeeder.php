@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\User;
 use App\Models\Client;
 use App\Models\Matter;
+use App\Models\SubMatter;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,12 +21,21 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
+        User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@hoopelink.com',
         ]);
 
-        Matter::factory()->count(10)->create();
+        Matter::factory()
+            ->count(10)
+            ->has(
+                SubMatter::factory()
+                    ->count(5)
+                    ->state(function (array $attributes, Matter $matter) {
+                        return ['matter_id' => $matter->id];
+                    })
+            )->create();
+
         Client::factory()->count(10)->create();
     }
 }

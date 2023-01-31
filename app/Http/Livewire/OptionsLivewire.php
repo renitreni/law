@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Client;
 use App\Models\Matter;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class OptionsLivewire extends Component
 {
@@ -32,7 +33,7 @@ class OptionsLivewire extends Component
         ]);
         Client::create([
             'name' => $this->clientDetails['name'],
-            'code' => $this->clientDetails['code'],
+            'code' => Str::lower($this->clientDetails['code']),
         ]);
         $this->clientDetails = [];
     }
@@ -45,7 +46,7 @@ class OptionsLivewire extends Component
         ]);
         Matter::create([
             'name' => $this->matterDetails['name'],
-            'code' => $this->matterDetails['code'],
+            'code' => Str::lower($this->matterDetails['code']),
         ]);
         $this->matterDetails = [];
     }
