@@ -17,7 +17,8 @@ class ClientFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->company,
+            'code' => $this->faker->swiftBicNumber(),
         ];
     }
 }
