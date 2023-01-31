@@ -51,7 +51,7 @@ class HeaderComponent extends Component
 
         $maxDay = Carbon::parse("{$this->year}-{$this->month}-1");
 
-        $this->range = $maxDay->format('Y-m-d').'#'.$maxDay->endOfMonth()->format('Y-m-d');
+        $this->range = $maxDay->format('Y-m-d').'#'.$maxDay->addDays(6)->format('Y-m-d');
 
         $this->getDayList($maxDay->endOfMonth()->format('d'));
 
@@ -67,27 +67,41 @@ class HeaderComponent extends Component
 
     public function getMonthWeeks()
     {
+        $this->monthRange = [];
         $startDate = Carbon::parse("{$this->year}-{$this->month}-1");
-        $endDate = Carbon::parse("{$this->year}-{$this->month}-1")->addDays(6);
         $list = [];
 
         do {
             $list[] = [
-                'start' => $startDate->format('Y-m-d'),
-                'end' => $endDate->format('Y-m-d')
+                'start' => $this->setStartDate($startDate)->format('Y-m-d'),
+                'end' => $this->setEndDate($startDate)->format('Y-m-d')
             ];
-            $startDate->addDays(7);
-            $endDate->addDays(6);
-        } while ($endDate->format('m') == $this->month);
-
-        if ($endDate->format('m') == $this->month) {
-            $list[] = [
-                'start' => $startDate->format('Y-m-d'),
-                'end' => $startDate->endOfMonth()->format('Y-m-d')
-            ];
-        }
+            $startDate->addDays(1);
+        } while ($startDate->format('m') == $this->month);
 
         $this->monthRange = $list;
+    }
+
+    public function setEndDate(&$startDate)
+    {
+        if(!$startDate->isSaturday()) {
+            do {
+                $startDate->addDay();
+            } while(!$startDate->isSaturday());
+        }
+
+        return $startDate;
+    }
+
+    public function setStartDate(&$startDate)
+    {
+        if(!$startDate->isSunday()) {
+            do {
+                $startDate->subDay();
+            } while(!$startDate->isSunday());
+        }
+
+        return $startDate;
     }
 
     public function getDayList($maxDay)
@@ -113,6 +127,7 @@ class HeaderComponent extends Component
     {
         $this->emit('timeSheetFilter', [
             'state' => $this->state,
+            'single_date' => Carbon::parse("{$this->year}-{$this->month}-{$this->day}"),
             'month' => $this->month,
             'year' => $this->year,
             'day' => $this->day,
