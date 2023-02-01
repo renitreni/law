@@ -3,7 +3,6 @@
         <div class="header_toggle">
             <i class='bx bx-menu' id="header-toggle"></i>
         </div>
-        @if(request()->route()->named('timesheet'))
         <div class="d-flex flex-row ms-5">
             <button type="button" wire:click="$set('state', 'month')"
                 class="btn {{ $state == 'month' ? 'btn-info text-white' : 'btn-outline-info' }} mx-1">
@@ -29,7 +28,7 @@
                     @endforeach
                 </select>
                 @if ($state == 'week')
-                    <select wire:model="range" class="form-select ms-1">
+                    <select wire:model="selectedRange" class="form-select ms-1">
                         @foreach ($monthRange as $range)
                             <option value="{{ $range['start'].'#'.$range['end'] }}">
                                 {{ Carbon\Carbon::parse($range['start'])->format('d').' - '.Carbon\Carbon::parse($range['end'])->format('d') }}
@@ -48,7 +47,6 @@
                 @endif
             </div>
         </div>
-        @endif
     </div>
 
     <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>

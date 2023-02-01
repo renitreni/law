@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar/main.min.css" rel="stylesheet" />
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -22,13 +21,8 @@
 
             calendar.render();
 
-            calendar.on('dateClick', function(e) {
-                console.log(e);
-            });
-
             window.addEventListener('changeCalendarView', params => {
                 let filter = params.detail.params;
-                console.log(filter)
                 if (filter.state == 'month') {
                     calendar.changeView('dayGridMonth', filter.start);
                     calendar.setOption('height', 700);
@@ -41,7 +35,35 @@
                     calendar.changeView('dayGridDay', filter.single_date);
                     calendar.setOption('height', 300);
                 }
+                resetCalendar()
+                $(".fc-event-title").each(function() {
+                    $(this).html($(this).text());
+                });
+                Livewire.emit('loadCalendarSummary');
             });
-        });
+
+            window.addEventListener('load', () => {
+                calendar.removeAllEvents();
+                Livewire.emit('loadCalendarSummary');
+            });
+
+            window.addEventListener('bindCalendarSummary', params => {
+                resetCalendar()
+                params.detail[0].forEach(function(value, idx) {
+                    calendar.addEvent(value);
+                });
+                $(".fc-event-title").each(function() {
+                    $(this).html($(this).text());
+                });
+            });
+
+            calendar.on('dateClick', function(e) {
+                console.log(e);
+            });
+
+            function resetCalendar()
+            {
+                calendar.removeAllEvents();
+            }
     </script>
 @endpush

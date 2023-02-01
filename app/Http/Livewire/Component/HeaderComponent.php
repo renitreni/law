@@ -38,6 +38,8 @@ class HeaderComponent extends Component
 
     public $range;
 
+    public $selectedRange;
+
     public function mount()
     {
         $this->month = (int) now()->format('m');
@@ -51,7 +53,7 @@ class HeaderComponent extends Component
 
         $maxDay = Carbon::parse("{$this->year}-{$this->month}-1");
 
-        $this->range = $maxDay->format('Y-m-d').'#'.$maxDay->addDays(6)->format('Y-m-d');
+        $this->selectedRange = $maxDay->format('Y-m-d').'#'.$maxDay->addDays(6)->format('Y-m-d');
 
         $this->getDayList($maxDay->endOfMonth()->format('d'));
 
@@ -113,14 +115,25 @@ class HeaderComponent extends Component
         } while ($maxDay > 0);
     }
 
-    public function updatedMonth()
+    public function updatedMonth($value)
     {
+        $this->month = $value;
         $startDate = Carbon::parse("{$this->year}-{$this->month}-1");
 
         $this->range = [
             'start' => $startDate->format('Y-m-d'),
             'end' => $startDate->endOfMonth()->format('Y-m-d')
         ];
+        $this->selectedRange = $this->range['start'].'#'.$this->range['end'];
+
+        $this->emit('timeSheetFilter', [
+            'state' => $this->state,
+            'single_date' => Carbon::parse("{$this->year}-{$this->month}-{$this->day}"),
+            'month' => $this->month,
+            'year' => $this->year,
+            'day' => $this->day,
+            'range' => $this->selectedRange,
+        ]);
     }
 
     public function updated()
@@ -131,7 +144,7 @@ class HeaderComponent extends Component
             'month' => $this->month,
             'year' => $this->year,
             'day' => $this->day,
-            'range' => $this->range,
+            'range' => $this->selectedRange,
         ]);
     }
 }

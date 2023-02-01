@@ -2,12 +2,18 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Resources\CalendarSummaryResource;
 use Carbon\Carbon;
+use App\Models\Entry;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class TimesheetLivewire extends Component
 {
-    protected $listeners = ['timeSheetFilter' => 'filter'];
+    protected $listeners = [
+        'timeSheetFilter' => 'filter',
+        'loadCalendarSummary' => 'calendarSummary'
+    ];
 
     public $viewFilter = [];
 
@@ -36,5 +42,23 @@ class TimesheetLivewire extends Component
         $this->viewFilter = $params;
 
         $this->dispatchBrowserEvent('changeCalendarView', ['params' => $this->viewFilter]);
+    }
+
+    public function calendarSummary()
+    {
+        $entry = Entry::query()
+            ->select([
+                DB::raw('SUM(CASE WHEN is_billable THEN duration ELSE 0 END) as billable'),
+                DB::raw('SUM(CASE WHEN NOT is_billable THEN duration ELSE 0 END) as non_billable'),
+                DB::raw('SUM(CASE WHEN is_draft THEN duration ELSE 0 END) as draft'),
+                DB::raw('SUM(CASE WHEN NOT is_draft THEN duration ELSE 0 END) as posted'),
+                'entry_date'
+                ])
+            ->groupBy('entry_date');
+
+            $this->dispatchBrowserEvent(
+                'bindCalendarSummary',
+                [CalendarSummaryResource::collection($entry->get())]
+            );
     }
 }
