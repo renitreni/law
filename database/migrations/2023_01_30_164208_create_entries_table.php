@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('client_id');
             $table->integer('matter_id');
+            $table->integer('sub_matter_id');
             $table->integer('office_id');
             $table->date('entry_date');
             $table->float('duration');

@@ -3,7 +3,7 @@
         <div class="header_toggle">
             <i class='bx bx-menu' id="header-toggle"></i>
         </div>
-
+        @if(request()->route()->named('timesheet'))
         <div class="d-flex flex-row ms-5">
             <button type="button" wire:click="$set('state', 'month')"
                 class="btn {{ $state == 'month' ? 'btn-info text-white' : 'btn-outline-info' }} mx-1">
@@ -48,6 +48,7 @@
                 @endif
             </div>
         </div>
+        @endif
     </div>
 
     <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>

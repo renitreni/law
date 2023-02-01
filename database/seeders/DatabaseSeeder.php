@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Client;
+use App\Models\Entry;
 use App\Models\Matter;
 use App\Models\SubMatter;
 use Illuminate\Database\Seeder;
@@ -25,17 +26,20 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@hoopelink.com',
         ]);
+        if (app()->environment(['local', 'staging'])) {
+            Matter::factory()
+                ->count(10)
+                ->has(
+                    SubMatter::factory()
+                        ->count(5)
+                        ->state(function (array $attributes, Matter $matter) {
+                            return ['matter_id' => $matter->id];
+                        })
+                )->create();
 
-        Matter::factory()
-            ->count(10)
-            ->has(
-                SubMatter::factory()
-                    ->count(5)
-                    ->state(function (array $attributes, Matter $matter) {
-                        return ['matter_id' => $matter->id];
-                    })
-            )->create();
+            Client::factory()->count(10)->create();
+        }
 
-        Client::factory()->count(10)->create();
+        Entry::factory()->count(200)->create();
     }
 }

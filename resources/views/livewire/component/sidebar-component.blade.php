@@ -8,12 +8,17 @@
             <div class="nav_list">
                 <a href="{{ route('timesheet') }}" wire:click="$set('menu', 'timesheet')"
                     class="nav_link @if ($this->menu == 'timesheet') active @endif">
-                    <i class='bx bxs-calendar-event' title="Timesheet"></i>
+                    <i class='bx bxs-calendar-event nav_icon' title="Timesheet"></i>
                     <span class="nav_name">Timesheet</span>
+                </a>
+                <a href="{{ route('matters') }}" wire:click="$set('menu', 'matters')"
+                    class="nav_link @if ($this->menu == 'matters') active @endif">
+                    <i class='bx bx-slider nav_icon' title="Matters"></i>
+                    <span class="nav_name">Matters</span>
                 </a>
                 <a href="{{ route('options') }}" wire:click="$set('menu', 'options')"
                     class="nav_link @if ($this->menu == 'options') active @endif">
-                    <i class='bx bx-slider'></i>
+                    <i class='bx bx-slider nav_icon' title="Options"></i>
                     <span class="nav_name">Options</span>
                 </a>
                 <a href="#" class="nav_link">
