@@ -26,7 +26,7 @@
     <div class="after-class">
     </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light p-2">
+    <div class="card p-4 shadow border-0">
         {{ $slot }}
     </div>
     <!--Container Main end-->
