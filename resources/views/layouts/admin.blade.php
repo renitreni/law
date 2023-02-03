@@ -10,6 +10,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.jsdelivr.net/npm/moment/moment.min.js"></script>
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>

@@ -24,4 +24,26 @@ class Entry extends Model
         "created_at",
         "updated_at",
     ];
+
+    protected $with = ['clients', 'submatters', 'offices'];
+
+    public function clients()
+    {
+        return $this->belongsTo(Client::class, 'client_id', 'id');
+    }
+
+    public function matters()
+    {
+        return $this->belongsTo(Matter::class, 'matter_id', 'id');
+    }
+
+    public function submatters()
+    {
+        return $this->belongsTo(SubMatter::class, 'sub_matter_id', 'id');
+    }
+
+    public function offices()
+    {
+        return $this->belongsTo(Office::class, 'office_id', 'id');
+    }
 }

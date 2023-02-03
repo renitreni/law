@@ -17,6 +17,8 @@ class TimesheetLivewire extends Component
 
     public $viewFilter = [];
 
+    public array $details = [];
+
     public function mount()
     {
         $maxDay = Carbon::parse(now()->format('Y') . "-" . now()->format('m') . "-1");
@@ -53,12 +55,23 @@ class TimesheetLivewire extends Component
                 DB::raw('SUM(CASE WHEN is_draft THEN duration ELSE 0 END) as draft'),
                 DB::raw('SUM(CASE WHEN NOT is_draft THEN duration ELSE 0 END) as posted'),
                 'entry_date'
-                ])
+            ])
+            ->when($this->viewFilter["state"] == 'month', function ($query) {
+                $query->where(DB::raw('month(entry_date)'), (int) $this->viewFilter['month']);
+            })
             ->groupBy('entry_date');
 
-            $this->dispatchBrowserEvent(
-                'bindCalendarSummary',
-                [CalendarSummaryResource::collection($entry->get())]
-            );
+        $this->dispatchBrowserEvent(
+            'bindCalendarSummary',
+            [CalendarSummaryResource::collection($entry->get())]
+        );
+    }
+
+    public function showDetails($param)
+    {
+        $this->details = Entry::query()
+            ->where('entry_date', Carbon::parse($param))
+            ->get()
+            ->toArray();
     }
 }

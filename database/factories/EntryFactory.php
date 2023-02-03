@@ -40,7 +40,7 @@ class EntryFactory extends Factory
             "matter_id" => $matter->id,
             "sub_matter_id" => $subMatter->id,
             "office_id" => $office->id,
-            "entry_date" => Carbon::parse($this->faker->dateTimeBetween('-7 days'))->startOfDay(),
+            "entry_date" => Carbon::parse($this->faker->dateTimeBetween('-1 months', '+5 months'))->startOfDay(),
             "duration" => $this->faker->randomFloat(2, 0.1, 0.8),
             "narrative" => $this->faker->sentence(),
             "template_name" => $templateName,

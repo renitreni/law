@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
 
             Client::factory()->count(10)->create();
             Office::factory()->count(10)->create();
-            Entry::factory()->count(200)->create();
+            Entry::factory()->count(800)->create();
         }
     }
 }
