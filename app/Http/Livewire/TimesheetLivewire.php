@@ -5,38 +5,61 @@ namespace App\Http\Livewire;
 use Carbon\Carbon;
 use App\Models\Entry;
 use App\Models\Client;
+use App\Models\Office;
 use Livewire\Component;
+use App\Models\SubMatter;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\CalendarSummaryResource;
+use App\Models\Matter;
 
 class TimesheetLivewire extends Component
 {
     protected $listeners = [
         'timeSheetFilter' => 'filter',
         'loadCalendarSummary' => 'calendarSummary',
-        'keywordClient'
+        'keywordClient', 'keywordMatter', 'keywordOffice', 'keywordTemplate'
     ];
-
     public $viewFilter = [];
-
     public array $details = [];
-
     public array $entry = [];
-
     public array $timeEntry = ['client' => ''];
-
     public $clients;
+    public $matter;
+    public $office;
+    public $templates;
 
     public function mount()
     {
         $this->resetInputs();
         $this->clients = Client::all()->map(function ($value) {
             return [
-                'value' => $value->code,
+                'value' => $value->id,
                 'text' => Str::upper($value->code) . ' - ' . $value->name,
             ];
         });
+        $this->matter = SubMatter::all()->map(function ($value) {
+            return [
+                'value' => $value->id,
+                'text' => Str::upper($value->code) . ' - ' . $value->name,
+            ];
+        });
+        $this->office = Office::all()->map(function ($value) {
+            return [
+                'value' => $value->id,
+                'text' => Str::upper($value->code) . ' - ' . $value->name,
+            ];
+        });
+        $this->templates = Entry::query()
+            ->select(['id', 'is_template', 'template_name'])
+            ->where('is_template', true)
+            ->get()
+            ->map(function ($value) {
+                return [
+                    'value' => $value->id,
+                    'text' => $value->template_name,
+                ];
+            });
 
         $maxDay = Carbon::parse(now()->format('Y') . "-" . now()->format('m') . "-1");
 
@@ -107,7 +130,63 @@ class TimesheetLivewire extends Component
 
     public function keywordClient($value)
     {
-        $this->timeEntry['client_code'] = $value;
-        dump($this->timeEntry);
+        $this->timeEntry['client_id'] = $value;
+    }
+
+    public function keywordMatter($value)
+    {
+        $matter = SubMatter::find($value);
+        $this->timeEntry['matter_id'] = $matter->id;
+        $this->timeEntry['sub_matter_id'] = $value;
+    }
+
+    public function keywordOffice($value)
+    {
+        $this->timeEntry['office_id'] = $value;
+    }
+
+    public function keywordTemplate($value)
+    {
+        $entry = Entry::find($value);
+
+        $this->timeEntry['client_id'] = $entry->client_id;
+        $this->emit('bindClient', $entry->client_id);
+
+        $this->timeEntry['sub_matter_id'] = $entry->sub_matter_id;
+        $this->emit('bindMatter', $entry->sub_matter_id);
+
+        $this->timeEntry['office_id'] = $entry->office_id;
+        $this->emit('bindOffice', $entry->office_id);
+    }
+
+    public function store($isDraft)
+    {
+        $this->validate([
+            'timeEntry.entry_date' => 'required',
+            'timeEntry.duration' => 'required',
+        ], [
+            'timeEntry.duration.required' => 'Duration is required.',
+            'timeEntry.entry_date.required' => 'Entry date is required.',
+        ]);
+
+        $entry = new Entry();
+        $entry->client_id = $this->timeEntry['client_id'];
+        $entry->matter_id = $this->timeEntry['matter_id'];
+        $entry->sub_matter_id = $this->timeEntry['sub_matter_id'];
+        $entry->office_id = $this->timeEntry['office_id'];
+        $entry->entry_date = $this->timeEntry['entry_date'];
+        $entry->duration = $this->timeEntry['duration'];
+        $entry->narrative = $this->timeEntry['narrative'];
+        $entry->template_name = $this->timeEntry['template_name'];
+        $entry->is_template = $this->timeEntry['is_template'];
+        $entry->is_draft = $isDraft;
+        $entry->is_billable = $this->timeEntry['is_billable'];
+        $entry->save();
+
+        $this->timeEntry = [];
+
+        $this->emit('bindClient', '');
+        $this->emit('bindMatter', '');
+        $this->emit('bindOffice', '');
     }
 }

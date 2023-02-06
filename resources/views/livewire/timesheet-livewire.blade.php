@@ -25,40 +25,42 @@
                                     <div class="col-md-5 d-flex flex-row mb-3">
                                         <div class="me-3">
                                             <label>Entry Date</label>
-                                            <input type="date" class="form-control">
+                                            <input type="date" class="form-control" wire:model='timeEntry.entry_date'>
+                                            @error('timeEntry.entry_date')
+                                                <small class="text-danger text-nowrap">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                         <div class="me-3">
                                             <label>Duration</label>
-                                            <input type="number" class="form-control">
+                                            <input type="number" class="form-control" wire:model='timeEntry.duration'>
+                                            @error('timeEntry.duration')
+                                                <small class="text-danger text-nowrap">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
-
                                     <div class="col-md-4 mb-3">
                                         <label>Apply a Template</label>
-                                        <select class="form-select">
-                                        </select>
+                                        <livewire:component.autocomplete-component :data="$templates" :keywordCallback="'keywordTemplate'"/>
                                     </div>
 
                                     <div class="col-md-4 mb-3">
                                         <label>Client</label>
-                                        <livewire:component.autocomplete-component :data="$clients" :keywordCallback="'keywordClient'"/>
+                                        <livewire:component.autocomplete-component :data="$clients" :keywordCallback="'keywordClient'" :bindCallback="'bindClient'"/>
                                     </div>
 
                                     <div class="col-md-4 mb-3">
                                         <label>Matters</label>
-                                        <select class="form-select">
-                                        </select>
+                                        <livewire:component.autocomplete-component :data="$matter" :keywordCallback="'keywordMatter'" :bindCallback="'bindMatter'"/>
                                     </div>
 
                                     <div class="col-md-4 mb-3">
                                         <label>Office</label>
-                                        <select class="form-select">
-                                        </select>
+                                        <livewire:component.autocomplete-component :data="$office" :keywordCallback="'keywordOffice'" :bindCallback="'bindOffice'"/>
                                     </div>
 
                                     <div class="col-12 mb-3">
                                         <label>Narrative</label>
-                                        <textarea class="form-control" rows="5"></textarea>
+                                        <textarea class="form-control" rows="5" wire:model='timeEntry.narrative'></textarea>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -73,7 +75,7 @@
                                     </div>
                                     @if ($timeEntry['is_template'] ?? false)
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control" wire:model='timeEntry.template_name'
                                                 placeholder="Type in Template Name">
                                         </div>
                                     @endif
@@ -81,8 +83,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-warning">Draft</button>
-                                <button type="button" class="btn btn-success">Post</button>
+                                <button type="button" class="btn btn-warning" wire:click='store(0)'>Draft</button>
+                                <button type="button" class="btn btn-success" wire:click='store(1)'>Post</button>
                             </div>
                         </div>
                     </div>
