@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (toggle && nav && bodypd && headerpd) {
             toggle.addEventListener('click', () => {
                 // show navbar
-                nav.classList.toggle('show')
+                nav.classList.toggle('show-nav')
                 // change icon
                 toggle.classList.toggle('bx-x')
                 // add padding to body
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
     linkColor.forEach(l => l.addEventListener('click', colorLink))
-  
+
     document.querySelectorAll('.nav_icon').forEach(l => l.classList.add('tooltips'))
     // Your code to run since DOM is loaded and ready
 });

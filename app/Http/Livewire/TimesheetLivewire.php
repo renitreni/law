@@ -2,25 +2,42 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Resources\CalendarSummaryResource;
 use Carbon\Carbon;
 use App\Models\Entry;
+use App\Models\Client;
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use App\Http\Resources\CalendarSummaryResource;
 
 class TimesheetLivewire extends Component
 {
     protected $listeners = [
         'timeSheetFilter' => 'filter',
-        'loadCalendarSummary' => 'calendarSummary'
+        'loadCalendarSummary' => 'calendarSummary',
+        'keywordClient'
     ];
 
     public $viewFilter = [];
 
     public array $details = [];
 
+    public array $entry = [];
+
+    public array $timeEntry = ['client' => ''];
+
+    public $clients;
+
     public function mount()
     {
+        $this->resetInputs();
+        $this->clients = Client::all()->map(function ($value) {
+            return [
+                'value' => $value->code,
+                'text' => Str::upper($value->code) . ' - ' . $value->name,
+            ];
+        });
+
         $maxDay = Carbon::parse(now()->format('Y') . "-" . now()->format('m') . "-1");
 
         $this->viewFilter = [
@@ -73,5 +90,24 @@ class TimesheetLivewire extends Component
             ->where('entry_date', Carbon::parse($param))
             ->get()
             ->toArray();
+    }
+
+    public function createTimeEntry()
+    {
+        $this->resetInputs();
+    }
+
+    public function resetInputs()
+    {
+        $this->timeEntry = [
+            'client' => '',
+            'is_template' => 0
+        ];
+    }
+
+    public function keywordClient($value)
+    {
+        $this->timeEntry['client_code'] = $value;
+        dump($this->timeEntry);
     }
 }

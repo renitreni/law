@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('matter_id');
             $table->string('code');
             $table->string('name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

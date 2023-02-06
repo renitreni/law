@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('is_template');
             $table->boolean('is_draft');
             $table->boolean('is_billable');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

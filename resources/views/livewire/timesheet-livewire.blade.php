@@ -5,10 +5,88 @@
         </div>
         <div class="col-md-12 mt-3">
             <div class="d-flex flex-row">
-                <button class="btn btn-success mx-2">
+                <button class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#timeEntryModal"
+                    wire:click='createTimeEntry'>
                     <i class="fas fa-plus"></i>
-                    New Entry
+                    New Time Entry
                 </button>
+                <!-- Modal -->
+                <div wire:ignore.self class="modal fade" id="timeEntryModal" tabindex="-1"
+                    aria-labelledby="timeEntryModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="timeEntryModalLabel">Time Entry</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row justify-content-between">
+                                    <div class="col-md-5 d-flex flex-row mb-3">
+                                        <div class="me-3">
+                                            <label>Entry Date</label>
+                                            <input type="date" class="form-control">
+                                        </div>
+                                        <div class="me-3">
+                                            <label>Duration</label>
+                                            <input type="number" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <label>Apply a Template</label>
+                                        <select class="form-select">
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <label>Client</label>
+                                        <livewire:component.autocomplete-component :data="$clients" :keywordCallback="'keywordClient'"/>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <label>Matters</label>
+                                        <select class="form-select">
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <label>Office</label>
+                                        <select class="form-select">
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12 mb-3">
+                                        <label>Narrative</label>
+                                        <textarea class="form-control" rows="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-auto mt-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="flexCheckDefault"
+                                                wire:model='timeEntry.is_template'>
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Save as Template
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @if ($timeEntry['is_template'] ?? false)
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control"
+                                                placeholder="Type in Template Name">
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-warning">Draft</button>
+                                <button type="button" class="btn btn-success">Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @isset($details[0])
                     <h3>{{ \Carbon\Carbon::parse($details[0]['entry_date'])->format('F j, Y') }}</h3>
                 @endisset
@@ -29,16 +107,16 @@
                                         {{ $item['submatters']['name'] }}
                                     </div>
                                     <div class="col-md-2">
-                                                @if ($item['is_draft'])
-                                                    <span class="badge bg-warning">draft</span>
-                                                @else
-                                                    <span class="badge bg-success">posted</span>
-                                                @endif
-                                                @if ($item['is_billable'])
-                                                    <span class="badge bg-primary">billable</span>
-                                                @else
-                                                    <span class="badge bg-danger">non-billable</span>
-                                                @endif
+                                        @if ($item['is_draft'])
+                                            <span class="badge bg-warning">draft</span>
+                                        @else
+                                            <span class="badge bg-success">posted</span>
+                                        @endif
+                                        @if ($item['is_billable'])
+                                            <span class="badge bg-primary">billable</span>
+                                        @else
+                                            <span class="badge bg-danger">non-billable</span>
+                                        @endif
                                     </div>
                                     <div class="col-md-2"><strong>{{ $item['duration'] }}</strong></div>
                                 </div>
