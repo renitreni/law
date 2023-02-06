@@ -21,12 +21,16 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @livewireStyles
 </head>
 
 <body id="body-pd">
+    <x-livewire-alert::scripts />
     <livewire:component.header-component />
     <livewire:component.sidebar-component />
     <div class="after-class">

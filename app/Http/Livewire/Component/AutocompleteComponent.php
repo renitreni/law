@@ -50,10 +50,14 @@ class AutocompleteComponent extends Component
 
     public function bindKeyword($value)
     {
-        foreach ($this->data as $item) {
-            if ($item['value'] == $value) {
-                $this->keyword = $item['text'];
+        if($value) {
+            foreach ($this->data as $item) {
+                if ($item['value'] == $value) {
+                    $this->keyword = $item['text'];
+                }
             }
+        } else {
+            $this->keyword = '';
         }
     }
 }

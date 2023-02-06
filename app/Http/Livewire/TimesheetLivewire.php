@@ -5,16 +5,19 @@ namespace App\Http\Livewire;
 use Carbon\Carbon;
 use App\Models\Entry;
 use App\Models\Client;
+use App\Models\Matter;
 use App\Models\Office;
 use Livewire\Component;
 use App\Models\SubMatter;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use App\Http\Resources\CalendarSummaryResource;
-use App\Models\Matter;
 
 class TimesheetLivewire extends Component
 {
+    use LivewireAlert;
+
     protected $listeners = [
         'timeSheetFilter' => 'filter',
         'loadCalendarSummary' => 'calendarSummary',
@@ -124,8 +127,14 @@ class TimesheetLivewire extends Component
     {
         $this->timeEntry = [
             'client' => '',
-            'is_template' => 0
+            'is_template' => 0,
+            'template_name' => '',
+            'is_billable' => false
         ];
+
+        $this->emit('bindClient', null);
+        $this->emit('bindMatter', null);
+        $this->emit('bindOffice', null);
     }
 
     public function keywordClient($value)
@@ -135,8 +144,6 @@ class TimesheetLivewire extends Component
 
     public function keywordMatter($value)
     {
-        $matter = SubMatter::find($value);
-        $this->timeEntry['matter_id'] = $matter->id;
         $this->timeEntry['sub_matter_id'] = $value;
     }
 
@@ -149,13 +156,12 @@ class TimesheetLivewire extends Component
     {
         $entry = Entry::find($value);
 
-        $this->timeEntry['client_id'] = $entry->client_id;
-        $this->emit('bindClient', $entry->client_id);
-
-        $this->timeEntry['sub_matter_id'] = $entry->sub_matter_id;
-        $this->emit('bindMatter', $entry->sub_matter_id);
-
         $this->timeEntry['office_id'] = $entry->office_id;
+        $this->timeEntry['sub_matter_id'] = $entry->sub_matter_id;
+        $this->timeEntry['client_id'] = $entry->client_id;
+
+        $this->emit('bindClient', $entry->client_id);
+        $this->emit('bindMatter', $entry->sub_matter_id);
         $this->emit('bindOffice', $entry->office_id);
     }
 
@@ -171,22 +177,24 @@ class TimesheetLivewire extends Component
 
         $entry = new Entry();
         $entry->client_id = $this->timeEntry['client_id'];
+
+        $matter = SubMatter::find($this->timeEntry['sub_matter_id']);
+        $this->timeEntry['matter_id'] = $matter->id;
+
         $entry->matter_id = $this->timeEntry['matter_id'];
+
         $entry->sub_matter_id = $this->timeEntry['sub_matter_id'];
         $entry->office_id = $this->timeEntry['office_id'];
         $entry->entry_date = $this->timeEntry['entry_date'];
         $entry->duration = $this->timeEntry['duration'];
         $entry->narrative = $this->timeEntry['narrative'];
         $entry->template_name = $this->timeEntry['template_name'];
-        $entry->is_template = $this->timeEntry['is_template'];
+        $entry->is_template = $this->timeEntry['is_template'] ?? null;
         $entry->is_draft = $isDraft;
         $entry->is_billable = $this->timeEntry['is_billable'];
         $entry->save();
 
-        $this->timeEntry = [];
-
-        $this->emit('bindClient', '');
-        $this->emit('bindMatter', '');
-        $this->emit('bindOffice', '');
+        $this->alert('success', 'Process successful!');
+        $this->resetInputs();
     }
 }

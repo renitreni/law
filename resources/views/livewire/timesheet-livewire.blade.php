@@ -7,7 +7,7 @@
             <div class="d-flex flex-row">
                 <button class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#timeEntryModal"
                     wire:click='createTimeEntry'>
-                    <i class="fas fa-plus"></i>
+                    <i class='bx bx-plus'></i>
                     New Time Entry
                 </button>
                 <!-- Modal -->
@@ -127,6 +127,30 @@
                         <div id="panelsStayOpen-collapse{{ $item['id'] }}" class="accordion-collapse collapse"
                             aria-labelledby="panelsStayOpen-heading{{ $item['id'] }}">
                             <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <strong class="me-2">Duration</strong>
+                                        <label>{{ $item['duration'] }}</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong class="me-2">Client</strong>
+                                        <label>{{ strtoupper($item['clients']['code']) }} - {{ $item['clients']['name'] }}</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong class="me-2">Matters</strong>
+                                        <label>{{ strtoupper($item['clients']['code']) }} - {{ $item['clients']['name'] }}</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong class="me-2">Office</strong>
+                                        <label>{{ strtoupper($item['offices']['code']) }} - {{ $item['offices']['name'] }}</label>
+                                    </div>
+                                    <div class="col-md-12 mt-2">
+                                        <strong class="me-2">Narrative</strong><br>
+                                        <p>{{ $item['narrative'] }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
