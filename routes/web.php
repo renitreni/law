@@ -18,7 +18,7 @@ use App\Http\Livewire\TimesheetLivewire;
 |
 */
 
-Route::resource('/', HomeController::class)->only(['index']);
+Route::get('/{page?}', HomeController::class);
 
 Auth::routes();
 
