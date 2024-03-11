@@ -195,6 +195,7 @@ class TimesheetLivewire extends Component
         $entry->save();
 
         $this->alert('success', 'Process successful!');
+        $this->showDetails($this->timeEntry['entry_date']);
         $this->resetInputs();
     }
 }
