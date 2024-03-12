@@ -17,7 +17,18 @@
                 <p><span>Phone: <br></span> <a href="tel://0558682149">0558682149</a></p>
             </div>
             <div class="col-md-3">
-                <p><span>Email:</span> <a href="mailto:lawyer.ksa.law@gmail.com">lawyer.ksa.law@gmail.com</a></p>
+                @php
+                $emails = [
+                    "atty.mahaaljubaire@mesharialhumlaw.com",
+                    "meshari.alhumadi@mesharialhumlaw.com",
+                    "info@mesharialhumlaw.com",
+                    "majedghnaim@mesharialhumlaw.com"
+                ]
+                @endphp
+                <span>Emails:</span>
+                @foreach ($emails as $email )
+                    <p> <a href="mailto:{{ $email }}">{{ $email }}</a></p>
+                @endforeach
             </div>
         </div>
         <div class="row block-9 no-gutters">

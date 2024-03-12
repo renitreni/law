@@ -88,12 +88,22 @@
                                     <span class="text">0531113885</span>
                                 </a>
                             </li>
+                            @php
+                            $emails = [
+                            "atty.mahaaljubaire@mesharialhumlaw.com",
+                            "meshari.alhumadi@mesharialhumlaw.com",
+                            "info@mesharialhumlaw.com",
+                            "majedghnaim@mesharialhumlaw.com"
+                            ]
+                            @endphp
+                            @foreach ($emails as $email )
                             <li>
-                                <a href="mailTo:lawyer.ksa.law@gmail.com">
+                                <a href="mailTo:{{ $email }}">
                                     <span class="icon icon-envelope"></span>
-                                    <span class="text">lawyer.ksa.law@gmail.com</span>
+                                    <span class="text">{{ $email }}</span>
                                 </a>
                             </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -134,7 +144,8 @@
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
         <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#7495ff" />
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+            stroke="#7495ff" />
     </svg>
 </div>
 
