@@ -1,21 +1,7 @@
 @extends('layouts.guest.index')
 @section('title',"Contact | Meshari Alhumaidi Law Firm")
 @section('contents')
-<section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('theme/images/bg_1.jpg') }});"
-    data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row no-gutters slider-text align-items-end justify-content-center">
-            <div class="col-md-9 ftco-animate pb-5 text-center">
-                <h1 class="mb-3 bread">Contact Us</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
-                                class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i
-                            class="ion-ios-arrow-forward"></i></span></p>
-            </div>
-        </div>
-    </div>
-</section>
-
+@include('includes.pages-hero-breadcrumbs',['page'=>'Contact'])
 <section class="ftco-section contact-section">
     <div class="container">
         <div class="row d-flex mb-5 contact-info">
@@ -23,17 +9,15 @@
                 <h2 class="h3">Contact Information</h2>
             </div>
             <div class="w-100"></div>
-            <div class="col-md-3">
-                <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+            <div class="col-md-5">
+                <p><span>Address: <br></span> P.O.Box : 2588, <br>Postal
+                    Code: 31991, Kingdom of Saudi Arabia.</p>
             </div>
             <div class="col-md-3">
-                <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                <p><span>Phone: <br></span> <a href="tel://0558682149">0558682149</a></p>
             </div>
             <div class="col-md-3">
-                <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-            </div>
-            <div class="col-md-3">
-                <p><span>Website</span> <a href="#">yoursite.com</a></p>
+                <p><span>Email:</span> <a href="mailto:lawyer.ksa.law@gmail.com">lawyer.ksa.law@gmail.com</a></p>
             </div>
         </div>
         <div class="row block-9 no-gutters">

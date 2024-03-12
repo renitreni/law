@@ -7,9 +7,12 @@
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
                         live the blind texts.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.twitter.com"><span
+                                    class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.facebook.com"><span
+                                    class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.instagram.com"><span
+                                    class="icon-instagram"></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -42,12 +45,55 @@
                     <h2 class="ftco-heading-2">Have a Questions?</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View,
-                                    San Francisco, California, USA</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929
-                                        210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span
-                                        class="text">info@yourdomain.com</span></a></li>
+                            <li>
+                                <span class="icon icon-map-marker"></span>
+                                <span class="text">P.O.Box : 2588, <br>Postal
+                                    Code: 31991, Kingdom of Saudi Arabia.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon icon-phone"></span>
+                                    <span class="text">0558682149</span>
+                                </a>
+                            </li>
+                            <li>
+                                <span>Riyadh Branch</span>
+                                <a href="#">
+                                    <span class="icon icon-phone"></span>
+                                    <span class="text">0500550113</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <span>Al Jubali Branch</span>
+                                <a href="#">
+                                    <span class="icon icon-phone"></span>
+                                    <span class="text">0531113885</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <span>Hafr Al Batin Branch</span>
+                                <a href="#">
+                                    <span class="icon icon-phone"></span>
+                                    <span class="text">0500922283</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <span>Tabuk Branch</span>
+                                <a href="#">
+                                    <span class="icon icon-phone"></span>
+                                    <span class="text">0531113885</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailTo:lawyer.ksa.law@gmail.com">
+                                    <span class="icon icon-envelope"></span>
+                                    <span class="text">lawyer.ksa.law@gmail.com</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -88,7 +134,7 @@
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
         <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#000" />
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#7495ff" />
     </svg>
 </div>
 

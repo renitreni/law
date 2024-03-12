@@ -1,15 +1,11 @@
 <div class="container mb-4">
-    <div class=" text-center mt-5 ">
-
-        <h1>Inquire Now</h1>
-
-    </div>
     <div class="row ">
         <div class="col-lg-8 mx-auto">
             <div class="card mt-2 mx-auto p-4 bg-light">
                 <div class="card-body bg-light">
 
                     <div class="container">
+                        <h3>Send your inquiry</h3>
                         <form id="contact-form" role="form">
 
 
@@ -44,12 +40,12 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="form_need">Please specify your need</label>
+                                            <label for="form_need">Please specify your legal issue</label>
                                             <select id="form_need" name="need" class="form-control" required="required">
-                                                <option value="" selected disabled>--Select Your Issue--</option>
-                                                <option>Request Invoice for order</option>
-                                                <option>Request order status</option>
-                                                <option>Haven't received cashback yet</option>
+                                                <option value="" selected disabled>--Select Legal Issue--</option>
+                                                <option>Financial</option>
+                                                <option>Parenting</option>
+                                                <option>Divorce</option>
                                                 <option>Other</option>
                                             </select>
 
@@ -71,7 +67,7 @@
                                     <div class="col-md-12">
 
                                         <input type="submit" style="background-color: #619af8;color:#fff;" class="btn btn-send  pt-2 btn-block
-                        " value="Send Message">
+                        " value="Send Inquiry">
 
                                     </div>
 
@@ -82,13 +78,9 @@
                         </form>
                     </div>
                 </div>
-
-
             </div>
             <!-- /.8 -->
-
         </div>
         <!-- /.row-->
-
     </div>
 </div>
