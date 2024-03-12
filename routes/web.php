@@ -18,7 +18,10 @@ use App\Http\Livewire\TimesheetLivewire;
 |
 */
 
-Route::get('/{page?}', HomeController::class);
+Route::view('/','welcome');
+Route::view('/about','about');
+Route::view('/attorneys','attorneys');
+Route::view('/contact','contact');
 
 Auth::routes();
 
