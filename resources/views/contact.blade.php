@@ -14,7 +14,30 @@
                     Code: 31991, Kingdom of Saudi Arabia.</p>
             </div>
             <div class="col-md-3">
-                <p><span>Phone: <br></span> <a href="tel://0558682149">0558682149</a></p>
+                <p>
+                    <span>Phone Numbers: <br></span>
+                    <div>
+                        <span>Riyadh Branch</span><br>
+                        <a href="#" style="color:#619bf9;">
+                            <span class="icon icon-phone"></span>
+                            <span>0500550113</span>
+                        </a>
+                    </div>
+                    <div>
+                        <span>Al Jubali Branch</span><br>
+                        <a href="#" style="color:#619bf9;">
+                            <span class="icon icon-phone"></span>
+                            <span>0531113885</span>
+                        </a>
+                    </div>
+                    <div>
+                        <span>Hafr Al Batin Branch</span><br>
+                        <a href="#" style="color:#619bf9;">
+                            <span class="icon icon-phone"></span>
+                            <span>0500922283</span>
+                        </a>
+                    </div>
+                </p>
             </div>
             <div class="col-md-3">
                 @php

@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('theme/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/style.css') }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
 <body>

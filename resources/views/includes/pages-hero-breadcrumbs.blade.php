@@ -1,4 +1,8 @@
-<section class="hero-wrap mb-2 hero-wrap-2" style="background-image: url({{ asset('theme/images/bg_1.jpg') }});"
+<section class="hero-wrap mb-2 hero-wrap-2"
+         style="background-image: url({{ asset('images/BG.jpg') }});
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;"
     data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
