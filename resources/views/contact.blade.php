@@ -78,7 +78,16 @@
             </div>
 
             <div class="col-lg-6 d-flex">
-                <div id="map" class="bg-white"></div>
+                <iframe
+                    width="600"
+                    height="600"
+                    style="border:0"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCm0X3ceS1mBnU-Vods3Vy1xSRNSPP8KlE
+                            &q=24.7019036,46.665175">
+                    </iframe>
             </div>
         </div>
     </div>
