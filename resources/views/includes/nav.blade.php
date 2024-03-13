@@ -11,8 +11,9 @@
                 <li class="nav-item {{ Request::is('/') ? 'active' : '' }}"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
                 <li class="nav-item {{ Request::is('about') ? 'active' : '' }}"><a href="{{ url('/about') }}" class="nav-link">About</a></li>
                 <li class="nav-item {{ Request::is('attorneys') ? 'active' : '' }}"><a href="{{ url("/attorneys") }}" class="nav-link">Attorneys</a></li>
+                <li class="nav-item {{ Request::is('gallery') ? 'active' : '' }}"><a href="{{ url("/gallery") }}" class="nav-link">Gallery</a></li>
                 <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}"><a href="{{ url("/contact")}}" class="nav-link">Contact</a></li>
-                <li class="nav-item cta {{ Request::is('inquire') ? 'active' : '' }}"><a href="#" class="nav-link">Inquire Now</a></li>
+                <li class="nav-item cta "><a href="{{ url("/inquire")}}" class="nav-link">Inquire Now</a></li>
             </ul>
         </div>
     </div>
