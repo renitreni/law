@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Livewire\MatterLivewire;
-use App\Http\Livewire\OptionsLivewire;
-use App\Http\Livewire\TimesheetLivewire;
+use App\Livewire\MatterLivewire;
+use App\Livewire\OptionsLivewire;
+use App\Livewire\TimesheetLivewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +21,9 @@ use App\Http\Livewire\TimesheetLivewire;
 Route::view('/','welcome');
 Route::view('/about','about');
 Route::view('/attorneys','attorneys');
+Route::view('/gallery','gallery');
 Route::view('/contact','contact');
+Route::view('/inquire','inquire');
 
 Auth::routes();
 
