@@ -1,5 +1,5 @@
 <section class="hero-wrap mb-2 hero-wrap-2"
-         style="background-image: url({{ asset('images/BG.jpg') }});
+         style="background-image: url({{ asset('images/bg1.jpg') }});
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;"
