@@ -22,7 +22,7 @@
                                 <div class="image align-self-center">
                                     <img src="https://static.wixstatic.com/media/80d790_59039ab3f7bd4d3182d163499577e150~mv2.jpg/v1/fill/w_238,h_287,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/80d790_59039ab3f7bd4d3182d163499577e150~mv2.jpg" alt="">
                                 </div>
-                                <div class="name align-self-center ml-3">Majed Alghunaim <span class="position">Manager of Riyadh Branch</span></div>
+                                <div class="name align-self-center ml-3">Maha Aljubaire <span class="position">Manager of Riyadh Branch</span></div>
                             </div>
                         </div>
                     </div>
