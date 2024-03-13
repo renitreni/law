@@ -80,14 +80,6 @@
                                     <span class="text">0500922283</span>
                                 </a>
                             </li>
-
-                            <li>
-                                <span>Tabuk Branch</span>
-                                <a href="#">
-                                    <span class="icon icon-phone"></span>
-                                    <span class="text">0531113885</span>
-                                </a>
-                            </li>
                             @php
                             $emails = [
                             "atty.mahaaljubaire@mesharialhumlaw.com",
