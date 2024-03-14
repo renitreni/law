@@ -1,8 +1,8 @@
 <div class="hero-wrap js-fullheight"
-    style="background-image: url({{ asset('images/bg1.jpg') }});
+    style="background-image: url({{ asset('images/11.jpg') }});
            background-position: center;
            background-repeat: no-repeat;
-           background-size: cover;
+           background-size: contain;
 "
     data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
