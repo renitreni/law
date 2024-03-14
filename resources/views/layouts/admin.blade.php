@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    @livewireStyles
 </head>
 
 <body id="body-pd">
@@ -35,6 +35,7 @@
     <div class="after-class">
     </div>
     <!--Container Main start-->
+    @livewireScripts
     <div class="card p-4 shadow border-0">
         {{ $slot }}
     </div>
