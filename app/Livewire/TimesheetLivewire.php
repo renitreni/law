@@ -14,6 +14,7 @@ use Livewire\Attributes\On;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use App\Http\Resources\CalendarSummaryResource;
+use App\Services\EntryService;
 
 class TimesheetLivewire extends Component
 {
@@ -110,10 +111,7 @@ class TimesheetLivewire extends Component
 
     public function showDetails($param)
     {
-        $this->details = Entry::query()
-            ->where('entry_date', Carbon::parse($param))
-            ->get()
-            ->toArray();
+        $this->details = (new EntryService)->getEntryByDate($param);
     }
 
     public function createTimeEntry()
@@ -176,24 +174,8 @@ class TimesheetLivewire extends Component
             'timeEntry.entry_date.required' => 'Entry date is required.',
         ]);
 
-        $entry = new Entry();
-        $entry->client_id = $this->timeEntry['client_id'];
 
-        $matter = SubMatter::find($this->timeEntry['sub_matter_id']);
-        $this->timeEntry['matter_id'] = $matter->id;
-
-        $entry->matter_id = $this->timeEntry['matter_id'];
-
-        $entry->sub_matter_id = $this->timeEntry['sub_matter_id'];
-        $entry->office_id = $this->timeEntry['office_id'];
-        $entry->entry_date = $this->timeEntry['entry_date'];
-        $entry->duration = $this->timeEntry['duration'];
-        $entry->narrative = $this->timeEntry['narrative'];
-        $entry->template_name = $this->timeEntry['template_name'];
-        $entry->is_template = $this->timeEntry['is_template'] ?? null;
-        $entry->is_draft = $isDraft;
-        $entry->is_billable = $this->timeEntry['is_billable'];
-        $entry->save();
+        (new EntryService)->create($this->timeEntry, $isDraft);
 
         $this->alert('success', 'Process successful!');
         $this->showDetails($this->timeEntry['entry_date']);
