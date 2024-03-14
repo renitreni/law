@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Component;
+namespace App\Livewire\Component;
 
 use Carbon\Carbon;
 use Livewire\Component;
@@ -126,7 +126,7 @@ class HeaderComponent extends Component
         ];
         $this->selectedRange = $this->range['start'].'#'.$this->range['end'];
 
-        $this->emit('timeSheetFilter', [
+        $this->dispatch('timeSheetFilter', [
             'state' => $this->state,
             'single_date' => Carbon::parse("{$this->year}-{$this->month}-{$this->day}"),
             'month' => $this->month,
@@ -138,7 +138,7 @@ class HeaderComponent extends Component
 
     public function updated()
     {
-        $this->emit('timeSheetFilter', [
+        $this->dispatch('timeSheetFilter', [
             'state' => $this->state,
             'single_date' => Carbon::parse("{$this->year}-{$this->month}-{$this->day}"),
             'month' => $this->month,

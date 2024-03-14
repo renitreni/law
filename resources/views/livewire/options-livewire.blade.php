@@ -4,9 +4,9 @@
         <div class="col-6 d-flex flex-column">
             <h4>Client</h4>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" wire:model="clientDetails.code" placeholder="Code"
+                <input type="text" class="form-control" wire:model.live="clientDetails.code" placeholder="Code"
                     aria-label="Code" aria-describedby="button-addon1">
-                <input type="text" class="form-control" wire:model="clientDetails.name" placeholder="Name"
+                <input type="text" class="form-control" wire:model.live="clientDetails.name" placeholder="Name"
                     aria-label="Name" aria-describedby="button-addon1">
                 <button class="btn btn-success" type="button" wire:click='storeClient' id="button-addon1">
                     <i class='bx bx-plus-medical'></i>

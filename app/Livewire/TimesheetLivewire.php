@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use Carbon\Carbon;
 use App\Models\Entry;
@@ -10,6 +10,7 @@ use App\Models\Office;
 use Livewire\Component;
 use App\Models\SubMatter;
 use Illuminate\Support\Str;
+use Livewire\Attributes\On;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use App\Http\Resources\CalendarSummaryResource;
@@ -19,11 +20,6 @@ class TimesheetLivewire extends Component
 {
     use LivewireAlert;
 
-    protected $listeners = [
-        'timeSheetFilter' => 'filter',
-        'loadCalendarSummary' => 'calendarSummary',
-        'keywordClient', 'keywordMatter', 'keywordOffice', 'keywordTemplate'
-    ];
     public $viewFilter = [];
     public array $details = [];
     public array $entry = [];
@@ -81,15 +77,17 @@ class TimesheetLivewire extends Component
         return view('livewire.timesheet-livewire');
     }
 
+    #[On('timeSheetFilter')]
     public function filter($params)
     {
         $params['start'] = explode('#', $params['range'])[0];
         $params['end'] = explode('#', $params['range'])[1];
         $this->viewFilter = $params;
 
-        $this->dispatchBrowserEvent('changeCalendarView', ['params' => $this->viewFilter]);
+        $this->dispatch('changeCalendarView', ['params' => $this->viewFilter]);
     }
 
+    #[On('loadCalendarSummary')]
     public function calendarSummary()
     {
         $entry = Entry::query()
@@ -105,7 +103,7 @@ class TimesheetLivewire extends Component
             })
             ->groupBy('entry_date');
 
-        $this->dispatchBrowserEvent(
+        $this->dispatch(
             'bindCalendarSummary',
             [CalendarSummaryResource::collection($entry->get())]
         );
@@ -130,9 +128,9 @@ class TimesheetLivewire extends Component
             'is_billable' => false
         ];
 
-        $this->emit('bindClient', null);
-        $this->emit('bindMatter', null);
-        $this->emit('bindOffice', null);
+        $this->dispatch('bindClient', null);
+        $this->dispatch('bindMatter', null);
+        $this->dispatch('bindOffice', null);
     }
 
     public function keywordClient($value)
@@ -140,16 +138,19 @@ class TimesheetLivewire extends Component
         $this->timeEntry['client_id'] = $value;
     }
 
+    #[On('keywordClient')]
     public function keywordMatter($value)
     {
         $this->timeEntry['sub_matter_id'] = $value;
     }
 
+    #[On('keywordClient')]
     public function keywordOffice($value)
     {
         $this->timeEntry['office_id'] = $value;
     }
 
+    #[On('keywordClient')]
     public function keywordTemplate($value)
     {
         $entry = Entry::find($value);
@@ -158,9 +159,9 @@ class TimesheetLivewire extends Component
         $this->timeEntry['sub_matter_id'] = $entry->sub_matter_id;
         $this->timeEntry['client_id'] = $entry->client_id;
 
-        $this->emit('bindClient', $entry->client_id);
-        $this->emit('bindMatter', $entry->sub_matter_id);
-        $this->emit('bindOffice', $entry->office_id);
+        $this->dispatch('bindClient', $entry->client_id);
+        $this->dispatch('bindMatter', $entry->sub_matter_id);
+        $this->dispatch('bindOffice', $entry->office_id);
     }
 
     public function store($isDraft)

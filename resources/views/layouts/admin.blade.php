@@ -26,7 +26,6 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    @livewireStyles
 </head>
 
 <body id="body-pd">
@@ -40,7 +39,6 @@
         {{ $slot }}
     </div>
     <!--Container Main end-->
-    @livewireScripts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $(function() {
