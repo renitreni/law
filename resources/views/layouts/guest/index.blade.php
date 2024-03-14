@@ -24,11 +24,13 @@
     <link rel="stylesheet" href="{{ asset('theme/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/style.css') }}">
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @livewireStyles
 </head>
 
 <body>
     @include('includes.nav')
     @yield('contents')
     @include('includes.footer')
+    @livewireScripts
 </body>
 </html>
