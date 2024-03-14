@@ -4,9 +4,9 @@
         <div class="col-12 d-flex flex-column">
             <h4>Matter</h4>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" wire:model="matterDetails.code" placeholder="Code"
+                <input type="text" class="form-control" wire:model.live="matterDetails.code" placeholder="Code"
                     aria-label="Code" aria-describedby="button-addon2">
-                <input type="text" class="form-control" wire:model="matterDetails.name" placeholder="Name"
+                <input type="text" class="form-control" wire:model.live="matterDetails.name" placeholder="Name"
                     aria-label="name" aria-describedby="button-addon2">
                 <button class="btn btn-success" type="button" id="button-addon2" wire:click='storeMatter'>
                     <i class='bx bx-plus-medical'></i>
@@ -36,9 +36,9 @@
                     @if (isset($subMatterDetails['matter_id']) && $subMatterDetails['matter_id'] == $item->id)
                         <li class="list-group-item d-flex flex-row justify-content-between">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" wire:model="subMatterDetails.code"
+                                <input type="text" class="form-control" wire:model.live="subMatterDetails.code"
                                     placeholder="Code" aria-label="Code"/>
-                                <input type="text" class="form-control" wire:model="subMatterDetails.name"
+                                <input type="text" class="form-control" wire:model.live="subMatterDetails.name"
                                     placeholder="Name" aria-label="name"/>
                                 <button class="btn btn-success" type="button"
                                     wire:click='storeSubMatter'>

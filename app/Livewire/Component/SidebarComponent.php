@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Component;
+namespace App\Livewire\Component;
 
 use Illuminate\Routing\Route;
 use Livewire\Component;

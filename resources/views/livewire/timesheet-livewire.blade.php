@@ -25,14 +25,14 @@
                                     <div class="col-md-5 d-flex flex-row mb-3">
                                         <div class="me-3">
                                             <label>Entry Date</label>
-                                            <input type="date" class="form-control" wire:model='timeEntry.entry_date'>
+                                            <input type="date" class="form-control" wire:model.live='timeEntry.entry_date'>
                                             @error('timeEntry.entry_date')
                                                 <small class="text-danger text-nowrap">{{ $message }}</small>
                                             @enderror
                                         </div>
                                         <div class="me-3">
                                             <label>Duration</label>
-                                            <input type="number" class="form-control" wire:model='timeEntry.duration'>
+                                            <input type="number" class="form-control" wire:model.live='timeEntry.duration'>
                                             @error('timeEntry.duration')
                                                 <small class="text-danger text-nowrap">{{ $message }}</small>
                                             @enderror
@@ -60,14 +60,14 @@
 
                                     <div class="col-12 mb-3">
                                         <label>Narrative</label>
-                                        <textarea class="form-control" rows="5" wire:model='timeEntry.narrative'></textarea>
+                                        <textarea class="form-control" rows="5" wire:model.live='timeEntry.narrative'></textarea>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-auto mt-2">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="flexCheckDefault"
-                                                wire:model='timeEntry.is_template'>
+                                                wire:model.live='timeEntry.is_template'>
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Save as Template
                                             </label>
@@ -75,7 +75,7 @@
                                     </div>
                                     @if ($timeEntry['is_template'] ?? false)
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" wire:model='timeEntry.template_name'
+                                            <input type="text" class="form-control" wire:model.live='timeEntry.template_name'
                                                 placeholder="Type in Template Name">
                                         </div>
                                     @endif
@@ -180,7 +180,8 @@
         calendar.render();
 
         window.addEventListener('changeCalendarView', params => {
-            let filter = params.detail.params;
+            let filter = params.detail[0].params;
+
             if (filter.state == 'month') {
                 calendar.changeView('dayGridMonth', filter.start);
                 calendar.setOption('height', 700);
@@ -197,12 +198,12 @@
             $(".fc-event-title").each(function() {
                 $(this).html($(this).text());
             });
-            Livewire.emit('loadCalendarSummary');
+            Livewire.dispatch('loadCalendarSummary');
         });
 
         window.addEventListener('load', () => {
             calendar.removeAllEvents();
-            Livewire.emit('loadCalendarSummary');
+            Livewire.dispatch('loadCalendarSummary');
         });
 
         window.addEventListener('bindCalendarSummary', params => {

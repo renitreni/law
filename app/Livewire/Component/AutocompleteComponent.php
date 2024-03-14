@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Component;
+namespace App\Livewire\Component;
 
 use App\Models\Entry;
 use Livewire\Component;
@@ -40,7 +40,7 @@ class AutocompleteComponent extends Component
         $this->keyword = $text;
         $this->listing = [];
 
-        $this->emit($this->keywordCallback, $value);
+        $this->dispatch($this->keywordCallback, $value);
     }
 
     public function getListeners()

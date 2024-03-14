@@ -1,5 +1,5 @@
 <div>
-    <input class="form-control" wire:model='keyword'>
+    <input class="form-control" wire:model.live='keyword'>
     <div class="relative">
         <div class="list-group position-fixed">
             @foreach ($listing as $item)

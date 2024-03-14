@@ -17,18 +17,18 @@
                 Day
             </button>
             <div class="d-flex flex-row ms-2">
-                <select wire:model="month" class="form-select">
+                <select wire:model.live="month" class="form-select">
                     @foreach ($monthList as $key => $month)
                         <option value="{{ $key }}">{{ $month }}</option>
                     @endforeach
                 </select>
-                <select wire:model="year" class="form-select ms-1">
+                <select wire:model.live="year" class="form-select ms-1">
                     @foreach ($yearList as $key => $year)
                         <option value="{{ $year }}">{{ $year }}</option>
                     @endforeach
                 </select>
                 @if ($state == 'week')
-                    <select wire:model="selectedRange" class="form-select ms-1">
+                    <select wire:model.live="selectedRange" class="form-select ms-1">
                         @foreach ($monthRange as $range)
                             <option value="{{ $range['start'].'#'.$range['end'] }}">
                                 {{ Carbon\Carbon::parse($range['start'])->format('d').' - '.Carbon\Carbon::parse($range['end'])->format('d') }}
@@ -37,7 +37,7 @@
                     </select>
                 @endif
                 @if ($state == 'day')
-                    <select wire:model="day" class="form-select ms-1">
+                    <select wire:model.live="day" class="form-select ms-1">
                         @foreach ($dayList as $day)
                             <option value="{{ $day }}">
                                 {{ $day }}
