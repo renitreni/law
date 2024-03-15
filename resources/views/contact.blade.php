@@ -10,7 +10,7 @@
         <div class=" container">
             <button class="btn btn-primary"
                     x-on:click="isRiyadh = true,isJubali = false,isHafr = false"
-                    >Riyadh Branch
+                    >Riyadh Head Office
             </button>
             <button class="btn btn-primary"
                     x-on:click="isRiyadh = false,isJubali = true,isHafr = false"
@@ -82,7 +82,6 @@
                     </form>
 
                 </div>
-
                 <div class="col-lg-6 d-flex">
                     <iframe
                         width="600"
@@ -91,7 +90,7 @@
                         loading="lazy"
                         allowfullscreen
                         referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCm0X3ceS1mBnU-Vods3Vy1xSRNSPP8KlE
+                        src="https://www.google.com/maps/embed/v1/place?key={{ env('APP_GOOGLE_MAP_API_KEY') }}
                                 &q=24.7019036,46.665175">
                         </iframe>
                 </div>
@@ -168,7 +167,7 @@
                         loading="lazy"
                         allowfullscreen
                         referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCm0X3ceS1mBnU-Vods3Vy1xSRNSPP8KlE
+                        src="https://www.google.com/maps/embed/v1/place?key={{ env('APP_GOOGLE_MAP_API_KEY') }}
                                 &q=27.0052395,49.6569939">
                         </iframe>
                 </div>
@@ -245,7 +244,7 @@
                         loading="lazy"
                         allowfullscreen
                         referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCm0X3ceS1mBnU-Vods3Vy1xSRNSPP8KlE
+                        src="https://www.google.com/maps/embed/v1/place?key={{ env('APP_GOOGLE_MAP_API_KEY') }}
                                 &q=28.415062,45.9701386">
                         </iframe>
                 </div>

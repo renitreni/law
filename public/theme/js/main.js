@@ -32,7 +32,7 @@
 	$(window).stellar({
     responsive: true,
     parallaxBackgrounds: false,
-    parallaxElements: true,
+    parallaxElements: false,
     horizontalScrolling: false,
     hideDistantElements: false,
     scrollProperty: 'scroll'
