@@ -1,5 +1,5 @@
 <div class="hero-wrap js-fullheight"
-    style="background-image: url({{ asset('images/11.jpg') }});
+    style="background-image: url({{ asset('images/icon.png') }});
            background-position: center;
            background-repeat: no-repeat;
            background-size: contain;

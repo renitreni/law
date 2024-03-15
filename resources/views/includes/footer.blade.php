@@ -13,6 +13,8 @@
                                     class="icon-facebook"></span></a></li>
                         <li class="ftco-animate"><a href="https://www.instagram.com"><span
                                     class="icon-instagram"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.linkedin.com/company/meshari-alhumaidi-law/"><span
+                                    class="icon-linkedin"></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -124,7 +126,7 @@
                 <p>
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved.
+                    </script>. Meshari Alhumaidi Law Firm.
                 </p>
             </div>
         </div>

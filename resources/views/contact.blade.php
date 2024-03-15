@@ -10,7 +10,7 @@
         <div class=" container">
             <button class="btn btn-primary"
                     x-on:click="isRiyadh = true,isJubali = false,isHafr = false"
-                    >Riyadh Branch
+                    >Riyadh Head Office
             </button>
             <button class="btn btn-primary"
                     x-on:click="isRiyadh = false,isJubali = true,isHafr = false"
