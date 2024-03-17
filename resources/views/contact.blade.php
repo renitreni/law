@@ -253,19 +253,3 @@
     </div>
 </section>
 @endsection
-
-{{--
-<div>
-    <span>Al Jubali Branch</span><br>
-    <a href="#" style="color:#619bf9;">
-        <span class="icon icon-phone"></span>
-        <span>0531113885</span>
-    </a>
-</div>
-<div>
-    <span>Hafr Al Batin Branch</span><br>
-    <a href="#" style="color:#619bf9;">
-        <span class="icon icon-phone"></span>
-        <span>0500922283</span>
-    </a>
-</div> --}}

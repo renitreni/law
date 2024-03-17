@@ -84,10 +84,7 @@
                             </li>
                             @php
                             $emails = [
-                            "atty.mahaaljubaire@mesharialhumlaw.com",
-                            "meshari.alhumadi@mesharialhumlaw.com",
                             "info@mesharialhumlaw.com",
-                            "majedghnaim@mesharialhumlaw.com"
                             ]
                             @endphp
                             @foreach ($emails as $email )
@@ -108,13 +105,13 @@
                     <div class="opening-hours">
                         <h4>Opening Days:</h4>
                         <p class="pl-3">
-                            <span>Monday – Friday : 9am to 20 pm</span>
-                            <span>Saturday : 9am to 17 pm</span>
+                            <span>Sunday – Thursday : 9AM to 7PM</span>
                         </p>
                         <h4>Vacations:</h4>
                         <p class="pl-3">
-                            <span>All Sunday Days</span>
-                            <span>All Official Holidays</span>
+                            <span>Ramadan</span><br>
+                            <span>First Shift: 9AM to 1PM</span><br>
+                            <span>Second Shift: 8PM to 1AM</span>
                         </p>
                     </div>
                 </div>
