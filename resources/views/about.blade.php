@@ -3,6 +3,4 @@
 @section('contents')
 @include('includes.pages-hero-breadcrumbs',['page'=>"About us","bg"=>asset('images/save2.png')])
 @include('includes.section-about')
-@include('includes.section-testimonials')
-@include('includes.section-inquire')
 @endsection
