@@ -36,5 +36,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/matters', MatterLivewire::class)->name('matters');
     Route::get('/case', CaseLivewire::class)->name('case');
     Route::get('/inquiry', InquiryLivewire::class)->name('inquiry');
-    Route::get('/gallery', GalleryLivewire::class)->name('gallery');
+    Route::get('/photos', GalleryLivewire::class)->name('gallery');
 });
