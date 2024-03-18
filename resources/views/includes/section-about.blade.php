@@ -11,7 +11,7 @@
             </div>
             <div class=" col-md-4">
                 <div class="image-box">
-                    <img  class="img-fluid" src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=1450&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hafar">
+                    <img  class="img-fluid" src="https://images.unsplash.com/photo-1462826303086-329426d1aef5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hafar">
                 </div>
                 <div class=" mt-4">
                     <span class="text-xl">Hafar Albatin</span>
