@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
         "livewire/livewire": "^3.4",
+        "openspout/openspout": "^4.23",
         "power-components/livewire-powergrid": "^5.4"
     },
     "require-dev": {

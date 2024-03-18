@@ -7,5 +7,5 @@
 @include('includes.section-cases')
 @include('includes.section-attorneys')
 @include('includes.section-testimonials')
-@include('includes.section-inquire')
+@livewire('send-inquiry-livewire')
 @endsection
