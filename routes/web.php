@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Livewire\InquiryLivewire;
 use App\Livewire\MatterLivewire;
 use App\Livewire\OptionsLivewire;
 use App\Livewire\TimesheetLivewire;
@@ -31,4 +32,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/timesheet', TimesheetLivewire::class)->name('timesheet');
     Route::get('/options', OptionsLivewire::class)->name('options');
     Route::get('/matters', MatterLivewire::class)->name('matters');
+    Route::get('/inquiry', InquiryLivewire::class)->name('inquiry');
 });
