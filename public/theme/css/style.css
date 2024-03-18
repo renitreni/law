@@ -491,6 +491,12 @@ pre {
     font-size: 1.4rem;
 }
 
+.modal-backdrop.show {
+    opacity: .5;
+    backdrop-filter: blur(10px);
+}
+
+
 .no-gutters {
   margin-right: 0;
   margin-left: 0; }
