@@ -22,7 +22,7 @@
                     <span class="nav_name">Options</span>
                 </a>
 
-                <a href="#" wire:click="$set('menu', 'case')"
+                <a href="{{ route('case') }}" wire:click="$set('menu', 'case')"
                     class="nav_link @if ($this->menu == 'case') active @endif">
                     <i class='bx bx-copy-alt nav_icon' title="Case"></i>
                     <span class="nav_name">Case</span>
@@ -34,7 +34,7 @@
                     <span class="nav_name">Inquiry</span>
                 </a>
 
-                <a href="#" wire:click="$set('menu', 'gallery')"
+                <a href="{{ route('gallery') }}" wire:click="$set('menu', 'gallery')"
                     class="nav_link @if ($this->menu == 'gallery') active @endif">
                     <i class='bx bx-photo-album nav_icon' title="Gallery"></i>
                     <span class="nav_name">Gallery</span>
