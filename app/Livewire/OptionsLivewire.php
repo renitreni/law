@@ -5,7 +5,9 @@ namespace App\Livewire;
 use App\Models\Client;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Title;
 
+#[Title('Options')]
 class OptionsLivewire extends Component
 {
     public mixed $client = [];

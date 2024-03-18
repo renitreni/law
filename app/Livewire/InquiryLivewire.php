@@ -4,7 +4,9 @@ namespace App\Livewire;
 
 use App\Models\Inquiry;
 use Livewire\Component;
+use Livewire\Attributes\Title;
 
+#[Title('Inquiry')]
 class InquiryLivewire extends Component
 {
     public bool $isView = false;

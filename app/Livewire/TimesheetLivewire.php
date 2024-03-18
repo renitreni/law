@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use App\Http\Resources\CalendarSummaryResource;
 use App\Services\EntryService;
+use Livewire\Attributes\Title;
 
+#[Title('Timesheet')]
 class TimesheetLivewire extends Component
 {
     use LivewireAlert;

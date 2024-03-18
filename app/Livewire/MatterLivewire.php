@@ -7,7 +7,9 @@ use Livewire\Component;
 use App\Models\SubMatter;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
+use Livewire\Attributes\Title;
 
+#[Title('Matters')]
 class MatterLivewire extends Component
 {
     use WithPagination;
