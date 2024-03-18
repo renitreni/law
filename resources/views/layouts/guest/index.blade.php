@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('theme/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/style.css') }}">
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @yield('styles')
     @livewireStyles
 </head>
 
