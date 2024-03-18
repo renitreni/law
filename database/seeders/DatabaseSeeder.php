@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Entry;
 use App\Models\Client;
+use App\Models\Inquiry;
 use App\Models\Matter;
 use App\Models\Office;
 use App\Models\SubMatter;
@@ -41,6 +42,7 @@ class DatabaseSeeder extends Seeder
             Client::factory()->count(10)->create();
             Office::factory()->count(10)->create();
             Entry::factory()->count(800)->create();
+            Inquiry::factory()->count(10)->create();
         }
     }
 }
