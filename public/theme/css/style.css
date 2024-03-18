@@ -496,36 +496,6 @@ pre {
     backdrop-filter: blur(10px);
 }
 
-.img-container{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right:0;
-    background-color: rgba(0, 0, 0, .8);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 99;
-}
-
-.img-container .img-header{
-    display: flex;
-    justify-content: end;
-    width: 100%;
-}
-
-.img-container .img-lightbox{
-    max-width:800px;
-    max-height:600px;
-    overflow:scroll;
-}
-
-.img-container .img-lightbox::-webkit-scrollbar{
-    display: none;
-}
-
 .no-gutters {
   margin-right: 0;
   margin-left: 0; }
