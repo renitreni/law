@@ -11,6 +11,7 @@ class SendInquiryLivewire extends Component
     public string $lastname;
     public string $email;
     public string $legalIssue;
+    public string $phonenumber;
     public string $message;
 
     public function send() {
@@ -18,6 +19,7 @@ class SendInquiryLivewire extends Component
             'firstname'=> "required|min:3",
             'lastname'=> "required|min:3",
             'email'=> "required|email",
+            'phonenumber'=>'required',
             'legalIssue'=> "required",
             'message'=> "required|min:3",
         ]);

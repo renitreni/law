@@ -12,11 +12,7 @@
                         @endif
                         <h3>Send your inquiry</h3>
                         <form wire:submit='send' id="contact-form" role="form">
-
-
-
                             <div class="controls">
-
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -47,7 +43,23 @@
 
                                         </div>
                                     </div>
+
                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phonenumber">Phone Number</label>
+                                            <input wire:model='phonenumber' id="phonenumber" type="tel" name="phonenumber"
+                                                class="form-control" required="required">
+                                                @error('phonenumber') <span class="text-danger fs-6">{{ $message }}</span>@enderror
+
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
                                         <div class="form-group">
                                             <label for="legalIssue">Please specify your legal issue</label>
                                             <select wire:model='legalIssue' id="legalIssue" name="legalIssue"
