@@ -54,14 +54,14 @@
                         "info@mesharialhumlaw.com",
                     ]
                     @endphp
-                    <span>Emails:</span>
+                    <span>Email:</span>
                     @foreach ($emails as $email )
                         <p> <a style="color:#619bf9;" href="mailto:{{ $email }}">{{ $email }}</a></p>
                     @endforeach
                 </div>
             </div>
             <div class="row block-9 no-gutters">
-                <div class="col-lg-6 order-md-last d-flex">
+                {{-- <div class="col-lg-6 order-md-last d-flex">
                     <form action="#" class="bg-light p-5 contact-form">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Your Name">
@@ -81,10 +81,10 @@
                         </div>
                     </form>
 
-                </div>
-                <div class="col-lg-6 d-flex">
+                </div> --}}
+                <div class="col d-flex">
                     <iframe
-                        width="600"
+                        class="w-100"
                         height="600"
                         style="border:0"
                         loading="lazy"
@@ -130,38 +130,17 @@
                         "info@mesharialhumlaw.com",
                     ]
                     @endphp
-                    <span>Emails:</span>
+                    <span>Email:</span>
                     @foreach ($emails as $email )
                         <p> <a style="color:#619bf9;" href="mailto:{{ $email }}">{{ $email }}</a></p>
                     @endforeach
                 </div>
             </div>
             <div class="row block-9 no-gutters">
-                <div class="col-lg-6 order-md-last d-flex">
-                    <form action="#" class="bg-light p-5 contact-form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control"
-                                placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                        </div>
-                    </form>
 
-                </div>
-
-                <div class="col-lg-6 d-flex">
+                <div class="col d-flex">
                     <iframe
-                        width="600"
+                        class="w-100"
                         height="600"
                         style="border:0"
                         loading="lazy"
@@ -207,38 +186,16 @@
                         "info@mesharialhumlaw.com",
                     ]
                     @endphp
-                    <span>Emails:</span>
+                    <span>Email:</span>
                     @foreach ($emails as $email )
                         <p> <a style="color:#619bf9;" href="mailto:{{ $email }}">{{ $email }}</a></p>
                     @endforeach
                 </div>
             </div>
             <div class="row block-9 no-gutters">
-                <div class="col-lg-6 order-md-last d-flex">
-                    <form action="#" class="bg-light p-5 contact-form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control"
-                                placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                        </div>
-                    </form>
-
-                </div>
-
-                <div class="col-lg-6 d-flex">
+                <div class="col d-flex">
                     <iframe
-                        width="600"
+                        class="w-100"
                         height="600"
                         style="border:0"
                         loading="lazy"

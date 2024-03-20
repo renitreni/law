@@ -18,7 +18,7 @@
                 <!-- <h1 class="mb-4">Attorneys Fighting For Your Freedom</h1> -->
                 <p class="mb-4">We have help thousands of people to get relief from national wide fights wrongfull
                     denials. Now they trusted legalcare attorneys</p>
-                <p><a href="#" class="btn btn-primary mr-md-4 py-2 px-4">Get Legal Advice <span
+                <p><a href="/contact" class="btn btn-primary mr-md-4 py-2 px-4">Get Legal Advice <span
                             class="ion-ios-arrow-forward"></span></a></p>
             </div>
         </div>

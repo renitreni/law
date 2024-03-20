@@ -4,8 +4,7 @@
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="logo"><a href="#">Meshari Alhumaidi <span>A Law Firm Agency</span></a></h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts.</p>
+                    <p style="font-weight: 300;font-size:14px;">Meshari Al Humaidi stands out as a premier law firm adept at managing client cases throughout the Kingdom of Saudi Arabia. It is renowned for its team of seasoned lawyers with extensive expertise in legal practice. We treasure our clients, and our services are our strength. Your trust in us is our pleasure.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="https://www.twitter.com"><span
                                     class="icon-twitter"></span></a></li>
