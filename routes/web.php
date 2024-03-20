@@ -10,23 +10,15 @@ use App\Livewire\MatterLivewire;
 use App\Livewire\OptionsLivewire;
 use App\Livewire\TimesheetLivewire;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::view('/','welcome');
 Route::view('/about','about');
 Route::view('/attorneys','attorneys');
+Route::view('/list-services','services');
 Route::view('/gallery','gallery');
 Route::view('/contact','contact');
 Route::view('/inquire','inquire');
+Route::get('/services/{service}',[HomeController::class,'service'])->name('service');
 
 Auth::routes();
 

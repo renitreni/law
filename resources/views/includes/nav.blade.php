@@ -6,7 +6,7 @@
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
+            <span class="oi oi-menu"></span> &#9776;
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
@@ -14,6 +14,7 @@
                 <li class="nav-item {{ Request::is('/') ? 'active' : '' }}"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
                 <li class="nav-item {{ Request::is('about') ? 'active' : '' }}"><a href="{{ url('/about') }}" class="nav-link">About</a></li>
                 <li class="nav-item {{ Request::is('attorneys') ? 'active' : '' }}"><a href="{{ url("/attorneys") }}" class="nav-link">Attorneys</a></li>
+                <li class="nav-item {{ Request::is('list-services') ? 'active' : '' }}"><a href="{{ url("/list-services") }}" class="nav-link">Services</a></li>
                 <li class="nav-item {{ Request::is('gallery') ? 'active' : '' }}"><a href="{{ url("/gallery") }}" class="nav-link">Gallery</a></li>
                 <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}"><a href="{{ url("/contact")}}" class="nav-link">Contact</a></li>
                 <li class="nav-item cta "><a href="{{ url("/inquire")}}" class="nav-link">Inquire Now</a></li>

@@ -1,0 +1,98 @@
+{
+    "labor":{
+        "service":"Labor",
+        "content":"Our team’s proficiency lies in advising a broad spectrum of firms, including those that are publicly traded, on establishing labor policies, navigating complex issues, and settling employment disputes. We facilitate the process of employee transfers and temporary postings to mitigate the risk of potential legal actions by employees. We also provide guidance on ending employment contracts, safeguarding employee rights, and clarifying employer responsibilities. Our experts evaluate the legality of HR decisions concerning the termination of employees and disciplinary actions, which may come under the scrutiny of the Labor Courts. Moreover, our team has developed and obtained approval for work organization policies for companies, holding a license from the Ministry of Human Resources and Social Development (MHRSD) to endorse these policies.",
+        "img_link": "https://images.unsplash.com/photo-1604372425350-fdf0bcebb0f4?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"corporate-and-commercial"
+    },
+    "corporate-and-commercial":{
+        "service":"Corporate And Commercial",
+        "content":"We provide advisory services to companies both within the country and internationally, addressing all aspects of corporate law including consolidations and takeovers, organizational restructuring, collaborative ventures, shareholder pacts, corporate stewardship, compliance, and company policies. Our proficiency also encompasses aiding clients in the acquisition or divestiture of companies, the preparation of agreements, as well as overseeing distribution and franchising agreements.",
+        "img_link": "https://images.unsplash.com/photo-1664575599618-8f6bd76fc670?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"tax"
+    },
+    "tax":{
+        "service":"Tax",
+        "content":"We provide counsel on numerous tax-related concerns in Saudi Arabia, from corporate income tax to VAT, Excise Duty, and the Real Estate Transaction Tax. Our team boasts a profound understanding of the local tax landscape, backed by our Managing Partner’s previous leadership role in the Policies and Legislations Department at the Zakat, Tax, and Customs Authority (ZATCA) and as the Head of Tax Treaties. Furthermore, we are skilled in advocating for clients in dealings with ZATCA and the General Secretariat for Tax Committees (GSTC).",
+        "img_link": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1611&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"governance"
+    },
+    "governance":{
+        "service":"Governance",
+        "content":"Our legal experts possess extensive experience in formulating governance policies in alignment with the Kingdom of Saudi Arabia’s legislation. This encompasses the establishment of corresponding policies, hierarchies of authority, and service-level agreements, including the requisites of the Capital Market Authority.",
+        "img_link": "https://images.unsplash.com/photo-1470135343847-c68fe38b176e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"dispute-resolution"
+    },
+    "dispute-resolution":{
+        "service":"Dispute Resolution",
+        "content":"Our history is marked by effectively settling conflicts, which encompasses providing guidance on alternative methods of dispute resolution, like Mediation and Arbitration.",
+        "img_link": "https://images.unsplash.com/photo-1607827448452-6fda561309d0?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"construction"
+    },
+    "construction":{
+        "service":"Construction",
+        "content":"Our firm is adept at providing counsel on various construction-related issues in the Kingdom of Saudi Arabia. We frequently guide clients through the intricacies of construction projects and infrastructure development. Our advisory scope covers contract negotiation, procurement strategies, compliance with local laws, and dispute resolution. Additionally, our thorough understanding of standard form contracts aids clients in initiating and executing successful projects in the region.",
+        "img_link": "https://images.unsplash.com/photo-1561567422-e904fece6ef4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"foreign-investment"
+    },
+    "foreign-investment":{
+        "service":"Foreign Investment",
+        "content":"Our group excels in facilitating the setup of international firms and their ventures within the Kingdom of Saudi Arabia. We possess comprehensive expertise in the regulations and procedures of the Saudi Arabian Ministry of Investment (MISA), providing a broad array of services such as trademark registration, investment agreements, and handling both negotiations and arbitrations.",
+        "img_link": "https://plus.unsplash.com/premium_photo-1663100244280-063bffeccd1e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"corporate-crimes"
+    },
+    "corporate-crimes":{
+        "service":"Corporate Crimes",
+        "content":"Our group is proficient in managing a wide array of Corporate & White Collar Crimes, encompassing financial misdeeds, fraud, bribery, corruption, and embezzlement. We boast a track record of successful outcomes in these matters within Criminal Courts and Corruption Circuits, and have been instrumental in persuading the Public Prosecution to commence state criminal proceedings in numerous intricate situations.",
+        "img_link": "https://images.unsplash.com/photo-1622186477895-f2af6a0f5a97?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"contact-drafting"
+    },
+    "contact-drafting":{
+        "service":"Contact Drafting",
+        "content":"We carefully compose precise and detailed contracts to guarantee their clarity and enforceability under the law.",
+        "img_link": "https://images.unsplash.com/uploads/1413222992504f1b734a6/1928e537?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"real-estate"
+    },
+    "real-estate":{
+        "service":"Real Estate",
+        "content":"We offer legal advice and cover the full spectrum of real estate matters to secure a solid legal foundation.",
+        "img_link": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1373&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"administrative-disputes"
+    },
+    "administrative-disputes":{
+        "service":"Administrative Disputes",
+        "content":"We handle legal issues pertaining to administrative disputes, offering services such as appeals, legal consultations, and reviews of contracts. Our representation extends to clients in Administrative Court proceedings.",
+        "img_link": "https://images.unsplash.com/photo-1698047681710-0edc06169789?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"personal-status"
+    },
+    "personal-status":{
+        "service":"Personal Status",
+        "content":"We expertly and sensitively manage matters of personal status, including divorce, annulment, alimony, custody, visitation, and associated concerns.",
+        "img_link": "https://images.unsplash.com/photo-1503314885798-a70f8f9028d3?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"legacies-and-inheritances"
+    },
+    "legacies-and-inheritances":{
+        "service":"Legacies and Inheritances",
+        "content":"We provide consultations and representation in accordance with Sharia and legal standards, along with a variety of services related to estates and inheritances.",
+        "img_link": "https://plus.unsplash.com/premium_photo-1661407696331-6ab41ffbe05a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"endowment"
+    },
+    "endowment":{
+        "service":"Endowment",
+        "content":"We develop endowments, obtain authorization from the appropriate judicial bodies, create endowment organizations and entities, and outline the administrative frameworks, policies, and protocols.",
+        "img_link": "https://images.unsplash.com/photo-1635295852796-f6867d868156?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"sports-disputes"
+    },
+    "sports-disputes":{
+        "service":"Sports Disputes",
+        "content":"We offer legal counsel to sports federations, athletes, and associated organizations to manage the legal intricacies of the sports industry.",
+        "img_link": "https://images.unsplash.com/photo-1474546652694-a33dd8161d66?q=80&w=1484&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"cyber-crimes"
+    },
+    "cyber-crimes":{
+        "service":"Cyber Crimes",
+        "content":"Our legal services are designed to tackle cybercrime-related issues, ensuring our clients’ security in the digital environment.",
+        "img_link": "https://images.unsplash.com/photo-1624969862644-791f3dc98927?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "next":"labor"
+    }
+}
