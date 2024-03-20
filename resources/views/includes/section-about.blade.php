@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <div style="background-color: rgb(241 245 249);margin-top:3rem;" class="p-4 rounded">
+        <div style="background-color: rgb(241 245 249);margin-top:3rem;" class="p-4 rounded shadow">
             <p>
                 <strong>Intelligent  Lawyer</strong>: A specialized platform meticulously crafted for seamless law firm management. It provides comprehensive features including task management, case archiving, session management, a legal library, and more. These advanced legal digital solutions are designed to enhance our clients’ experience.
             </p>

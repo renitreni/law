@@ -38,15 +38,12 @@
 <section x-data="{open:false,imgSrc:''}" class="ftco-section contact-section">
     <div class="container">
         <div class="row text-center text-lg-start">
-            @php
-            $imagePaths = glob(public_path('images/*'));
-            @endphp
-            @foreach ($imagePaths as $path)
-            <div x-on:click="open = true; imgSrc = '{{ asset('images/' . basename($path)) }}'"
+            @foreach (Storage::files('public/gallery') as $path)
+            <div x-on:click="open = true; imgSrc = '{{ Storage::url($path) }}'"
                 class="col-lg-3 col-md-4 col-6">
                 <div class="d-block mb-4 h-100">
-                    <img loading='eager' class="img-fluid img-thumbnail" src="{{ asset('images/' . basename($path)) }}"
-                        alt="Image" style="width: 300px;height:300px; object-fit: cover;">
+                    <img loading='eager' class="img-fluid img-thumbnail" src="{{ Storage::url($path) }}"
+                        alt="{{ basename($path) }}" style="width: 300px;height:300px; object-fit: cover;">
                 </div>
             </div>
             @endforeach

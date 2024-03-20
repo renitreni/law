@@ -22,7 +22,7 @@ final class InquiryTable extends PowerGridComponent
     use WithExport;
 
     public int $perPage = 5;
-    public array $perPageValues = [0,5,10,20,50];
+    public array $perPageValues = [0, 5, 10, 20, 50];
 
     public function setUp(): array
     {
@@ -35,7 +35,7 @@ final class InquiryTable extends PowerGridComponent
             Header::make()->showSearchInput(),
             Footer::make()
                 ->showPerPage()
-                ->showPerPage($this->perPage,$this->perPageValues)
+                ->showPerPage($this->perPage, $this->perPageValues)
                 ->showRecordCount(),
         ];
     }
@@ -70,6 +70,10 @@ final class InquiryTable extends PowerGridComponent
                 ->field('lastname')
                 ->searchable(),
             Column::add()
+                ->title('Phone Number')
+                ->field('phonenumber')
+                ->searchable(),
+            Column::add()
                 ->title('Email')
                 ->field('email')
                 ->searchable(),
@@ -83,9 +87,9 @@ final class InquiryTable extends PowerGridComponent
     }
 
     #[\Livewire\Attributes\On('delete')]
-    public function delete($rowId) : void
+    public function delete($rowId): void
     {
-        Inquiry::where('id',$rowId)->delete();
+        Inquiry::where('id', $rowId)->delete();
     }
 
     public function actions(Inquiry $row): array
@@ -94,12 +98,12 @@ final class InquiryTable extends PowerGridComponent
             Button::add('view')
                 ->slot('View')
                 ->class('btn btn-sm btn-dark')
-                ->dispatch('view',['rowId'=> $row->id]),
+                ->dispatch('view', ['rowId' => $row->id]),
             Button::add('delete')
                 ->slot('Delete')
                 ->id()
                 ->class('btn btn-sm btn-danger')
-                ->dispatch('delete',['rowId'=> $row->id])
+                ->dispatch('delete', ['rowId' => $row->id])
         ];
     }
 
