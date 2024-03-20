@@ -17,6 +17,15 @@
                 <li class="nav-item {{ Request::is('gallery') ? 'active' : '' }}"><a href="{{ url("/gallery") }}" class="nav-link">Gallery</a></li>
                 <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}"><a href="{{ url("/contact")}}" class="nav-link">Contact</a></li>
                 <li class="nav-item cta "><a href="{{ url("/inquire")}}" class="nav-link">Inquire Now</a></li>
+                <li class="nav-item  text-light">
+                    <details class="p-2" style="position: absolute;top:5px;">
+                        <summary class="nav-link">--</summary>
+                        <ul>
+                            <li><a class="text-light" href="#">English</a></li>
+                            <li><a class="text-light" href="#">Arabic</a></li>
+                        </ul>
+                    </details>
+                </li>
             </ul>
         </div>
     </div>
