@@ -25,7 +25,7 @@
                         <div class="d-flex flex-row">
                             <button type="button" class="btn btn-sm btn-info mx-1"
                                 wire:click='addSubMatter({{ $item->id }})'>
-                                <i class='bx bx-edit'></i>
+                                <i class='bx bx-plus'></i>
                             </button>
                             <button type="button" class="btn btn-sm btn-danger mx-1"
                                 wire:click='destroyMatter({{ $item->id }})'>
