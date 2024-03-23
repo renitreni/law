@@ -9,7 +9,7 @@ use App\Livewire\InquiryLivewire;
 use App\Livewire\MatterLivewire;
 use App\Livewire\OptionsLivewire;
 use App\Livewire\TimesheetLivewire;
-
+use App\Livewire\UserLivewire;
 
 Route::view('/','welcome');
 Route::view('/about','about');
@@ -29,4 +29,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/case', CaseLivewire::class)->name('case');
     Route::get('/inquiry', InquiryLivewire::class)->name('inquiry');
     Route::get('/photos', GalleryLivewire::class)->name('gallery');
+    Route::get('/user', UserLivewire::class)->name('user');
 });
