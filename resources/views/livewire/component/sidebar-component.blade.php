@@ -3,7 +3,7 @@
         <div>
             <a href="#" class="nav_logo">
                 <i class='bx bx-layer nav_logo-icon'></i>
-                <span class="nav_logo-name">Meshari Alhumaidi</span>
+                <span class="nav_logo-name">{{ config('app.name') }}</span>
             </a>
             <div class="nav_list">
                 <a href="{{ route('timesheet') }}" wire:click="$set('menu', 'timesheet')"
