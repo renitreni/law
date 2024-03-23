@@ -54,7 +54,6 @@ class MatterLivewire extends Component
         Matter::destroy($id);
     }
 
-
     public function storeSubMatter()
     {
         $this->validate([
