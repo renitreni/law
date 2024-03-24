@@ -208,7 +208,7 @@
 
         window.addEventListener('bindCalendarSummary', params => {
             resetCalendar()
-            params.detail[0].forEach(function(value, idx) {
+            params.detail[0][0].forEach(function(value, idx) {
                 calendar.addEvent(value);
             });
             $(".fc-event-title").each(function() {
