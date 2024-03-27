@@ -12,6 +12,7 @@ use App\Models\Matter;
 use App\Models\Office;
 use App\Models\SubMatter;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,6 +28,11 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@hoopelink.com',
+        ]);
+        User::factory()->create([
+            'name' => "Maha Aljubaire",
+            'email' => 'atty.mahaaljubaire@mesharialhumlaw.com',
+            'password' => Hash::make('Atty_mahaaljubaire_rb')
         ]);
         if (app()->environment(['local', 'staging'])) {
             Matter::factory()
