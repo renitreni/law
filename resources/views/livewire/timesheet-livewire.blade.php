@@ -1,6 +1,11 @@
 <div>
     <div class="row">
         <div class="col-md-12">
+            <input type="text" class="form-control" wire:model.live='test' />
+            {{ $test }}
+            <button type="button" class="btn btn-primary" wire:click='clickTest'>Test click</button>
+        </div>
+        <div class="col-md-12">
             <div wire:ignore id='calendar' style="height: 150px"></div>
         </div>
         <div class="col-md-12 mt-3">

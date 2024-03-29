@@ -17,7 +17,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="firstname">Firstname</label>
-                                            <input wire:model='firstname' id="firstname" type="text" name="firstname"
+                                            <input wire:model.live='firstname' id="firstname" type="text" name="firstname"
                                                 class="form-control" required="required">
                                             @error('firstname') <span class="text-danger fs-6">{{ $message }}</span>@enderror
 
@@ -26,7 +26,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="lastname">Lastname</label>
-                                            <input wire:model='lastname' id="lastname" type="text" name="lastname"
+                                            <input wire:model.live='lastname' id="lastname" type="text" name="lastname"
                                                 class="form-control" required="required">
                                                 @error('lastname') <span class="text-danger fs-6">{{ $message }}</span>@enderror
                                         </div>
@@ -36,7 +36,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input wire:model='email' id="email" type="email" name="email"
+                                            <input wire:model.live='email' id="email" type="email" name="email"
                                                 class="form-control" required="required">
                                                 @error('email') <span class="text-danger fs-6">{{ $message }}</span>@enderror
 
@@ -47,7 +47,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="phonenumber">Phone Number</label>
-                                            <input wire:model='phonenumber' id="phonenumber" type="tel" name="phonenumber"
+                                            <input wire:model.live='phonenumber' id="phonenumber" type="tel" name="phonenumber"
                                                 class="form-control" required="required">
                                                 @error('phonenumber') <span class="text-danger fs-6">{{ $message }}</span>@enderror
 
@@ -62,7 +62,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="legalIssue">Please specify your legal issue</label>
-                                            <select wire:model='legalIssue' id="legalIssue" name="legalIssue"
+                                            <select wire:model.live='legalIssue' id="legalIssue" name="legalIssue"
                                                 class="form-control" required="required">
                                                 <option value="" selected>--Select Legal Issue--</option>
                                                 <option>Financial</option>
@@ -80,7 +80,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="message">Message</label>
-                                            <textarea wire:model='message' id="message" name="message"
+                                            <textarea wire:model.live='message' id="message" name="message"
                                                 class="form-control" placeholder="Write your inquiry here." rows="4"
                                                 required="required"></textarea>
                                             @error('message') <span class="text-danger fs-6">{{ $message }}</span>@enderror
