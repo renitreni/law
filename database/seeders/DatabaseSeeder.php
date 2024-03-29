@@ -34,6 +34,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'atty.mahaaljubaire@mesharialhumlaw.com',
             'password' => Hash::make('Atty_mahaaljubaire_rb')
         ]);
+
+        User::factory()->create([
+            'name' => "Info",
+            'email' => 'info@mesharialhumlaw.com',
+            'password' => Hash::make('Info_sec')
+        ]);
         if (app()->environment(['local', 'staging'])) {
             Matter::factory()
                 ->count(10)
