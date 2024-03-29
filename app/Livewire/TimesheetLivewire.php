@@ -134,25 +134,26 @@ class TimesheetLivewire extends Component
         $this->dispatch('bindMatter', null);
         $this->dispatch('bindOffice', null);
     }
-
+    
+    #[On('keywordClient')]
     public function keywordClient($value)
     {
         $this->timeEntry['client_id'] = $value;
     }
 
-    #[On('keywordClient')]
+    #[On('keywordMatter')]
     public function keywordMatter($value)
     {
         $this->timeEntry['sub_matter_id'] = $value;
     }
 
-    #[On('keywordClient')]
+    #[On('keywordOffice')]
     public function keywordOffice($value)
     {
         $this->timeEntry['office_id'] = $value;
     }
 
-    #[On('keywordClient')]
+    #[On('keywordTemplate')]
     public function keywordTemplate($value)
     {
         $entry = Entry::find($value);
