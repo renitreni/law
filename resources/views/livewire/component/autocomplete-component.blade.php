@@ -9,7 +9,7 @@
                 @foreach ($listing as $item)
                     <li class="list-group-item p-0">
                         <button type="button" wire:click='setValue("{{ $item['value'] }}", "{{ $item['text'] }}")'
-                            class="btn btn-link no-underline text-black w-100 text-start" x-click="close()">
+                            class="btn btn-link no-underline text-black w-100 text-start" x-on:click="close()">
                             {{ $item['text'] }}
                         </button>
                     </li>

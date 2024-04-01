@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         <div class="col-md-12">
-            <button type="button" class="btn btn-primary" wire:click='clickTest'>Test click</button>
+            <livewire:component.calendar-control-component>
         </div>
         <div class="col-md-12">
             <div wire:ignore id='calendar' style="height: 150px"></div>
@@ -13,6 +13,11 @@
                     <i class='bx bx-plus'></i>
                     New Time Entry
                 </button>
+
+                @isset($details[0])
+                    <h3>{{ \Carbon\Carbon::parse($details[0]['entry_date'])->format('F j, Y') }}</h3>
+                @endisset
+
                 <!-- Modal -->
                 <div wire:ignore.self class="modal fade" id="timeEntryModal" tabindex="-1"
                     aria-labelledby="timeEntryModalLabel" aria-hidden="true">
@@ -92,9 +97,6 @@
                         </div>
                     </div>
                 </div>
-                @isset($details[0])
-                    <h3>{{ \Carbon\Carbon::parse($details[0]['entry_date'])->format('F j, Y') }}</h3>
-                @endisset
             </div>
             <div class="accordion mt-3" id="accordionPanelsStayOpenExample">
                 @foreach ($details as $item)

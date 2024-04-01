@@ -119,6 +119,8 @@ class TimesheetLivewire extends Component
     public function createTimeEntry()
     {
         $this->resetInputs();
+        $timeEntry = Carbon::parse($this->details[0]['entry_date']) ?? now();
+        $this->timeEntry['entry_date'] = $timeEntry->format('Y-m-d');
     }
 
     public function resetInputs()
