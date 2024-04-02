@@ -9586,7 +9586,10 @@ textarea.form-control {
       .block-2 .front .box p {
         font-size: 12px; }
   .block-2 .back {
-    background: #7495ff;
+    background-image: url('/images/icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     -webkit-box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.4);
     -webkit-transform: rotateY(-180deg);
@@ -9602,7 +9605,7 @@ textarea.form-control {
     text-align: center;
     padding: 0 20px;
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(0, 0, 0, 0.9); }
   .block-2 .author {
     bottom: 0;
     position: absolute;
@@ -9615,11 +9618,11 @@ textarea.form-control {
         border-radius: 50%;
         max-width: 100%; }
     .block-2 .author .name {
-      color: #fff;
+      color: #000;
       font-weight: 600; }
     .block-2 .author .position {
       display: block;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(0, 0, 0, 0.9);
       font-size: 13px;
       font-family: "Poppins", Arial, sans-serif;
       font-weight: normal; }
