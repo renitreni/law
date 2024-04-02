@@ -1,11 +1,11 @@
 {
-  "resources/vendor/fontawesome/webfonts/fa-brands-400.woff2": {
-    "file": "assets/fa-brands-400-3a8924cd.woff2",
-    "src": "resources/vendor/fontawesome/webfonts/fa-brands-400.woff2"
-  },
   "resources/vendor/fontawesome/webfonts/fa-regular-400.woff2": {
     "file": "assets/fa-regular-400-2bccecf0.woff2",
     "src": "resources/vendor/fontawesome/webfonts/fa-regular-400.woff2"
+  },
+  "resources/vendor/fontawesome/webfonts/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-3a8924cd.woff2",
+    "src": "resources/vendor/fontawesome/webfonts/fa-brands-400.woff2"
   },
   "resources/vendor/fontawesome/webfonts/fa-solid-900.woff2": {
     "file": "assets/fa-solid-900-9fc85f3a.woff2",
