@@ -12,14 +12,18 @@ use App\Livewire\OptionsLivewire;
 use App\Livewire\TimesheetLivewire;
 use App\Livewire\UserLivewire;
 
-Route::view('/','welcome');
-Route::view('/about','about');
-Route::view('/attorneys','attorneys');
-Route::view('/list-services','services');
-Route::view('/gallery','gallery');
-Route::view('/contact','contact');
-Route::view('/inquire','inquire');
-Route::get('/services/{service}',[HomeController::class,'service'])->name('service');
+Route::get('/',function(){
+    return redirect(route('welcome',['lang'=>'en']));
+});
+
+Route::get('/{lang?}',[HomeController::class,'index'])->name('welcome');
+Route::get('/{lang?}/about',[HomeController::class,'about'])->name('about');
+Route::get('/{lang?}/attorneys',[HomeController::class,'attorneys'])->name('attorneys');
+Route::get('/{lang?}/list-services',[HomeController::class,'services'])->name('services');
+Route::get('/{lang?}/gallery',[HomeController::class,'gallery'])->name('galleries');
+Route::get('/{lang?}/contact',[HomeController::class,'contact'])->name('contact');
+Route::get('/{lang?}/inquire',[HomeController::class,'inquire'])->name('inquire');
+Route::get('/{lang?}/services/{service}',[HomeController::class,'service'])->name('service');
 
 Auth::routes();
 
