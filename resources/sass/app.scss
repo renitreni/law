@@ -4,6 +4,12 @@
 // Variables
 @import 'variables';
 
+@import '../vendor/fontawesome/css/all.css';
+
 [x-cloak]{
     display: none;
+}
+
+.no-underline {
+    text-decoration: none;
 }

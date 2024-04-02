@@ -16,6 +16,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
+
                                             <label for="firstname">{{ __('Firstname') }}</label>
                                             <input wire:model='firstname' id="firstname" type="text" name="firstname"
                                                 class="form-control" required="required">
@@ -25,6 +26,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+
                                             <label for="lastname">{{ __('Lastname') }}</label>
                                             <input wire:model='lastname' id="lastname" type="text" name="lastname"
                                                 class="form-control" required="required">
@@ -35,6 +37,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
+
                                             <label for="email">{{ __('Email') }}</label>
                                             <input wire:model='email' id="email" type="email" name="email"
                                                 class="form-control" required="required">
@@ -46,8 +49,10 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
+
                                             <label for="phonenumber">{{ __('Phone Number') }}</label>
                                             <input wire:model='phonenumber' id="phonenumber" type="tel" name="phonenumber"
+
                                                 class="form-control" required="required">
                                                 @error('phonenumber') <span class="text-danger fs-6">{{ $message }}</span>@enderror
 
@@ -61,8 +66,10 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
+
                                             <label for="legalIssue">{{ __('Please specify your legal issue') }}</label>
                                             <select wire:model='legalIssue' id="legalIssue" name="legalIssue"
+
                                                 class="form-control" required="required">
                                                 <option value="" selected>--{{ __('Select Legal Issue') }}--</option>
                                                 <option>{{ __('Financial') }}</option>
@@ -79,9 +86,11 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
+
                                             <label for="message">{{ __('Message') }}</label>
                                             <textarea wire:model='message' id="message" name="message"
                                                 class="form-control" placeholder="{{ __('Write your inquiry here.') }}" rows="4"
+
                                                 required="required"></textarea>
                                             @error('message') <span class="text-danger fs-6">{{ $message }}</span>@enderror
                                         </div>
