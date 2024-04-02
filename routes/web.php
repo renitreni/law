@@ -16,14 +16,7 @@ Route::get('/',function(){
     return redirect(route('welcome',['lang'=>'en']));
 });
 
-Route::get('/{lang?}',[HomeController::class,'index'])->name('welcome');
-Route::get('/{lang?}/about',[HomeController::class,'about'])->name('about');
-Route::get('/{lang?}/attorneys',[HomeController::class,'attorneys'])->name('attorneys');
-Route::get('/{lang?}/list-services',[HomeController::class,'services'])->name('services');
-Route::get('/{lang?}/gallery',[HomeController::class,'gallery'])->name('galleries');
-Route::get('/{lang?}/contact',[HomeController::class,'contact'])->name('contact');
-Route::get('/{lang?}/inquire',[HomeController::class,'inquire'])->name('inquire');
-Route::get('/{lang?}/services/{service}',[HomeController::class,'service'])->name('service');
+
 
 Auth::routes();
 
@@ -39,3 +32,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/photos', GalleryLivewire::class)->name('gallery');
     Route::get('/user', UserLivewire::class)->name('user');
 });
+
+
+Route::get('/{lang?}',[HomeController::class,'index'])->name('welcome');
+Route::get('/{lang?}/about',[HomeController::class,'about'])->name('about');
+Route::get('/{lang?}/attorneys',[HomeController::class,'attorneys'])->name('attorneys');
+Route::get('/{lang?}/list-services',[HomeController::class,'services'])->name('services');
+Route::get('/{lang?}/gallery',[HomeController::class,'gallery'])->name('galleries');
+Route::get('/{lang?}/contact',[HomeController::class,'contact'])->name('contact');
+Route::get('/{lang?}/inquire',[HomeController::class,'inquire'])->name('inquire');
+Route::get('/{lang?}/services/{service}',[HomeController::class,'service'])->name('service');
