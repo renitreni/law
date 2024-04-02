@@ -6,9 +6,13 @@ use App\Models\Entry;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
+use function Laravel\Prompts\alert;
+
 class AutocompleteComponent extends Component
 {
-    public $keyword;
+    public string $keywording;
+
+    public string $selected;
 
     public $data;
 
@@ -23,7 +27,7 @@ class AutocompleteComponent extends Component
         return view('livewire.component.autocomplete-component');
     }
 
-    public function updatedKeyword($value)
+    public function updatedKeywording($value)
     {
         $this->listing = [];
         foreach ($this->data as $item) {
@@ -31,33 +35,17 @@ class AutocompleteComponent extends Component
             $needle = Str::lower($value);
             if (Str::contains($haystack, $needle)) {
                 $this->listing[] = $item;
+            } else {
+                $this->listing[] = $item;
             }
         }
     }
 
     public function setValue($value, $text)
     {
-        $this->keyword = $text;
-        $this->listing = [];
+        $this->selected = $text;
+        $this->keywording = '';
 
-        $this->dispatch($this->keywordCallback, $value);
-    }
-
-    public function getListeners()
-    {
-        return [$this->bindCallback => 'bindKeyword'];
-    }
-
-    public function bindKeyword($value)
-    {
-        if($value) {
-            foreach ($this->data as $item) {
-                if ($item['value'] == $value) {
-                    $this->keyword = $item['text'];
-                }
-            }
-        } else {
-            $this->keyword = '';
-        }
+    //    $this->dispatch($this->keywordCallback, $value);
     }
 }
