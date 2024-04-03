@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Component;
 
-use Carbon\Carbon;
 use Livewire\Component;
 
 class HeaderComponent extends Component

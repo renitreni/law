@@ -19,8 +19,8 @@
                 @endisset
 
                 <!-- Modal -->
-                <div wire:ignore.self class="modal fade" id="timeEntryModal" tabindex="-1"
-                    aria-labelledby="timeEntryModalLabel" aria-hidden="true">
+                <div wire:ignore.self class="modal fade" id="timeEntryModal" aria-labelledby="timeEntryModalLabel"
+                    aria-hidden="true" tabindex="-1">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -33,14 +33,16 @@
                                     <div class="col-md-5 d-flex flex-row mb-3">
                                         <div class="me-3">
                                             <label>Entry Date</label>
-                                            <input type="date" class="form-control" wire:model.live='timeEntry.entry_date'>
+                                            <input type="date" class="form-control"
+                                                wire:model.live='timeEntry.entry_date'>
                                             @error('timeEntry.entry_date')
                                                 <small class="text-danger text-nowrap">{{ $message }}</small>
                                             @enderror
                                         </div>
                                         <div class="me-3">
                                             <label>Duration</label>
-                                            <input type="number" class="form-control" wire:model.live='timeEntry.duration'>
+                                            <input type="number" class="form-control"
+                                                wire:model.live='timeEntry.duration'>
                                             @error('timeEntry.duration')
                                                 <small class="text-danger text-nowrap">{{ $message }}</small>
                                             @enderror
@@ -48,22 +50,27 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label>Apply a Template</label>
-                                        <livewire:component.autocomplete-component :data="$templates" :keywordCallback="'keywordTemplate'"/>
+                                        {{-- :defaultVal="[1, 'aut']" --}}
+                                        <livewire:component.autocomplete-component wire:model="templates" :keywordCallback="'keywordTemplate'"/>
                                     </div>
-
+                                    
                                     <div class="col-md-4 mb-3">
                                         <label>Client</label>
-                                        <livewire:component.autocomplete-component :data="$clients" :keywordCallback="'keywordClient'" :bindCallback="'bindClient'"/>
+                                        <livewire:component.autocomplete-component wire:model="clients" :keywordCallback="'keywordClient'"/>
                                     </div>
 
                                     <div class="col-md-4 mb-3">
                                         <label>Matters</label>
-                                        <livewire:component.autocomplete-component :data="$matter" :keywordCallback="'keywordMatter'" :bindCallback="'bindMatter'"/>
+                                        <livewire:component.autocomplete-component wire:model="matter" :keywordCallback="'keywordMatter'"/>
                                     </div>
 
                                     <div class="col-md-4 mb-3">
+                                        <label>Sub Matter</label>
+                                        <livewire:component.autocomplete-component wire:model="subMatter" :keywordCallback="'keywordSubMatter'"/>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
                                         <label>Office</label>
-                                        <livewire:component.autocomplete-component :data="$office" :keywordCallback="'keywordOffice'" :bindCallback="'bindOffice'"/>
+                                        <livewire:component.autocomplete-component wire:model="office" :keywordCallback="'keywordOffice'"/>
                                     </div>
 
                                     <div class="col-12 mb-3">
@@ -83,7 +90,8 @@
                                     </div>
                                     @if ($timeEntry['is_template'] ?? false)
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" wire:model.live='timeEntry.template_name'
+                                            <input type="text" class="form-control"
+                                                wire:model.live='timeEntry.template_name'
                                                 placeholder="Type in Template Name">
                                         </div>
                                     @endif
@@ -141,15 +149,18 @@
                                     </div>
                                     <div class="col-md-4">
                                         <strong class="me-2">Client</strong>
-                                        <label>{{ strtoupper($item['clients']['code']) }} - {{ $item['clients']['name'] }}</label>
+                                        <label>{{ strtoupper($item['clients']['code']) }} -
+                                            {{ $item['clients']['name'] }}</label>
                                     </div>
                                     <div class="col-md-4">
                                         <strong class="me-2">Matters</strong>
-                                        <label>{{ strtoupper($item['clients']['code']) }} - {{ $item['clients']['name'] }}</label>
+                                        <label>{{ strtoupper($item['clients']['code']) }} -
+                                            {{ $item['clients']['name'] }}</label>
                                     </div>
                                     <div class="col-md-4">
                                         <strong class="me-2">Office</strong>
-                                        <label>{{ strtoupper($item['offices']['code']) }} - {{ $item['offices']['name'] }}</label>
+                                        <label>{{ strtoupper($item['offices']['code']) }} -
+                                            {{ $item['offices']['name'] }}</label>
                                     </div>
                                     <div class="col-md-12 mt-2">
                                         <strong class="me-2">Narrative</strong><br>

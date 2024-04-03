@@ -3,20 +3,18 @@
 namespace App\Livewire;
 
 use App\Models\Gallery;
-use Livewire\Attributes\On;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\On;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
+use PowerComponents\LivewirePowerGrid\Facades\Rule;
 use PowerComponents\LivewirePowerGrid\Footer;
 use PowerComponents\LivewirePowerGrid\Header;
 use PowerComponents\LivewirePowerGrid\PowerGrid;
-use PowerComponents\LivewirePowerGrid\Exportable;
-use PowerComponents\LivewirePowerGrid\Facades\Rule;
-use PowerComponents\LivewirePowerGrid\Facades\Filter;
-use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\PowerGridFields;
 
 final class GalleryTable extends PowerGridComponent
 {
@@ -41,9 +39,10 @@ final class GalleryTable extends PowerGridComponent
     {
         return PowerGrid::fields()
             ->add('id')
-            ->add('photo_name',function($img) {
+            ->add('photo_name', function ($img) {
                 $path = asset("storage/gallery/{$img->photo_name}");
-                return "<img style='width:50px;height:50px;' class='img-thumbnail' src='{$path}' alt='' >" ;
+
+                return "<img style='width:50px;height:50px;' class='img-thumbnail' src='{$path}' alt='' >";
             })
             ->add('photo_name_lower', fn (Gallery $model) => strtolower(e($model->name)))
             ->add('created_at')
@@ -53,14 +52,14 @@ final class GalleryTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make("Photo", 'photo_name'),
+            Column::make('Photo', 'photo_name'),
             Column::make('Created at', 'created_at')
                 ->hidden(),
 
             Column::make('Uploaded Date', 'created_at_formatted', 'created_at')
                 ->searchable(),
 
-            Column::action('')
+            Column::action(''),
         ];
     }
 
@@ -76,7 +75,7 @@ final class GalleryTable extends PowerGridComponent
                 ->slot('Delete')
                 ->id()
                 ->class('border btn-danger btn btn-sm')
-                ->dispatch('delete', ['rowId' => $row->id])
+                ->dispatch('delete', ['rowId' => $row->id]),
         ];
     }
 

@@ -1,5 +1,5 @@
 <?php
 
-class AnnouncementService {
-    
+class AnnouncementService
+{
 }

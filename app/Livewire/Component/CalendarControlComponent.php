@@ -21,7 +21,7 @@ class CalendarControlComponent extends Component
         9 => 'September',
         10 => 'October',
         11 => 'November',
-        12 => 'December'
+        12 => 'December',
     ];
 
     public array $yearList = [];
@@ -69,7 +69,7 @@ class CalendarControlComponent extends Component
         do {
             $list[] = [
                 'start' => $this->setStartDate($startDate)->format('Y-m-d'),
-                'end' => $this->setEndDate($startDate)->format('Y-m-d')
+                'end' => $this->setEndDate($startDate)->format('Y-m-d'),
             ];
             $startDate->addDays(1);
         } while ($startDate->format('m') == $this->month);
@@ -79,10 +79,10 @@ class CalendarControlComponent extends Component
 
     public function setEndDate(&$startDate)
     {
-        if(!$startDate->isSaturday()) {
+        if (! $startDate->isSaturday()) {
             do {
                 $startDate->addDay();
-            } while(!$startDate->isSaturday());
+            } while (! $startDate->isSaturday());
         }
 
         return $startDate;
@@ -90,10 +90,10 @@ class CalendarControlComponent extends Component
 
     public function setStartDate(&$startDate)
     {
-        if(!$startDate->isSunday()) {
+        if (! $startDate->isSunday()) {
             do {
                 $startDate->subDay();
-            } while(!$startDate->isSunday());
+            } while (! $startDate->isSunday());
         }
 
         return $startDate;
@@ -115,7 +115,7 @@ class CalendarControlComponent extends Component
 
         $this->range = [
             'start' => $startDate->format('Y-m-d'),
-            'end' => $startDate->endOfMonth()->format('Y-m-d')
+            'end' => $startDate->endOfMonth()->format('Y-m-d'),
         ];
         $this->selectedRange = $this->range['start'].'#'.$this->range['end'];
 
@@ -144,7 +144,7 @@ class CalendarControlComponent extends Component
     public function render()
     {
         $this->getMonthWeeks();
-        
+
         return view('livewire.component.calendar-control-component');
     }
 }

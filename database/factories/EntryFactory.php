@@ -28,25 +28,25 @@ class EntryFactory extends Factory
             ->inRandomOrder()
             ->first();
         $office = Office::query()->inRandomOrder()->first();
-        $isTemplate = $this->faker->numberBetween(0,1);
+        $isTemplate = $this->faker->numberBetween(0, 1);
 
         $templateName = null;
-        if($isTemplate) {
+        if ($isTemplate) {
             $templateName = $this->faker->word();
         }
 
         return [
-            "client_id" => $client->id,
-            "matter_id" => $matter->id,
-            "sub_matter_id" => $subMatter->id,
-            "office_id" => $office->id,
-            "entry_date" => Carbon::parse($this->faker->dateTimeBetween('-1 months', '+5 months'))->startOfDay(),
-            "duration" => $this->faker->randomFloat(2, 0.1, 0.8),
-            "narrative" => $this->faker->sentence(),
-            "template_name" => $templateName,
-            "is_template" => $isTemplate,
-            "is_draft" => $this->faker->numberBetween(0,1),
-            "is_billable" => $this->faker->numberBetween(0,1),
+            'client_id' => $client->id,
+            'matter_id' => $matter->id,
+            'sub_matter_id' => $subMatter->id,
+            'office_id' => $office->id,
+            'entry_date' => Carbon::parse($this->faker->dateTimeBetween('-1 months', '+5 months'))->startOfDay(),
+            'duration' => $this->faker->randomFloat(2, 0.1, 0.8),
+            'narrative' => $this->faker->sentence(),
+            'template_name' => $templateName,
+            'is_template' => $isTemplate,
+            'is_draft' => $this->faker->numberBetween(0, 1),
+            'is_billable' => $this->faker->numberBetween(0, 1),
         ];
     }
 }

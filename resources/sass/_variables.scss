@@ -195,3 +195,12 @@ a {
 .after-class {
     height: 25px
 }
+
+select option {
+    background-color: red;
+}
+
+select option {
+    border:0px;
+    outline:0px;
+}

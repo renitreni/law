@@ -3,18 +3,15 @@
 namespace App\Livewire;
 
 use App\Models\Inquiry;
-use Illuminate\Contracts\View\View;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Exportable;
-use PowerComponents\LivewirePowerGrid\Facades\Filter;
 use PowerComponents\LivewirePowerGrid\Footer;
 use PowerComponents\LivewirePowerGrid\Header;
 use PowerComponents\LivewirePowerGrid\PowerGrid;
-use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 
 final class InquiryTable extends PowerGridComponent
@@ -22,6 +19,7 @@ final class InquiryTable extends PowerGridComponent
     use WithExport;
 
     public int $perPage = 5;
+
     public array $perPageValues = [0, 5, 10, 20, 50];
 
     public function setUp(): array
@@ -77,7 +75,7 @@ final class InquiryTable extends PowerGridComponent
                 ->title('Email')
                 ->field('email')
                 ->searchable(),
-            Column::action('')
+            Column::action(''),
         ];
     }
 
@@ -103,7 +101,7 @@ final class InquiryTable extends PowerGridComponent
                 ->slot('Delete')
                 ->id()
                 ->class('btn btn-sm btn-danger')
-                ->dispatch('delete', ['rowId' => $row->id])
+                ->dispatch('delete', ['rowId' => $row->id]),
         ];
     }
 

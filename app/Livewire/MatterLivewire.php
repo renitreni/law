@@ -3,11 +3,11 @@
 namespace App\Livewire;
 
 use App\Models\Matter;
-use Livewire\Component;
 use App\Models\SubMatter;
 use Illuminate\Support\Str;
-use Livewire\WithPagination;
 use Livewire\Attributes\Title;
+use Livewire\Component;
+use Livewire\WithPagination;
 
 #[Title('Matters')]
 class MatterLivewire extends Component
