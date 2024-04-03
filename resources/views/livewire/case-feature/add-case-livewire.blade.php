@@ -24,10 +24,18 @@
         @include('livewire.case-feature.@.court-info')
         <button class="btn  btn-secondary" type="button" @click="currentIndex = Math.max(currentIndex - 1, 0)" x-show="currentIndex !== 0">&#10094; Previous</button>
         <button
+            x-show = "currentIndex !== 3"
             class="btn  btn-primary"
-            type="button" x-text="currentIndex === 3 ? 'Submit &#10148;' : 'Next &#10095;'"
+            type="button" x-text="'Next &#10095;'"
             @click="currentIndex = Math.min(currentIndex + 1, 3)"
-            :wire:click="currentIndex === 3 ? 'save' : ''"></button>
+        >
+        </button>
+        <button
+            x-show = "currentIndex === 3"
+            class="btn  btn-primary"
+            type="button" x-text="'Submit &#10148;'"
+            wire:click="save">
+        </button>
     </form>
 </div>
 
