@@ -4,13 +4,12 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\User;
-use App\Models\Entry;
 use App\Models\Client;
-use App\Models\Inquiry;
+use App\Models\Entry;
 use App\Models\Matter;
 use App\Models\Office;
 use App\Models\SubMatter;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -30,15 +29,15 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@hoopelink.com',
         ]);
         User::factory()->create([
-            'name' => "Maha Aljubaire",
+            'name' => 'Maha Aljubaire',
             'email' => 'atty.mahaaljubaire@mesharialhumlaw.com',
-            'password' => Hash::make('Atty_mahaaljubaire_rb')
+            'password' => Hash::make('Atty_mahaaljubaire_rb'),
         ]);
 
         User::factory()->create([
-            'name' => "Info",
+            'name' => 'Info',
             'email' => 'info@mesharialhumlaw.com',
-            'password' => Hash::make('Info_sec')
+            'password' => Hash::make('Info_sec'),
         ]);
         if (app()->environment(['local', 'staging'])) {
             Matter::factory()

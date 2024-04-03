@@ -2,8 +2,8 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Support\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
 
 class CalendarSummaryResource extends JsonResource
 {
@@ -21,9 +21,10 @@ class CalendarSummaryResource extends JsonResource
                 <strong>Billable:</strong> {$this->billable}<br>
                 <strong>Non-billable:</strong> {$this->non_billable}<br>
             HTML;
+
         return [
             'title' => $content,
-            'start' => Carbon::parse($this->entry_date)->format('Y-m-d')
+            'start' => Carbon::parse($this->entry_date)->format('Y-m-d'),
         ];
     }
 }

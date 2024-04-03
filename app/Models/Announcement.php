@@ -15,7 +15,7 @@ class Announcement extends Model
         'is_read',
         'description',
         'user_id',
-        'type' // reminder
+        'type', // reminder
     ];
 
     public function user()

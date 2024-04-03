@@ -101,7 +101,7 @@ return [
     */
 
     'legacy_model_binding' => true,
-    
+
     /*
     |---------------------------------------------------------------------------
     | Auto-inject Frontend Assets

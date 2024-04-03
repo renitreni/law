@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Livewire\CaseLivewire;
 use App\Livewire\GalleryLivewire;
@@ -10,15 +8,17 @@ use App\Livewire\MatterLivewire;
 use App\Livewire\OptionsLivewire;
 use App\Livewire\TimesheetLivewire;
 use App\Livewire\UserLivewire;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
-Route::view('/','welcome');
-Route::view('/about','about');
-Route::view('/attorneys','attorneys');
-Route::view('/list-services','services');
-Route::view('/gallery','gallery');
-Route::view('/contact','contact');
-Route::view('/inquire','inquire');
-Route::get('/services/{service}',[HomeController::class,'service'])->name('service');
+Route::view('/', 'welcome');
+Route::view('/about', 'about');
+Route::view('/attorneys', 'attorneys');
+Route::view('/list-services', 'services');
+Route::view('/gallery', 'gallery');
+Route::view('/contact', 'contact');
+Route::view('/inquire', 'inquire');
+Route::get('/services/{service}', [HomeController::class, 'service'])->name('service');
 
 Auth::routes();
 

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
     protected $fillable = [
-        'photo_name'
+        'photo_name',
     ];
 }

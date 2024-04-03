@@ -16,7 +16,7 @@ class Matter extends Model
     ];
 
     protected $with = [
-        'subMatters'
+        'subMatters',
     ];
 
     public function subMatters()

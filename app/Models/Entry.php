@@ -11,17 +11,17 @@ class Entry extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        "client_id",
-        "matter_id",
-        "sub_matter_id",
-        "office_id",
-        "entry_date",
-        "duration",
-        "narrative",
-        "template_name",
-        "is_template",
-        "is_draft",
-        "is_billable",
+        'client_id',
+        'matter_id',
+        'sub_matter_id',
+        'office_id',
+        'entry_date',
+        'duration',
+        'narrative',
+        'template_name',
+        'is_template',
+        'is_draft',
+        'is_billable',
     ];
 
     protected $with = ['clients', 'submatters', 'offices'];
