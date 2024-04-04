@@ -51,7 +51,7 @@ final class CaseTable extends PowerGridComponent
             ->add('case_status')
             ->add('case_title_lower', fn (LawCase $model) => strtolower(e($model->name)))
             ->add('created_at')
-            ->add('case_date_formatted', fn (LawCase $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
+            ->add('case_date_formatted', fn (LawCase $model) => Carbon::parse($model->created_at)->format('d/m/Y'));
     }
 
     public function columns(): array
@@ -59,21 +59,32 @@ final class CaseTable extends PowerGridComponent
         return [
             Column::make('Case Title', 'case_title')
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->editOnClick(),
 
             Column::make('Category', 'case_category')
-                ->searchable(),
+                ->searchable()
+                ->editOnClick(),
 
             Column::make('Status', 'case_status')
-                ->searchable(),
+                ->searchable()
+                ->editOnClick(),
 
             Column::make('Attorney', 'case_attorney')
-                ->searchable(),
+                ->searchable()
+                ->editOnClick(),
 
-            Column::make('Date','case_date_formatted','case_field'),
+            Column::make('Date Created','case_date_formatted','case_field'),
 
             Column::action('')
         ];
+    }
+
+    public function onUpdatedEditable(int|string $id, string $field, string $value): void
+    {
+        LawCase::query()->find($id)->update([
+            $field => $value
+        ]);
     }
 
     public function filters(): array
@@ -81,20 +92,15 @@ final class CaseTable extends PowerGridComponent
         return [];
     }
 
-    #[\Livewire\Attributes\On('edit')]
-    public function edit($rowId): void
-    {
-        $this->js('alert("Ongoing development")');
-    }
-
     public function actions(LawCase $row): array
     {
         return [
             Button::add('edit')
-                ->slot('Edit')
-                ->id()
-                ->class('btn btn-sm btn-primary')
-                ->dispatch('edit', ['rowId' => $row->id])
+                    ->slot('<i class="fa-regular fa-pen-to-square"></i>')
+                    ->target('_self')
+                    ->route('edit_case',['id'=> $row->id])
+                    ->class('btn btn-sm btn-outline-primary')
+                    ->tooltip('Edit Record')
         ];
     }
 
