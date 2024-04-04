@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('case_courts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('law_cases_id')->nullable();
-            $table->foreign('law_cases_id')->references('id')->on('law_cases')->onDelete('set null');
+            $table->foreign('law_cases_id')->references('id')->on('law_cases')->onDelete('cascade');
             $table->date('court_date')->nullable();
             $table->string('court_address')->nullable();
             $table->string('court_name')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('client_opponents', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('law_cases_id')->nullable();
-            $table->foreign('law_cases_id')->references('id')->on('law_cases')->onDelete('set null');
+            $table->foreign('law_cases_id')->references('id')->on('law_cases')->onDelete('cascade');
             $table->string('name')->nullable()->default('N/A');
             $table->integer('age')->nullable();
             $table->date('birthday')->nullable();
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('company')->nullable()->default('N/A');
             $table->string('role')->nullable()->default('N/A');
             $table->string('attorney')->nullable()->default('N/A');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

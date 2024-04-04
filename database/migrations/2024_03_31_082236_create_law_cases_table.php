@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('case_status')->nullable()->default('N/A');
             $table->string('case_attorney')->nullable()->default('N/A');
             $table->date('case_date')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
