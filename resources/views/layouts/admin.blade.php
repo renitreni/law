@@ -21,8 +21,8 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    @vite(['resources/sass/app.scss', 'resources/js/app.js','resources/css/app.css'])
     @livewireStyles
 </head>
 

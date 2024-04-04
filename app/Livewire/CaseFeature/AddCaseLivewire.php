@@ -14,7 +14,6 @@ class AddCaseLivewire extends Component
 {
 
     public AddCaseForm $addForm;
-    public string $successMessage;
     public function mount(){
         $this->addForm->case_date = Carbon::now();
         $this->addForm->court_date = Carbon::now();
