@@ -32,13 +32,23 @@ class TimesheetLivewire extends Component
 
     public $clients = [];
 
+    public $defaultClient = [];
+
     public $matter = [];
+
+    public $defaultMatter = [];
 
     public $subMatter = [];
 
+    public $defaultSubMatter = [];
+
     public $office = [];
 
+    public $defaultOffice = [];
+
     public $templates = [];
+
+    public $defaultTemplate = [];
 
     public function mount()
     {
@@ -101,13 +111,15 @@ class TimesheetLivewire extends Component
     {
         $this->dispatch('livewire-select-refresh');
         $this->resetInputs();
+
         $timeEntry = Carbon::parse($this->details ? $this->details[0]['entry_date'] : null) ?? now();
+
         $this->timeEntry['entry_date'] = $timeEntry->format('Y-m-d');
     }
 
     public function editTimeEntry($id)
     {
-        $this->timeEntry = Entry::find($id)->toArray();
+        $this->timeEntry = Entry::find($id)->w->toArray();
     }
 
     public function resetInputs()
@@ -118,6 +130,24 @@ class TimesheetLivewire extends Component
             'template_name' => '',
             'is_billable' => false,
         ];
+    }
+
+    public function store($isDraft)
+    {
+        $this->validate([
+            'timeEntry.entry_date' => 'required',
+            'timeEntry.duration' => 'required',
+        ], [
+            'timeEntry.duration.required' => 'Duration is required.',
+            'timeEntry.entry_date.required' => 'Entry date is required.',
+        ]);
+
+        (new EntryService)->create($this->timeEntry, $isDraft);
+
+        $this->alert('success', 'Process successful!');
+        $this->showDetails($this->timeEntry['entry_date']);
+        $this->resetInputs();
+        $this->dispatch('livewire-select-refresh');
     }
 
     #[On('keywordClient')]
@@ -228,23 +258,5 @@ class TimesheetLivewire extends Component
                     'text' => $value->template_name,
                 ];
             });
-    }
-
-    public function store($isDraft)
-    {
-        $this->validate([
-            'timeEntry.entry_date' => 'required',
-            'timeEntry.duration' => 'required',
-        ], [
-            'timeEntry.duration.required' => 'Duration is required.',
-            'timeEntry.entry_date.required' => 'Entry date is required.',
-        ]);
-
-        (new EntryService)->create($this->timeEntry, $isDraft);
-
-        $this->alert('success', 'Process successful!');
-        $this->showDetails($this->timeEntry['entry_date']);
-        $this->resetInputs();
-        $this->dispatch('livewire-select-refresh');
     }
 }
