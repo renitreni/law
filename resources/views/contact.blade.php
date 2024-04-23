@@ -1,7 +1,6 @@
 @extends('layouts.guest.index')
 @section('title',"Contact | Meshari Alhumaidi Law Firm")
 @section('contents')
-@include('includes.pages-hero-breadcrumbs',['page'=>'Contact','bg'=>asset('images/431531213_1137468827670147_4601469764870642235_n.jpg')])
 <section class="ftco-section contact-section">
     <div class="container" x-data="{
                 isRiyadh: true,

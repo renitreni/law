@@ -43,4 +43,4 @@ Route::get('/{lang?}/list-services',[HomeController::class,'services'])->name('s
 Route::get('/{lang?}/gallery',[HomeController::class,'gallery'])->name('galleries');
 Route::get('/{lang?}/contact',[HomeController::class,'contact'])->name('contact');
 Route::get('/{lang?}/inquire',[HomeController::class,'inquire'])->name('inquire');
-Route::get('/{lang?}/services/{service}',[HomeController::class,'service'])->name('service');
+//Route::get('/{lang?}/services/{service}',[HomeController::class,'service'])->name('service');

@@ -4,8 +4,6 @@
 @include('includes.section-hero')
 @include('includes.section-service')
 @include('includes.section-about')
-@include('includes.section-cases')
-@include('includes.section-attorneys')
-@include('includes.section-testimonials')
+@include('includes.section-branches')
 @livewire('send-inquiry-livewire')
 @endsection

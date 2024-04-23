@@ -1,9 +1,14 @@
 @extends('layouts.guest.index')
 @section('title',"Services | Meshari Alhumaidi Law Firm")
 @section('contents')
-@include('includes.pages-hero-breadcrumbs',['page'=>'Services','bg'=>asset('images/431531213_1137468827670147_4601469764870642235_n.jpg')])
-<section style="margin-top:2em;" class="container">
-    @include('includes.section-services-cards')
+<section class="text-white">
+    @php
+        $styles = "display:flex;flex-direction:column;justify-content:center;align-items:center;height:500px;width:100%;"
+    @endphp
+    <div style="{{ $styles }}">
+        <h3>This page is under maintenance.</h3>
+        <h6>We'll be back soon.</h6>
+    </div>
 </section>
 @endsection
 
