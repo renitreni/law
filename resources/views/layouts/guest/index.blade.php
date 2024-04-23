@@ -13,7 +13,7 @@
     @livewireStyles
 </head>
 
-<body>
+<body id="guest-body">
     @include('includes.nav')
     @yield('contents')
     @include('includes.footer')

@@ -1,6 +1,5 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
-:root{
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+:root {
     --PRIMARY-FONT-COLOR: #dfdcdc;
     --SECONDARY-FONT-COLOR: #03243d;
     --PRIMARY-BG-COLOR: #03243d;
@@ -14,60 +13,58 @@
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: var(--PRIMARY-BG-COLOR);
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
-    body{
-        background-color: var(--PRIMARY-BG-COLOR);
-        font-family: "Mulish", sans-serif;
-    }
-
-    .bg-slate-50{
-        background-color: rgb(248 250 252);
-    }
-.container{
-    color:var(--PRIMARY-FONT-COLOR);
 }
 
-nav{
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--PRIMARY-BG-COLOR);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+#guest-body {
+    background-color: var(--PRIMARY-BG-COLOR);
+    font-family: "Mulish", sans-serif;
+}
+
+.bg-slate-50 {
+    background-color: rgb(248 250 252);
+}
+.container {
+    color: var(--PRIMARY-FONT-COLOR);
+}
+
+nav {
     z-index: 50;
 }
 
-
-.bg-dark-blue{
+.bg-dark-blue {
     background-color: var(--PRIMARY-BG-COLOR);
     color: var(--PRIMARY-FONT-COLOR);
 }
 
-
-.text-sm{
+.text-sm {
     font-size: small;
 }
 
-.nav-link{
+.nav-link {
     color: var(--PRIMARY-FONT-COLOR);
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: var(--HOVER-PRIMARY-TEXT-COLOR);
     text-decoration: underline;
-    text-underline-offset: .8rem;
+    text-underline-offset: 0.8rem;
 }
 
-.nav-icon{
+.nav-icon {
     max-width: 4em;
     height: auto;
 }
@@ -78,21 +75,21 @@ nav{
 }
 
 /* Hero Section */
-.hero-section{
+.hero-section {
     margin-top: -90px;
     position: relative;
     width: 100%;
     height: 450px;
 }
 
-.hero-section img{
+.hero-section img {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: -1;
 }
 
-.hero-section .hero-color-bg{
+.hero-section .hero-color-bg {
     z-index: -1;
     position: absolute;
     top: 0;
@@ -100,10 +97,10 @@ nav{
     left: 0;
     right: 0;
     background-color: var(--PRIMARY-BG-COLOR);
-    opacity: .4;
+    opacity: 0.4;
 }
 
-.hero-section .hero-content{
+.hero-section .hero-content {
     z-index: 20;
     display: flex;
     justify-content: center;
@@ -112,80 +109,80 @@ nav{
     color: var(--PRIMARY-FONT-COLOR);
 }
 
-.hero-content div{
+.hero-content div {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.hero-content div h4{
+.hero-content div h4 {
     font-weight: 800;
     font-size: 32px;
 }
 
-.hero-content div p{
+.hero-content div p {
     max-width: 700px;
 }
 
-.hero-content div .call-to-action{
+.hero-content div .call-to-action {
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
-    margin-top: .7rem;
+    margin-top: 0.7rem;
 }
 
-.hero-content div .call-to-action a{
+.hero-content div .call-to-action a {
     text-decoration: none;
     background-color: var(--PRIMARY-BG-COLOR);
 }
 
 /* WHY US */
-.why-us-card{
+.why-us-card {
     background-color: #0d314d;
     min-height: min-content;
-    border-radius: .4rem;
+    border-radius: 0.4rem;
 }
-.why-us-card p{
+.why-us-card p {
     text-align: justify;
     text-justify: inter-word;
     margin-top: 1rem;
 }
 
-.why-us-card a{
+.why-us-card a {
     text-decoration: none;
     color: rgb(69, 135, 197);
 }
 /* Services Card */
-.services-card .service-content-container{
+.services-card .service-content-container {
     height: min-content;
     display: flex;
     gap: 20px;
     background-color: var(--SECONDARY-BG-COLOR);
-    border-radius: .4rem;
-
+    border-radius: 0.4rem;
 }
 
-.services-card  .service_img{
+.services-card .service_img {
     max-width: 4rem;
 }
 
 /* History */
-.history,.inquiry{
+.history,
+.inquiry {
     background-color: var(--SECONDARY-BG-COLOR);
-    border-radius: .4rem;
+    border-radius: 0.4rem;
     margin-top: 5em;
     position: relative;
 }
 
-.history::before{
+.history::before {
     content: attr(data-content);
     position: absolute;
     top: -20px;
     background-color: var(--PRIMARY-BG-COLOR);
     padding-inline: 1em;
-    padding-block: .5em;
-    border-radius: .4rem;
-    box-shadow: 3px 2px 5px rgba(255, 255, 255, .5);
+    padding-block: 0.5em;
+    border-radius: 0.4rem;
+    box-shadow: 3px 2px 5px rgba(255, 255, 255, 0.5);
 }
 
 .history p {
@@ -193,64 +190,63 @@ nav{
     text-align: justify;
 }
 
-.history_img{
+.history_img {
     max-height: 620px;
 }
 
-.history_img img{
+.history_img img {
     width: 100%;
     height: 100%;
-    border-radius: .4rem;
+    border-radius: 0.4rem;
 }
 
-.history_img_content{
+.history_img_content {
     background-color: var(--SECONDARY-BG-COLOR);
-    border-radius: .4rem;
-
+    border-radius: 0.4rem;
 }
-.history_img_content small{
+.history_img_content small {
     font-weight: 300;
 }
 
 /* Branches */
-.card{
+.card {
     background-color: var(--PRIMARY-BG-COLOR);
     color: var(--PRIMARY-FONT-COLOR);
 }
 
-.card-img-top{
+.card-img-top {
     max-height: 10em;
     object-fit: cover;
 }
 
 /* Inqruiry form */
-.form-control{
-    background: transparent!important;
-    color: var(--PRIMARY-FONT-COLOR)!important;
+.form-control {
+    background: transparent !important;
+    color: var(--PRIMARY-FONT-COLOR) !important;
 }
-.form-select{
-    background: transparent!important;
+.form-select {
+    background: transparent !important;
     color: var(--PRIMARY-FONT-COLOR);
 }
 
-.form-select option{
+.form-select option {
     color: var(--SECONDARY-FONT-COLOR);
 }
 
-.inquiry textarea{
+.inquiry textarea {
     width: 100%;
     background-color: transparent;
-    border-radius: .4rem;
+    border-radius: 0.4rem;
     padding: 1em;
     color: var(--PRIMARY-FONT-COLOR);
 }
 
 /* Footer */
-.footer-container{
+.footer-container {
     background-color: var(--SECONDARY-BG-COLOR);
 }
 
-.footer-links{
+.footer-links {
     font-size: var(--MD-TEXT);
     text-decoration: none;
 }
