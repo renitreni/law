@@ -1,4 +1,4 @@
-<div class="container mb-4">
+{{-- <div class="container mb-4">
     <div class="row ">
         <div class="col-lg-8 mx-auto">
             <div class="card mt-2 mx-auto p-4 bg-light">
@@ -117,4 +117,48 @@
         </div>
         <!-- /.row-->
     </div>
+</div> --}}
+<div data-aos="fade-up" class="container inquiry p-5">
+    <h4>Send Inquiry</h4>
+    <form action="" class="row mt-4">
+        <div class="mb-3 col-md-3">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname">
+        </div>
+        <div class="mb-3 col-md-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname">
+        </div>
+
+        <div class="mb-3 col-md-6">
+            <label for="phonenumber" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phonenumber">
+        </div>
+
+        <div class="mb-3 col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email">
+        </div>
+
+        <div class="mb-3 col-md-6">
+            <label class="form-label">Please specify your legal issue</label>
+            <select class="form-select">
+                <option selected>Select Legal Issue</option>
+                <option value="Financial">Financial</option>
+                <option value="Parenting">Parenting</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+
+        <div class="mb-3 col-md-12">
+            <label class="form-label">Write your inquiry here</label>
+            <textarea rows="7"></textarea>
+        </div>
+
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">
+                <span>Send Inquiry</span>
+            </button>
+        </div>
+    </form>
 </div>

@@ -34,7 +34,7 @@
 </style>
 @endsection
 @section('contents')
-@include('includes.pages-hero-breadcrumbs',['page'=>'Gallery'])
+{{-- @include('includes.pages-hero-breadcrumbs',['page'=>'Gallery']) --}}
 <section x-data="{open:false,imgSrc:''}" class="ftco-section contact-section">
     <div class="container">
         <div class="row text-center text-lg-start">

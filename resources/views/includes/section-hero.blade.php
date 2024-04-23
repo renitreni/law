@@ -1,25 +1,25 @@
-<div class="hero-wrap js-fullheight"
-    style="background-image: url({{ asset('images/icon.png') }});
-           background-position: center;
-           background-repeat: no-repeat;
-           background-size: contain;
-"
-    data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
-            data-scrollax-parent="true">
-            <div class="col-md-6 ftco-animate">
-                <h2 class="subheading">{{ __('Welcome To Meshari Alhumaidi Law Firm') }}</h2>
-                <h1>{{ __('Attorneys Fighting For Your') }}
-                    <span class="txt-rotate" data-period="2000"
-                        data-rotate='[ "{{ __('Freedom') }}.", "{{ __('Rights') }}.", "{{ __('Case') }}.", "{{ __('Custody') }}." ]'></span>
-                </h1>
-                <!-- <h1 class="mb-4">Attorneys Fighting For Your Freedom</h1> -->
-                <p class="mb-4">{{__('We have help thousands of people to get relief from national wide fights wrongfull
-                    denials. Now they trusted legalcare attorneys')}}</p>
-                <p><a href="/contact" class="btn btn-primary mr-md-4 py-2 px-4">{{ __('Get Legal Advice') }}<span
-                            class="ion-ios-arrow-forward"></span></a></p>
+<div class="hero-section">
+    <img src="https://images.unsplash.com/photo-1481151500463-1fa2dd2d5dbe?q=80&w=1651&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="hero-bg">
+    <div class="hero-color-bg"></div>
+
+    <!-- content -->
+    <div class="hero-content">
+        <div>
+            <h4> MESHARI ALHUMAIDI LAW FIRM</h4>
+            <!-- <h6> LAW FIRM </h6> -->
+            <p>We have help thousands of people to get relief from national wide fights wrongfull denials. Now they
+                trusted legalcare attorneys.</p>
+
+            <div data-aos="fade-up" class="call-to-action">
+                <a class="btn btn-primary" href="{{ route('inquire',['lang'=>$lang]) }}">
+                    <span>INQUIRE NOW</span>
+                    <!-- <i class='bx bx-chevron-right'></i>  -->
+                </a>
+                <a class="btn btn-primary" href="{{ route('services',['lang'=>$lang]) }}">
+                    <span>SERVICES</span>
+                    <!-- <i class='bx bxs-briefcase bx-xs'></i> -->
+                </a>
             </div>
         </div>
     </div>
