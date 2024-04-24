@@ -23,20 +23,20 @@
     "file": "assets/fa-brands-400-5656d596.ttf",
     "src": "resources/vendor/fontawesome/webfonts/fa-brands-400.ttf"
   },
-  "resources/vendor/fontawesome/webfonts/fa-solid-900.ttf": {
-    "file": "assets/fa-solid-900-fbbf06d7.ttf",
-    "src": "resources/vendor/fontawesome/webfonts/fa-solid-900.ttf"
-  },
   "resources/vendor/fontawesome/webfonts/fa-v4compatibility.ttf": {
     "file": "assets/fa-v4compatibility-09663a36.ttf",
     "src": "resources/vendor/fontawesome/webfonts/fa-v4compatibility.ttf"
+  },
+  "resources/vendor/fontawesome/webfonts/fa-solid-900.ttf": {
+    "file": "assets/fa-solid-900-fbbf06d7.ttf",
+    "src": "resources/vendor/fontawesome/webfonts/fa-solid-900.ttf"
   },
   "resources/js/app.css": {
     "file": "assets/app-f6cbb402.css",
     "src": "resources/js/app.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-932a5892.css",
+    "file": "assets/app-88506e59.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },

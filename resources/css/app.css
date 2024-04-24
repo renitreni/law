@@ -10,6 +10,10 @@
     --HOVER-PRIMARY-TEXT-COLOR: #949191;
 }
 
+[x-cloak]{
+    display: none;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -250,3 +254,36 @@ nav {
     font-size: var(--MD-TEXT);
     text-decoration: none;
 }
+
+/* breadcrumbs */
+.breadcrumbs{
+    background-color: var(--SECONDARY-BG-COLOR);
+    min-height: 9em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--PRIMARY-FONT-COLOR);
+    text-transform: uppercase;
+}
+
+.bread-links a{
+    display: inline-flex;
+    gap: 10px;
+    list-style: none;
+    font-size: var(--SM-TEXT);
+}
+
+
+/* Attorneys */
+
+.card-title{
+    margin: 0;
+}
+
+
+.card-text{
+    margin-top: 1rem;
+    font-size: var(--MD-TEXT);
+}
+

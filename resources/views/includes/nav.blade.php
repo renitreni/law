@@ -31,7 +31,7 @@
 <!-- NAV -->
 <nav class="navbar navbar-expand-lg py-4">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="{{ asset('images/icon.png') }}" width="36" /></a>
+        <a class="navbar-brand" href="/"><img src="{{ asset('images/icon.png') }}" width="36" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarUnderlineExample" aria-controls="navbarExample" aria-expanded="false"
             aria-label="Toggle navigation">
