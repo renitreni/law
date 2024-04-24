@@ -1,6 +1,7 @@
 @extends('layouts.guest.index')
 @section('title',"Contact | Meshari Alhumaidi Law Firm")
 @section('contents')
+@include('includes.breadcrumbs',['page'=>"Contact"])
 <section class="ftco-section contact-section">
     <div class="container" x-data="{
                 isRiyadh: true,

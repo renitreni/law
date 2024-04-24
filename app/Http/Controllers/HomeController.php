@@ -23,13 +23,15 @@ class HomeController extends Controller
     public function attorneys(string $lang) : View
     {
         App::setLocale($lang);
-        return view('attorneys')->with('lang',$lang);
+        $json = json_decode(file_get_contents(public_path('json/attorneys.json'),true));
+        return view('attorneys')->with(['lang'=>$lang, "attorneys"=>$json->attorneys]);
     }
 
     public function services(string $lang) : View
     {
         App::setLocale($lang);
-        return view('services')->with('lang',$lang);
+        $json = json_decode(file_get_contents(public_path('json/services.json'),false));
+        return view('services')->with(['lang'=>$lang,'services'=>$json]);
     }
 
     public function gallery(string $lang) : View

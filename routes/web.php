@@ -13,8 +13,8 @@ use App\Livewire\OptionsLivewire;
 use App\Livewire\TimesheetLivewire;
 use App\Livewire\UserLivewire;
 
-Route::get('/',function(){
-    return redirect(route('welcome',['lang'=>'en']));
+Route::get('/', function () {
+    return redirect(route('welcome', ['lang' => 'en']));
 });
 
 
@@ -25,7 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/timesheet', TimesheetLivewire::class)->name('timesheet');
     Route::get('/options', OptionsLivewire::class)->name('options');
     Route::get('/matters', MatterLivewire::class)->name('matters');
-    Route::prefix('case')->group(function(){
+    Route::prefix('case')->group(function () {
         Route::get('/', CaseLivewire::class)->name('case');
         Route::get('/add', AddCaseLivewire::class)->name('add_case');
         Route::get('/edit/{id}', EditCaseLivewire::class)->name('edit_case');
@@ -36,11 +36,13 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::get('/{lang?}',[HomeController::class,'index'])->name('welcome');
-Route::get('/{lang?}/about',[HomeController::class,'about'])->name('about');
-Route::get('/{lang?}/attorneys',[HomeController::class,'attorneys'])->name('attorneys');
-Route::get('/{lang?}/list-services',[HomeController::class,'services'])->name('services');
-Route::get('/{lang?}/gallery',[HomeController::class,'gallery'])->name('galleries');
-Route::get('/{lang?}/contact',[HomeController::class,'contact'])->name('contact');
-Route::get('/{lang?}/inquire',[HomeController::class,'inquire'])->name('inquire');
-//Route::get('/{lang?}/services/{service}',[HomeController::class,'service'])->name('service');
+Route::prefix("/{lang?}")->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('welcome');
+    Route::get('/about', [HomeController::class, 'about'])->name('about');
+    Route::get('/attorneys', [HomeController::class, 'attorneys'])->name('attorneys');
+    Route::get('/list-services', [HomeController::class, 'services'])->name('services');
+    Route::get('/gallery', [HomeController::class, 'gallery'])->name('galleries');
+    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+    Route::get('/inquire', [HomeController::class, 'inquire'])->name('inquire');
+    Route::get('/list-services/{service}', [HomeController::class, 'service'])->name('service');
+});
