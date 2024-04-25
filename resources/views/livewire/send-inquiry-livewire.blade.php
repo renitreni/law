@@ -118,46 +118,59 @@
         <!-- /.row-->
     </div>
 </div> --}}
-<div data-aos="fade-up" class="container inquiry p-5">
-    <h4>Send Inquiry</h4>
-    <form action="" class="row mt-4">
+<div class="container inquiry p-5">
+    @if (session('success'))
+    <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+      </div>
+    @endif
+    <h4>{{ __('Send your inquiry') }}</h4>
+    <form wire:submit='send' class="row mt-4">
         <div class="mb-3 col-md-3">
-            <label for="firstname" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstname">
+            <label for="firstname" class="form-label">{{ __('Firstname') }}</label>
+            <input wire:model='firstname' type="text" class="form-control" id="firstname">
+            @error('firstname') <span class="text-danger fs-6">{{ $message }}</span>@enderror
         </div>
         <div class="mb-3 col-md-3">
-            <label for="lastname" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastname">
+            <label for="lastname" class="form-label">{{ __('Lastname') }}</label>
+            <input wire:model='lastname' type="text" class="form-control" id="lastname">
+            @error('lastname') <span class="text-danger fs-6">{{ $message }}</span>@enderror
         </div>
 
         <div class="mb-3 col-md-6">
-            <label for="phonenumber" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" id="phonenumber">
+            <label for="phonenumber" class="form-label">{{ __('Phone Number') }}</label>
+            <input wire:model='phonenumber' type="text" class="form-control" id="phonenumber">
+            @error('phonenumber') <span class="text-danger fs-6">{{ $message }}</span>@enderror
         </div>
 
         <div class="mb-3 col-md-6">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email">
+            <label for="email" class="form-label">{{ __('Email') }}</label>
+            <input wire:model='email' type="email" class="form-control" id="email">
+            @error('email') <span class="text-danger fs-6">{{ $message }}</span>@enderror
+
         </div>
 
         <div class="mb-3 col-md-6">
-            <label class="form-label">Please specify your legal issue</label>
-            <select class="form-select">
+            <label class="form-label">{{ __('Please specify your legal issue') }}</label>
+            <select wire:model='legalIssue' class="form-control form-select">
                 <option selected>Select Legal Issue</option>
                 <option value="Financial">Financial</option>
                 <option value="Parenting">Parenting</option>
                 <option value="Others">Others</option>
             </select>
+            @error('legalIssue') <span class="text-danger fs-6">{{ $message }}</span>@enderror
         </div>
 
         <div class="mb-3 col-md-12">
-            <label class="form-label">Write your inquiry here</label>
-            <textarea rows="7"></textarea>
+            <label class="form-label">{{ __('Write your inquiry here') }}</label>
+            <textarea wire:model='message' rows="7"></textarea>
+            @error('message') <span class="text-danger fs-6">{{ $message }}</span>@enderror
         </div>
 
         <div class="col-md-12">
-            <button type="submit" class="btn btn-primary">
-                <span>Send Inquiry</span>
+            <button wire:loading.attr='disabled' type="submit" class="btn btn-primary">
+                <span wire:loading.remove>{{ __('Send Inquiry') }}</span>
+                <span wire:loading>{{ __("Sending...") }}</span>
             </button>
         </div>
     </form>

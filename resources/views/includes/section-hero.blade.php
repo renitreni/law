@@ -1,6 +1,14 @@
-<div class="hero-section">
-    <img src="https://images.unsplash.com/photo-1481151500463-1fa2dd2d5dbe?q=80&w=1651&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="hero-bg">
+<div class="hero-section keen-slider" id="keen_slider">
+    @php
+        $links = [
+            "https://images.unsplash.com/photo-1481151500463-1fa2dd2d5dbe?q=80&w=1651&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1509964199763-e8c2f6549853?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        ]
+    @endphp
+    @foreach ($links as $link )
+    <img class="keen-slider__slide" src="{{ $link }}" alt="hero-bg">
+    @endforeach
     <div class="hero-color-bg"></div>
 
     <!-- content -->

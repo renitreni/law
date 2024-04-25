@@ -105,13 +105,15 @@ nav {
 }
 
 .hero-section .hero-content {
-    z-index: 20;
     display: flex;
+    width: 100%;
+    position: absolute;
     justify-content: center;
     align-items: center;
     height: 100%;
     color: var(--PRIMARY-FONT-COLOR);
 }
+
 
 .hero-content div {
     display: flex;
