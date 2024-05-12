@@ -36,6 +36,11 @@
                     <i class='bx bx-photo-album nav_icon' title="Gallery"></i>
                     <span class="nav_name">Gallery</span>
                 </a>
+                <a href="{{ route('invoice') }}" wire:click="$set('menu', 'invoice')"
+                class="nav_link @if ($this->menu == 'invoice') active @endif">
+                <i class='bx bx-receipt nav_icon' title="Invoice"></i>
+                <span class="nav_name">Invoice</span>
+            </a>
                 <a href="{{ route('user') }}" class="nav_link">
                     <i class='bx bx-user nav_icon' title="Users"></i>
                     <span class="nav_name">Users</span>

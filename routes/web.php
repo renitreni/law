@@ -8,6 +8,7 @@ use App\Livewire\CaseFeature\EditCaseLivewire;
 use App\Livewire\CaseLivewire;
 use App\Livewire\GalleryLivewire;
 use App\Livewire\InquiryLivewire;
+use App\Livewire\InvoiceLivewire;
 use App\Livewire\MatterLivewire;
 use App\Livewire\OptionsLivewire;
 use App\Livewire\TimesheetLivewire;
@@ -31,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/edit/{id}', EditCaseLivewire::class)->name('edit_case');
     });
     Route::get('/inquiry', InquiryLivewire::class)->name('inquiry');
+    Route::get('/invoice', InvoiceLivewire::class)->name('invoice');
     Route::get('/photos', GalleryLivewire::class)->name('gallery');
     Route::get('/user', UserLivewire::class)->name('user');
 });
