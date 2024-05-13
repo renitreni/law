@@ -1,6 +1,6 @@
 <div>
-    <div class="d-flex gap-2 justify-content-between align-items-center">
-        <span class="fs-5">{{ $addForm->case_title }} Case</span>
+    <div class="d-flex ms-4 gap-2 justify-content-between align-items-center">
+        <span class="fs-5">{{ $addForm->case_category }} Case</span>
         <div>
             <button wire:confirm='Are you sure to delete this case record?' wire:click='delete({{ $id }})'
                 class="btn gap-1 text-danger btn-sm">
@@ -16,16 +16,14 @@
 
     <form>
         <div class=" bg-slate-50 row rounded p-4 my-3">
-            @include('livewire.case-feature.@.case-info')
-        </div>
-
-        <div class=" bg-slate-50 row rounded p-4 my-3">
             @include('livewire.case-feature.@.client-info')
         </div>
 
         <div class=" bg-slate-50 row rounded p-4 my-3">
-            @include('livewire.case-feature.@.opponent-info')
+            @include('livewire.case-feature.@.case-info')
         </div>
+
+
         <div class=" bg-slate-50 row rounded p-4 my-3">
             <div class="d-inline-flex justify-content-between align-items-center w-100">
                 <h3>Court Information</h3>
@@ -64,14 +62,13 @@
             </table>
         </div>
         <div class="d-flex justify-content-end">
-            <button
-                wire:click='saveChanges({{ $id }})'
-                class="btn btn-primary"
-                type="button"
+            <button wire:click='saveChanges({{ $id }})' class="btn btn-primary" type="button"
                 x-text="'Save Changes &#10148;'">
             </button>
         </div>
     </form>
+    <hr>
+    @include('livewire.case-feature.@.case-files')
 </div>
 
 

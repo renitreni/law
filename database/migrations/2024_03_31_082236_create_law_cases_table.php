@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('law_cases', function (Blueprint $table) {
             $table->id();
-            $table->string('case_title')->nullable()->default('N/A');
-            $table->string('case_description')->nullable()->default('N/A');
+            $table->string('case_plaintiff')->nullable()->default('N/A');
+            $table->string('case_defendant')->nullable()->default('N/A');
+            $table->text('case_description')->nullable()->default('N/A');
             $table->string('case_category')->nullable()->default('N/A');
             $table->string('case_status')->nullable()->default('N/A');
             $table->string('case_attorney')->nullable()->default('N/A');

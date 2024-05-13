@@ -1,18 +1,18 @@
 <?php
 
+use App\Livewire\CaseLivewire;
+use App\Livewire\UserLivewire;
+use App\Livewire\MatterLivewire;
+use App\Livewire\GalleryLivewire;
+use App\Livewire\InquiryLivewire;
+use App\Livewire\InvoiceLivewire;
+use App\Livewire\OptionsLivewire;
+use App\Livewire\TimesheetLivewire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Livewire\CaseFeature\AddCaseLivewire;
 use App\Livewire\CaseFeature\EditCaseLivewire;
-use App\Livewire\CaseLivewire;
-use App\Livewire\GalleryLivewire;
-use App\Livewire\InquiryLivewire;
-use App\Livewire\InvoiceLivewire;
-use App\Livewire\MatterLivewire;
-use App\Livewire\OptionsLivewire;
-use App\Livewire\TimesheetLivewire;
-use App\Livewire\UserLivewire;
 
 Route::get('/', function () {
     return redirect(route('welcome', ['lang' => 'en']));
@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', CaseLivewire::class)->name('case');
         Route::get('/add', AddCaseLivewire::class)->name('add_case');
         Route::get('/edit/{id}', EditCaseLivewire::class)->name('edit_case');
+        Route::get('/download/{file}', fn(string $file)=> response()->download(Illuminate\Support\Facades\Storage::path("public/case/{$file}")))->name('download_file');
     });
     Route::get('/inquiry', InquiryLivewire::class)->name('inquiry');
     Route::get('/invoice', InvoiceLivewire::class)->name('invoice');

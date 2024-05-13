@@ -46,10 +46,12 @@ final class CaseTable extends PowerGridComponent
     {
         return PowerGrid::fields()
             ->add('id')
-            ->add('case_title')
+            ->add('case_plaintiff')
+            ->add('case_defendant')
             ->add('case_category')
             ->add('case_status')
-            ->add('case_title_lower', fn (LawCase $model) => strtolower(e($model->name)))
+            ->add('case_plaintiff_lower', fn (LawCase $model) => strtolower(e($model->case_plaintiff)))
+            ->add('case_defendant_lower', fn (LawCase $model) => strtolower(e($model->case_defendant)))
             ->add('created_at')
             ->add('case_date_formatted', fn (LawCase $model) => Carbon::parse($model->created_at)->format('d/m/Y'));
     }
@@ -57,7 +59,12 @@ final class CaseTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('Case Title', 'case_title')
+            Column::make('Plaintiff', 'case_plaintiff')
+                ->searchable()
+                ->sortable()
+                ->editOnClick(),
+
+            Column::make('Defendant', 'case_defendant')
                 ->searchable()
                 ->sortable()
                 ->editOnClick(),
@@ -74,7 +81,7 @@ final class CaseTable extends PowerGridComponent
                 ->searchable()
                 ->editOnClick(),
 
-            Column::make('Date Created','case_date_formatted','case_field'),
+            Column::make('Date Created', 'case_date_formatted', 'case_field'),
 
             Column::action('')
         ];
@@ -96,11 +103,11 @@ final class CaseTable extends PowerGridComponent
     {
         return [
             Button::add('edit')
-                    ->slot('<i class="fa-regular fa-pen-to-square"></i>')
-                    ->target('_self')
-                    ->route('edit_case',['id'=> $row->id])
-                    ->class('btn btn-sm btn-outline-primary')
-                    ->tooltip('Edit Record')
+                ->slot('<i class="fa-regular fa-pen-to-square"></i>')
+                ->target('_self')
+                ->route('edit_case', ['id' => $row->id])
+                ->class('btn btn-sm btn-outline-primary')
+                ->tooltip('Edit Record')
         ];
     }
 

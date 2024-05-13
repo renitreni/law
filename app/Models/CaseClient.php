@@ -13,13 +13,10 @@ class CaseClient extends Model
 
     protected $fillable = [
         'law_cases_id',
-        'name',
-        'contact',
-        'age',
-        'birthday',
-        'company',
-        'role',
-        'attorney'
+        'client_name',
+        'client_contact',
+        'client_email',
+        'client_company',
     ];
 
     public function case() : BelongsTo

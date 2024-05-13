@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('client_opponents', function (Blueprint $table) {
+        Schema::create('case_files', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('law_cases_id')->nullable();
             $table->foreign('law_cases_id')->references('id')->on('law_cases')->onDelete('cascade');
-            $table->string('name')->nullable()->default('N/A');
-            $table->integer('age')->nullable();
-            $table->date('birthday')->nullable();
-            $table->string('contact')->nullable()->default('N/A');
-            $table->string('company')->nullable()->default('N/A');
-            $table->string('role')->nullable()->default('N/A');
-            $table->string('attorney')->nullable()->default('N/A');
+            $table->string('filename')->nullable();
+            $table->string('uploaded_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('client_opponents');
+        Schema::dropIfExists('case_files');
     }
 };
