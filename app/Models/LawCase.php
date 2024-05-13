@@ -13,12 +13,13 @@ class LawCase extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'case_title',
+        'case_plaintiff',
+        'case_defendant',
         'case_description',
         'case_category',
         'case_status',
         'case_attorney',
-        'case_date'
+        'case_date',
     ];
 
     public function client() : HasOne
@@ -26,11 +27,10 @@ class LawCase extends Model
         return $this->hasOne(CaseClient::class,'law_cases_id','id');
     }
 
-    public function opponent() : HasOne
+    public function files(): HasMany
     {
-        return $this->hasOne(ClientOpponent::class,'law_cases_id','id');
+        return $this->hasMany(CaseFiles::class,'law_cases_id','id');
     }
-
     public function court() : HasMany
     {
         return $this->hasMany(CaseCourt::class,'law_cases_id','id');
