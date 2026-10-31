@@ -1,9 +1,9 @@
 import './bootstrap';
 import './carousel'
-import '../vendor/fontawesome/js/all';
-import './../../vendor/power-components/livewire-powergrid/dist/powergrid'
+import '@fortawesome/fontawesome-free/js/all';
+import '@powergrid/powergrid'
  // If you use Bootstrap 5
-import './../../vendor/power-components/livewire-powergrid/dist/bootstrap5.css'
+import '@powergrid/bootstrap5.css'
 import flatpickr from "flatpickr";
 
 document.addEventListener("DOMContentLoaded", function (event) {
