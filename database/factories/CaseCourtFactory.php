@@ -17,7 +17,9 @@ class CaseCourtFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'court_name' => $this->faker->company() . ' Court',
+            'court_date' => $this->faker->date(),
+            'court_address' => $this->faker->address(),
         ];
     }
 }

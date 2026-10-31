@@ -17,7 +17,7 @@ class ClientOpponentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // Add fields when ClientOpponent model is created
         ];
     }
 }

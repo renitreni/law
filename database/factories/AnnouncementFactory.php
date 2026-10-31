@@ -20,6 +20,7 @@ class AnnouncementFactory extends Factory
             'title' => $this->faker->word(),
             'description' => $this->faker->paragraph(),
             'type' => 'reminder',
+            'is_read' => false,
         ];
     }
 }

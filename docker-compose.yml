@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: law_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    ports:
+      - "127.0.0.1:8080:80"
+    env_file:
+      - .env
+    networks:
+      - law-net
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  mysql:
+    image: mysql:8.0
+    container_name: law_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-law}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_secret_change_me}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-secret_change_me}
+      MYSQL_USER: ${DB_USERNAME:-law}
+    volumes:
+      - law_mysql_data:/var/lib/mysql
+    ports:
+      - "127.0.0.1:3307:3306"
+    networks:
+      - law-net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: law_redis
+    restart: unless-stopped
+    volumes:
+      - law_redis_data:/data
+    ports:
+      - "127.0.0.1:6380:6379"
+    networks:
+      - law-net
+
+networks:
+  law-net:
+    driver: bridge
+
+volumes:
+  law_mysql_data:
+    driver: local
+  law_redis_data:
+    driver: local

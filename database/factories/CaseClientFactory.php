@@ -17,7 +17,10 @@ class CaseClientFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'client_name' => $this->faker->name(),
+            'client_contact' => $this->faker->phoneNumber(),
+            'client_email' => $this->faker->unique()->safeEmail(),
+            'client_company' => $this->faker->company(),
         ];
     }
 }
