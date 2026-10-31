@@ -24,12 +24,7 @@ yarn-error.log
 README.md
 Dockerfile
 docker-compose.yml
-docker-entrypoint.sh
-nginx/
 .env.docker.example
 DEPLOYMENT.md
 tests/
 phpunit.xml
-vite.config.js
-composer.lock
-package-lock.json

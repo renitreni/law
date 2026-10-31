@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.3-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libfreetype6-dev \
     libwebp-dev \
+    libicu-dev \
     zip \
     unzip \
     nginx \
@@ -29,9 +30,15 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 # Set working directory
 WORKDIR /var/www
 
-# Copy composer files and install PHP dependencies
+# Copy artisan and bootstrap first (needed for package:discover)
+COPY artisan .
+COPY bootstrap/ bootstrap/
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-progress
+
+# Install PHP dependencies (skip scripts to avoid artisan package:discover during build)
+RUN composer config --no-plugins allow-plugins.composer/installers true && \
+    composer config --no-plugins allow-plugins.pestphp/pest-plugin true && \
+    composer install --no-dev --optimize-autoloader --no-interaction --no-progress --ignore-platform-req=php --no-scripts
 
 # Copy package files and install JS dependencies + build assets
 COPY package.json package-lock.json ./
@@ -44,12 +51,19 @@ RUN npm ci && npm run build
 # Copy application code
 COPY . .
 
+# Run package:discover now that all files are in place
+RUN php artisan package:discover --ansi
+
+# Build assets again now that vendor folder is available (for powergrid assets)
+RUN npm run build
+
 # Set permissions
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # Copy Nginx and Supervisor configs
 COPY nginx/app.conf /etc/nginx/sites-available/default
+RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 

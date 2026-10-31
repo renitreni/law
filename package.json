@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "flatpickr": "^4.6.13",
-        "keen-slider": "^6.8.6"
+        "keen-slider": "^6.8.6",
+        "@fortawesome/fontawesome-free": "^6.4.0"
     }
 }
