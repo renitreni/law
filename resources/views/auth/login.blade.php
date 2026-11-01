@@ -1,98 +1,107 @@
-@extends('layouts.auth')
+@extends('layouts.guest.spark')
 
 @section('content')
-    <style>
-        .divider:after,
-        .divider:before {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #eee;
-        }
+    <!-- ==========================================
+         START: Authentication Container & Login Card
+         ========================================== -->
+    <div class="login-wrapper">
+        <!-- Glowing background shapes for modern visual appearance -->
+        <div class="login-bg-shape login-bg-shape-1"></div>
+        <div class="login-bg-shape login-bg-shape-2"></div>
 
-        .h-custom {
-            height: calc(100% - 73px);
-        }
+        <!-- Main centered login card -->
+        <div class="login-card">
 
-        @media (max-width: 450px) {
-            .h-custom {
-                height: 100%;
-            }
-        }
-    </style>
-    <section class="vh-100">
-        <div class="container-fluid h-custom">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-6 border p-5 rounded shadow">
-                    <div class="text-center mb-4">
-                        <img style="width:130px;" src="{{ asset('images/icon.png') }}" class="img-fluid" alt="Sample image">
+            <!-- Brand Identity -->
+            <a href="{{ url('/') }}" class="login-brand text-decoration-none">
+                <i class="bi bi-asterisk"></i>
+                <span>Spark Admin</span>
+            </a>
+
+            <p class="login-subtitle">Please sign in to access your dashboard</p>
+
+            <!-- Login Form -->
+            <form action="{{ route('login') }}" method="POST" id="loginForm" class="needs-validation" novalidate>
+                @csrf
+
+                <!-- General Auth Error -->
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-custom alert-custom-danger mb-4" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill alert-custom-icon"></i>
+                        <div class="alert-custom-content">
+                            {{ $errors->first() }}
+                        </div>
                     </div>
-                    <h2 class="text-center mb-4">Sign in</h2>
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <!-- Email input -->
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="form3Example4">Email</label>
-                            <input id="email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <!-- Password input -->
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="form3Example4">Password</label>
-                            <input id="password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <!-- Checkbox -->
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>
-                            </div>
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
-                            @endif
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">{{ __('Login') }}</button>
-                        </div>
-                    </form>
+                @endif
+
+                <!-- Email Input Group -->
+                <div class="login-form-group">
+                    <label for="email" class="login-form-label">Email Address</label>
+                    <div class="login-input-group">
+                        <i class="bi bi-envelope input-icon"></i>
+                        <input type="email" id="email" name="email" class="login-input @error('email') is-invalid @enderror" placeholder="name@company.com" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
+
+                <!-- Password Input Group -->
+                <div class="login-form-group">
+                    <label for="password" class="login-form-label">Password</label>
+                    <div class="login-input-group">
+                        <i class="bi bi-shield-lock input-icon"></i>
+                        <input type="password" id="password" name="password" class="login-input login-input-password @error('password') is-invalid @enderror" placeholder="••••••••" required autocomplete="current-password">
+                        @error('password')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <button type="button" class="password-toggle-btn" id="toggle-password" aria-label="Show password">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Options (Remember me & Forgot Password) -->
+                <div class="login-options">
+                    <label class="custom-control-label">
+                        <input type="checkbox" class="custom-checkbox-input" name="remember" id="rememberMe" {{ old('remember') ? 'checked' : '' }}>
+                        <span>Remember Me</span>
+                    </label>
+                    @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}" class="forgot-password-link">Forgot Password?</a>
+                    @endif
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-login" id="btn-submit">
+                    <span>Sign In to Dashboard</span>
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+
+            </form>
+
+            <!-- Divider -->
+            <div class="login-divider">Or sign in with</div>
+
+            <!-- Social Logins -->
+            <div class="social-login-grid">
+                <button class="btn-social" type="button" id="btn-google">
+                    <i class="bi bi-google text-danger"></i>
+                    <span>Google</span>
+                </button>
+                <button class="btn-social" type="button" id="btn-github">
+                    <i class="bi bi-github"></i>
+                    <span>GitHub</span>
+                </button>
             </div>
+
+            <!-- Footer Link -->
+            <p class="login-footer-text">
+                Don't have an account? <a href="#" id="link-register">Register Now</a>
+            </p>
+
         </div>
-
-        {{-- <div
-            class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-            <!-- Copyright -->
-            <div class="text-white mb-3 mb-md-0">
-                Copyright © 2020. All rights reserved.
-            </div>
-            <!-- Copyright -->
-
-            <!-- Right -->
-            <div>
-                <a href="#!" class="text-white me-4">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#!" class="text-white me-4">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#!" class="text-white me-4">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="#!" class="text-white">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-            <!-- Right -->
-        </div> --}}
-    </section>
+    </div>
+    <!-- END: Authentication Container -->
 
 @endsection
