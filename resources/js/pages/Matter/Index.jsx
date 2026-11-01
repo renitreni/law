@@ -3,7 +3,7 @@ import { useForm, Head, usePage, Link } from '@inertiajs/react';
 import AppLayout from '../../Layouts/AppLayout';
 
 export default function MatterIndex({ matters }) {
-    const { flash } = usePage().props;
+    const { flash = {} } = usePage().props;
     const [expandedMatter, setExpandedMatter] = React.useState(null);
     const { data: matterData, setData: setMatterData, post: postMatter, processing: matterProcessing, errors: matterErrors, reset: resetMatter } = useForm({ name: '', code: '' });
     const handleMatterSubmit = (e) => { e.preventDefault(); postMatter(route('matters.store'), { onSuccess: () => resetMatter() }); };
@@ -16,7 +16,7 @@ export default function MatterIndex({ matters }) {
         <AppLayout title="Matters - Law Practice Management">
             <Head><title>Matters - Law Practice Management</title></Head>
             <div className="page-header"><div><h1 className="page-title">Matters</h1><p className="page-subtitle">Manage practice matters and sub-matters</p></div></div>
-            {flash.success && <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">{flash.success}<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>}
+            {flash?.success && <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">{flash.success}<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>}
             <div className="row"><div className="col-12 col-lg-8">
                 <div className="card border-light shadow-sm">
                     <div className="card-header"><h2 className="card-title">Add Matter</h2></div>

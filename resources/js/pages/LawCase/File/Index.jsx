@@ -3,7 +3,7 @@ import { Link, usePage } from '@inertiajs/react';
 import AppLayout from '../../../Layouts/AppLayout';
 
 export default function FileIndex({ lawCase, files }) {
-    const { flash } = usePage().props;
+    const { flash = {} } = usePage().props;
 
     const formatSize = (bytes) => {
         if (!bytes) return '-';
@@ -29,7 +29,7 @@ export default function FileIndex({ lawCase, files }) {
                 </Link>
             </div>
 
-            {flash.success && (
+            {flash?.success && (
                 <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
                     {flash.success}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

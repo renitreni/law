@@ -21,6 +21,19 @@ class InertiaSmokeTest extends TestCase
         $response->assertInertia(fn ($page) => $page
             ->component('Welcome')
             ->has('message')
+            ->has('flash')
+        );
+    }
+
+    public function test_inertia_shares_flash_messages()
+    {
+        $response = $this->withSession(['success' => 'Operation successful'])
+            ->get('/inertia-test');
+
+        $response->assertInertia(fn ($page) => $page
+            ->component('Welcome')
+            ->where('flash.success', 'Operation successful')
+            ->where('flash.error', null)
         );
     }
 }

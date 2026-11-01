@@ -3,7 +3,7 @@ import { useForm, Head, usePage, Link } from '@inertiajs/react';
 import AppLayout from '../../Layouts/AppLayout';
 
 export default function GalleryIndex({ photos }) {
-    const { flash } = usePage().props;
+    const { flash = {} } = usePage().props;
     const { data, setData, post, processing, errors, reset } = useForm({
         photos: [],
     });
@@ -23,7 +23,7 @@ export default function GalleryIndex({ photos }) {
             <div className="page-header">
                 <div><h1 className="page-title">Gallery</h1><p className="page-subtitle">Manage photo gallery</p></div>
             </div>
-            {flash.success && <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">{flash.success}<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>}
+            {flash?.success && <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">{flash.success}<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>}
             <div className="row">
                 <div className="col-12 col-lg-6">
                     <div className="card border-light shadow-sm mb-4">

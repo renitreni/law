@@ -3,7 +3,7 @@ import { Link, usePage, Head } from '@inertiajs/react';
 import AppLayout from '../../Layouts/AppLayout';
 
 export default function UserIndex({ users }) {
-    const { flash } = usePage().props;
+    const { flash = {} } = usePage().props;
     const formatDate = (date) => date ? new Date(date).toLocaleDateString() : '-';
 
     return (
@@ -12,7 +12,7 @@ export default function UserIndex({ users }) {
             <div className="page-header">
                 <div><h1 className="page-title">Users</h1><p className="page-subtitle">Manage system users</p></div>
             </div>
-            {flash.success && <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">{flash.success}<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>}
+            {flash?.success && <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">{flash.success}<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>}
             <div className="card border-light shadow-sm">
                 <div className="table-responsive">
                     <table className="table-custom">

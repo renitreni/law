@@ -3,7 +3,7 @@ import { useForm, Head, usePage } from '@inertiajs/react';
 import AppLayout from '../../Layouts/AppLayout';
 
 export default function InvoiceIndex({ invoices }) {
-    const { flash } = usePage().props;
+    const { flash = {} } = usePage().props;
     const [services, setServices] = React.useState([{ service: '', amount: 0 }]);
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '', phoneNumber: '', address: '', services: [{ service: '', amount: 0 }],
@@ -18,7 +18,7 @@ export default function InvoiceIndex({ invoices }) {
         <AppLayout title="Invoice - Law Practice Management">
             <Head><title>Invoice - Law Practice Management</title></Head>
             <div className="page-header"><div><h1 className="page-title">Invoice</h1><p className="page-subtitle">Create and manage invoices</p></div></div>
-            {flash.success && <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">{flash.success}<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>}
+            {flash?.success && <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">{flash.success}<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>}
             <div className="row">
                 <div className="col-12 col-lg-8">
                     <div className="card border-light shadow-sm">

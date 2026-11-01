@@ -3,12 +3,12 @@ import { Link, usePage } from '@inertiajs/react';
 import AppLayout from '../../Layouts/AppLayout';
 
 export default function CaseIndex({ recentCases }) {
-    const { flash } = usePage().props;
+    const { flash = {} } = usePage().props;
 
     return (
         <AppLayout title="Cases - Law Practice Management">
             <div className="page-header"><div><h1 className="page-title">Cases</h1><p className="page-subtitle">Case dashboard overview</p></div><Link href="/case/add" className="btn-custom btn-custom-primary"><i className="bi bi-plus-lg"></i> Add Case</Link></div>
-            {flash.success && <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">{flash.success}<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>}
+            {flash?.success && <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">{flash.success}<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>}
             <div className="row g-4 mb-4">
                 <div className="col-12 col-md-6 col-lg-3"><Link href="/law-cases" className="text-decoration-none"><div className="card border-light shadow-sm h-100 dashboard-card"><div className="card-body"><div className="d-flex justify-content-between align-items-start"><div><h6 className="card-title text-muted mb-1">All Cases</h6><p className="display-6 mb-0">{recentCases.length > 0 ? 'Active' : '0'}</p></div><div className="dashboard-icon bg-primary"><i className="bi bi-folder"></i></div></div></div></div></Link></div>
                 <div className="col-12 col-md-6 col-lg-3"><Link href="/law-cases/create" className="text-decoration-none"><div className="card border-light shadow-sm h-100 dashboard-card"><div className="card-body"><div className="d-flex justify-content-between align-items-start"><div><h6 className="card-title text-muted mb-1">New Case</h6><p className="display-6 mb-0">Create</p></div><div className="dashboard-icon bg-success"><i className="bi bi-plus-lg"></i></div></div></div></div></Link></div>

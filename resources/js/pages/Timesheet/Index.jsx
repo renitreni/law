@@ -3,7 +3,7 @@ import { usePage, Link } from '@inertiajs/react';
 import AppLayout from '../../Layouts/AppLayout';
 
 export default function TimesheetIndex({ clients, matters, offices }) {
-    const { flash } = usePage().props;
+    const { flash = {} } = usePage().props;
 
     return (
         <AppLayout title="Timesheet - Law Practice Management">
@@ -14,7 +14,7 @@ export default function TimesheetIndex({ clients, matters, offices }) {
                 </div>
             </div>
 
-            {flash.success && (
+            {flash?.success && (
                 <div className="alert alert-success alert-dismissible fade show mb-4" role="alert">
                     {flash.success}
                     <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

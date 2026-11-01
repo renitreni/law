@@ -3,7 +3,7 @@ import { Link, usePage } from '@inertiajs/react';
 import AppLayout from '../../../Layouts/AppLayout';
 
 export default function ClientIndex({ lawCase, clients }) {
-    const { flash } = usePage().props;
+    const { flash = {} } = usePage().props;
 
     return (
         <AppLayout title={`Clients - Case #${lawCase.id} - Law Practice Management`}>
@@ -17,7 +17,7 @@ export default function ClientIndex({ lawCase, clients }) {
                 </Link>
             </div>
 
-            {flash.success && (
+            {flash?.success && (
                 <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
                     {flash.success}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
