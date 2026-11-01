@@ -15,12 +15,12 @@
         "laravel/ui": "^4.2",
         "livewire/livewire": "^3.4",
         "openspout/openspout": "^4.23",
-        "power-components/livewire-powergrid": "^5.4"
+        "power-components/livewire-powergrid": "^5.4",
+        "fakerphp/faker": "^1.9.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.12",
         "doctrine/dbal": "^3.0",
-        "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
