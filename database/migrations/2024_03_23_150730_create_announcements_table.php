@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('announcements', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->integer('is_read')->default(0);
             $table->foreignIdFor(User::class);
             $table->string('type')->default('reminder'); // reminder
