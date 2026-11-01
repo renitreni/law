@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CaseClientController;
+use App\Http\Controllers\CaseCourtController;
+use App\Http\Controllers\CaseFileController;
 use App\Http\Controllers\LawCaseController;
 use App\Livewire\CaseFeature\AddCaseLivewire;
 use App\Livewire\CaseFeature\EditCaseLivewire;
@@ -25,6 +28,12 @@ Route::get('/inertia-test', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('law-cases', LawCaseController::class);
+
+    Route::prefix('law-cases/{lawCase}')->group(function () {
+        Route::resource('clients', CaseClientController::class)->names('law-cases.clients');
+        Route::resource('courts', CaseCourtController::class)->names('law-cases.courts');
+        Route::resource('files', CaseFileController::class)->names('law-cases.files');
+    });
 
     Route::get('/timesheet', TimesheetLivewire::class)->name('timesheet');
     Route::get('/options', OptionsLivewire::class)->name('options');

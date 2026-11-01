@@ -14,7 +14,13 @@ class CaseFiles extends Model
     protected $fillable = [
         'law_cases_id',
         'filename',
+        'file_path',
+        'file_size',
         'uploaded_by',
+    ];
+
+    protected $casts = [
+        'file_size' => 'integer',
     ];
 
     public function case(): BelongsTo
