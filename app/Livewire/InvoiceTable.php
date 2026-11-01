@@ -5,16 +5,15 @@ namespace App\Livewire;
 use App\Models\Invoice;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Livewire\Attributes\On;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Exportable;
-use PowerComponents\LivewirePowerGrid\Facades\Filter;
-use PowerComponents\LivewirePowerGrid\Facades\Rule;
 use PowerComponents\LivewirePowerGrid\Footer;
 use PowerComponents\LivewirePowerGrid\Header;
 use PowerComponents\LivewirePowerGrid\PowerGrid;
-use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\PowerGridFields;
 
 final class InvoiceTable extends PowerGridComponent
 {
@@ -68,7 +67,7 @@ final class InvoiceTable extends PowerGridComponent
             Column::make('Created at', 'created_at_formatted', 'created_at')
                 ->searchable(),
 
-            Column::action('Action')
+            Column::action('Action'),
         ];
     }
 
@@ -77,17 +76,17 @@ final class InvoiceTable extends PowerGridComponent
         return [];
     }
 
-    #[\Livewire\Attributes\On('edit')]
+    #[On('edit')]
     public function edit($row): void
     {
         $this->dispatch('show-invoice', row: $row);
     }
 
-    #[\Livewire\Attributes\On('delete')]
+    #[On('delete')]
     public function delete($id): void
     {
         Invoice::find($id)->delete();
-        session()->flash('success','Delete successfully');
+        session()->flash('success', 'Delete successfully');
     }
 
     public function actions(Invoice $row): array
@@ -102,7 +101,7 @@ final class InvoiceTable extends PowerGridComponent
                 ->slot('Delete')
                 ->id()
                 ->class('btn btn-sm btn-danger')
-                ->dispatch('delete', ['id' => $row->id])
+                ->dispatch('delete', ['id' => $row->id]),
         ];
     }
 }

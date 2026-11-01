@@ -2,12 +2,12 @@
 
 namespace Tests\Unit\Models;
 
-use App\Models\LawCase;
 use App\Models\CaseClient;
 use App\Models\CaseCourt;
 use App\Models\CaseFiles;
-use Tests\TestCase;
+use App\Models\LawCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class LawCaseTest extends TestCase
 {

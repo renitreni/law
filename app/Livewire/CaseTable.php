@@ -8,20 +8,22 @@ use Illuminate\Support\Carbon;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Exportable;
-use PowerComponents\LivewirePowerGrid\Facades\Filter;
 use PowerComponents\LivewirePowerGrid\Facades\Rule;
 use PowerComponents\LivewirePowerGrid\Footer;
 use PowerComponents\LivewirePowerGrid\Header;
 use PowerComponents\LivewirePowerGrid\PowerGrid;
-use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 
 final class CaseTable extends PowerGridComponent
 {
     use WithExport;
+
     public int $perPage = 5;
+
     public array $perPageValues = [0, 5, 10, 20, 50];
+
     public function setUp(): array
     {
         $this->showCheckBox();
@@ -83,14 +85,14 @@ final class CaseTable extends PowerGridComponent
 
             Column::make('Date Created', 'case_date_formatted', 'case_field'),
 
-            Column::action('')
+            Column::action(''),
         ];
     }
 
     public function onUpdatedEditable(int|string $id, string $field, string $value): void
     {
         LawCase::query()->find($id)->update([
-            $field => $value
+            $field => $value,
         ]);
     }
 
@@ -107,7 +109,7 @@ final class CaseTable extends PowerGridComponent
                 ->target('_self')
                 ->route('edit_case', ['id' => $row->id])
                 ->class('btn btn-sm btn-outline-primary')
-                ->tooltip('Edit Record')
+                ->tooltip('Edit Record'),
         ];
     }
 

@@ -3,13 +3,14 @@
 namespace Tests\Unit\Http\Resources;
 
 use App\Http\Resources\CalendarSummaryResource;
+use Illuminate\Http\Request;
 use Tests\TestCase;
 
 class CalendarSummaryResourceTest extends TestCase
 {
     public function test_calendar_summary_resource_transforms_data_correctly()
     {
-        $resource = new CalendarSummaryResource((object)[
+        $resource = new CalendarSummaryResource((object) [
             'posted' => 5.5,
             'draft' => 2.0,
             'billable' => 4.0,
@@ -17,7 +18,7 @@ class CalendarSummaryResourceTest extends TestCase
             'entry_date' => '2024-01-15',
         ]);
 
-        $array = $resource->toArray($this->createMock(\Illuminate\Http\Request::class));
+        $array = $resource->toArray($this->createMock(Request::class));
 
         $this->assertArrayHasKey('title', $array);
         $this->assertArrayHasKey('start', $array);

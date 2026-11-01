@@ -1,56 +1,206 @@
 {
-  "resources/vendor/fontawesome/webfonts/fa-solid-900.woff2": {
-    "file": "assets/fa-solid-900-9fc85f3a.woff2",
-    "src": "resources/vendor/fontawesome/webfonts/fa-solid-900.woff2"
+  "_AppLayout-d1b6e489.js": {
+    "file": "assets/AppLayout-d1b6e489.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
   },
-  "resources/vendor/fontawesome/webfonts/fa-regular-400.woff2": {
-    "file": "assets/fa-regular-400-2bccecf0.woff2",
-    "src": "resources/vendor/fontawesome/webfonts/fa-regular-400.woff2"
+  "resources/css/app.css": {
+    "file": "assets/app-4edc88c0.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
   },
-  "resources/vendor/fontawesome/webfonts/fa-brands-400.woff2": {
-    "file": "assets/fa-brands-400-3a8924cd.woff2",
-    "src": "resources/vendor/fontawesome/webfonts/fa-brands-400.woff2"
+  "resources/js/app.jsx": {
+    "dynamicImports": [
+      "resources/js/pages/LawCase/Client/Create.jsx",
+      "resources/js/pages/LawCase/Client/Edit.jsx",
+      "resources/js/pages/LawCase/Client/Index.jsx",
+      "resources/js/pages/LawCase/Client/Show.jsx",
+      "resources/js/pages/LawCase/Court/Create.jsx",
+      "resources/js/pages/LawCase/Court/Edit.jsx",
+      "resources/js/pages/LawCase/Court/Index.jsx",
+      "resources/js/pages/LawCase/Court/Show.jsx",
+      "resources/js/pages/LawCase/Create.jsx",
+      "resources/js/pages/LawCase/Edit.jsx",
+      "resources/js/pages/LawCase/File/Create.jsx",
+      "resources/js/pages/LawCase/File/Index.jsx",
+      "resources/js/pages/LawCase/Index.jsx",
+      "resources/js/pages/LawCase/Show.jsx",
+      "resources/js/pages/Welcome.jsx"
+    ],
+    "file": "assets/app-f92fa9c0.js",
+    "isEntry": true,
+    "src": "resources/js/app.jsx"
   },
-  "resources/vendor/fontawesome/webfonts/fa-v4compatibility.woff2": {
-    "file": "assets/fa-v4compatibility-4d4a2d7f.woff2",
-    "src": "resources/vendor/fontawesome/webfonts/fa-v4compatibility.woff2"
+  "resources/js/pages/LawCase/Client/Create.jsx": {
+    "file": "assets/Create-c2055cdd.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Client/Create.jsx"
   },
-  "resources/vendor/fontawesome/webfonts/fa-regular-400.ttf": {
-    "file": "assets/fa-regular-400-5d02dc9b.ttf",
-    "src": "resources/vendor/fontawesome/webfonts/fa-regular-400.ttf"
+  "resources/js/pages/LawCase/Client/Edit.jsx": {
+    "file": "assets/Edit-67a550ef.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Client/Edit.jsx"
   },
-  "resources/vendor/fontawesome/webfonts/fa-solid-900.ttf": {
-    "file": "assets/fa-solid-900-fbbf06d7.ttf",
-    "src": "resources/vendor/fontawesome/webfonts/fa-solid-900.ttf"
+  "resources/js/pages/LawCase/Client/Index.jsx": {
+    "file": "assets/Index-5af00e26.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Client/Index.jsx"
+  },
+  "resources/js/pages/LawCase/Client/Show.jsx": {
+    "file": "assets/Show-63fb432f.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Client/Show.jsx"
+  },
+  "resources/js/pages/LawCase/Court/Create.jsx": {
+    "file": "assets/Create-855f6f91.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Court/Create.jsx"
+  },
+  "resources/js/pages/LawCase/Court/Edit.jsx": {
+    "file": "assets/Edit-62927cda.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Court/Edit.jsx"
+  },
+  "resources/js/pages/LawCase/Court/Index.jsx": {
+    "file": "assets/Index-fee54c35.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Court/Index.jsx"
+  },
+  "resources/js/pages/LawCase/Court/Show.jsx": {
+    "file": "assets/Show-6cd7d699.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Court/Show.jsx"
+  },
+  "resources/js/pages/LawCase/Create.jsx": {
+    "file": "assets/Create-b89a73d6.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Create.jsx"
+  },
+  "resources/js/pages/LawCase/Edit.jsx": {
+    "file": "assets/Edit-56a68df4.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Edit.jsx"
+  },
+  "resources/js/pages/LawCase/File/Create.jsx": {
+    "file": "assets/Create-688c63de.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/File/Create.jsx"
+  },
+  "resources/js/pages/LawCase/File/Index.jsx": {
+    "file": "assets/Index-d352fc08.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/File/Index.jsx"
+  },
+  "resources/js/pages/LawCase/Index.jsx": {
+    "file": "assets/Index-e1ebdd9a.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Index.jsx"
+  },
+  "resources/js/pages/LawCase/Show.jsx": {
+    "file": "assets/Show-52d69cd4.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-d1b6e489.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/LawCase/Show.jsx"
+  },
+  "resources/js/pages/Welcome.jsx": {
+    "file": "assets/Welcome-1daf2e97.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Welcome.jsx"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-68f7ada9.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
   },
   "resources/vendor/fontawesome/webfonts/fa-brands-400.ttf": {
     "file": "assets/fa-brands-400-5656d596.ttf",
     "src": "resources/vendor/fontawesome/webfonts/fa-brands-400.ttf"
   },
+  "resources/vendor/fontawesome/webfonts/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-3a8924cd.woff2",
+    "src": "resources/vendor/fontawesome/webfonts/fa-brands-400.woff2"
+  },
+  "resources/vendor/fontawesome/webfonts/fa-regular-400.ttf": {
+    "file": "assets/fa-regular-400-5d02dc9b.ttf",
+    "src": "resources/vendor/fontawesome/webfonts/fa-regular-400.ttf"
+  },
+  "resources/vendor/fontawesome/webfonts/fa-regular-400.woff2": {
+    "file": "assets/fa-regular-400-2bccecf0.woff2",
+    "src": "resources/vendor/fontawesome/webfonts/fa-regular-400.woff2"
+  },
+  "resources/vendor/fontawesome/webfonts/fa-solid-900.ttf": {
+    "file": "assets/fa-solid-900-fbbf06d7.ttf",
+    "src": "resources/vendor/fontawesome/webfonts/fa-solid-900.ttf"
+  },
+  "resources/vendor/fontawesome/webfonts/fa-solid-900.woff2": {
+    "file": "assets/fa-solid-900-9fc85f3a.woff2",
+    "src": "resources/vendor/fontawesome/webfonts/fa-solid-900.woff2"
+  },
   "resources/vendor/fontawesome/webfonts/fa-v4compatibility.ttf": {
     "file": "assets/fa-v4compatibility-09663a36.ttf",
     "src": "resources/vendor/fontawesome/webfonts/fa-v4compatibility.ttf"
   },
-  "resources/js/app.css": {
-    "file": "assets/app-637d7e36.css",
-    "src": "resources/js/app.css"
-  },
-  "resources/css/app.css": {
-    "file": "assets/app-4edc88c0.css",
-    "src": "resources/css/app.css",
-    "isEntry": true
-  },
-  "resources/sass/app.scss": {
-    "file": "assets/app-c669cf15.css",
-    "src": "resources/sass/app.scss",
-    "isEntry": true
-  },
-  "resources/js/app.js": {
-    "file": "assets/app-14db92e9.js",
-    "src": "resources/js/app.js",
-    "isEntry": true,
-    "css": [
-      "assets/app-637d7e36.css"
-    ]
+  "resources/vendor/fontawesome/webfonts/fa-v4compatibility.woff2": {
+    "file": "assets/fa-v4compatibility-4d4a2d7f.woff2",
+    "src": "resources/vendor/fontawesome/webfonts/fa-v4compatibility.woff2"
   }
 }

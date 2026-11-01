@@ -14,11 +14,17 @@ class CaseFiles extends Model
     protected $fillable = [
         'law_cases_id',
         'filename',
-        'uploaded_by'
+        'file_path',
+        'file_size',
+        'uploaded_by',
     ];
 
-    public function case():BelongsTo
+    protected $casts = [
+        'file_size' => 'integer',
+    ];
+
+    public function case(): BelongsTo
     {
-        return $this->belongsTo(LawCase::class,'law_cases_id','id');
+        return $this->belongsTo(LawCase::class, 'law_cases_id', 'id');
     }
 }

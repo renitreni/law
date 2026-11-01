@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Gallery;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Gallery>
+ * @extends Factory<Gallery>
  */
 class GalleryFactory extends Factory
 {
@@ -17,7 +18,7 @@ class GalleryFactory extends Factory
     public function definition(): array
     {
         return [
-            'photo_name' => $this->faker->uuid() . '.jpg',
+            'photo_name' => $this->faker->uuid().'.jpg',
         ];
     }
 }

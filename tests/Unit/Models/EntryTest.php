@@ -2,13 +2,13 @@
 
 namespace Tests\Unit\Models;
 
-use App\Models\Entry;
 use App\Models\Client;
+use App\Models\Entry;
 use App\Models\Matter;
-use App\Models\SubMatter;
 use App\Models\Office;
-use Tests\TestCase;
+use App\Models\SubMatter;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class EntryTest extends TestCase
 {

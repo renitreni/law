@@ -12,14 +12,13 @@ class Invoice extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        "name",
+        'name',
         'phoneNumber',
-        'address'
+        'address',
     ];
 
     public function services(): HasMany
     {
         return $this->hasMany(InvoiceService::class);
     }
-
 }

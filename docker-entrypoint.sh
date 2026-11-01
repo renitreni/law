@@ -9,8 +9,19 @@ fi
 # Create storage link
 php artisan storage:link --force
 
-# Run migrations
-php artisan migrate --force
+# Wait for database to be ready (retry up to 30 times with 2s intervals)
+echo "Waiting for database connection..."
+for i in {1..30}; do
+    if php artisan migrate --force 2>/dev/null; then
+        echo "Database migration completed."
+        break
+    fi
+    echo "Database not ready, waiting... ($i/30)"
+    sleep 2
+done
+
+# Publish Livewire assets (fixes "assets out of date" warning)
+php artisan vendor:publish --tag=livewire:assets --force
 
 # Cache config, routes, views
 php artisan config:cache

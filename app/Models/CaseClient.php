@@ -19,8 +19,8 @@ class CaseClient extends Model
         'client_company',
     ];
 
-    public function case() : BelongsTo
+    public function case(): BelongsTo
     {
-        return $this->belongsTo(LawCase::class,'law_cases_id','id');
+        return $this->belongsTo(LawCase::class, 'law_cases_id', 'id');
     }
 }

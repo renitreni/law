@@ -1,5 +1,5 @@
 @extends('layouts.guest.index')
-@section('title',"Gallery | Meshari Alhumaidi Law Firm")
+@section('title',"Gallery | Law Practice Management")
 @section('styles')
 <style>
     .img-container {

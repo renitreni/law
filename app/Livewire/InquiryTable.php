@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Inquiry;
 use Illuminate\Database\Eloquent\Builder;
+use Livewire\Attributes\On;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Exportable;
@@ -84,7 +85,7 @@ final class InquiryTable extends PowerGridComponent
         return [];
     }
 
-    #[\Livewire\Attributes\On('delete')]
+    #[On('delete')]
     public function delete($rowId): void
     {
         Inquiry::where('id', $rowId)->delete();

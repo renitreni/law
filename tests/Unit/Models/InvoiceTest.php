@@ -4,8 +4,8 @@ namespace Tests\Unit\Models;
 
 use App\Models\Invoice;
 use App\Models\InvoiceService;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class InvoiceTest extends TestCase
 {

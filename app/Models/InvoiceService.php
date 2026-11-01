@@ -13,10 +13,10 @@ class InvoiceService extends Model
 
     protected $fillable = [
         'service',
-        'amount'
+        'amount',
     ];
 
-    public function invoice() : BelongsTo
+    public function invoice(): BelongsTo
     {
         return $this->belongsTo(Invoice::class);
     }

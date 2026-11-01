@@ -3,8 +3,8 @@
 namespace Tests\Unit\Models;
 
 use App\Models\Client;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class ClientTest extends TestCase
 {

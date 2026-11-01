@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Client;
+use App\Models\Entry;
 use App\Models\Matter;
 use App\Models\Office;
 use App\Models\SubMatter;
@@ -10,7 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Entry>
+ * @extends Factory<Entry>
  */
 class EntryFactory extends Factory
 {
@@ -21,32 +22,18 @@ class EntryFactory extends Factory
      */
     public function definition()
     {
-        $client = Client::query()->inRandomOrder()->first();
-        $matter = Matter::query()->inRandomOrder()->first();
-        $subMatter = SubMatter::query()
-            ->where('matter_id', $matter->id)
-            ->inRandomOrder()
-            ->first();
-        $office = Office::query()->inRandomOrder()->first();
-        $isTemplate = $this->faker->numberBetween(0, 1);
-
-        $templateName = null;
-        if ($isTemplate) {
-            $templateName = $this->faker->word();
-        }
-
         return [
-            'client_id' => $client->id,
-            'matter_id' => $matter->id,
-            'sub_matter_id' => $subMatter->id,
-            'office_id' => $office->id,
+            'client_id' => Client::factory(),
+            'matter_id' => Matter::factory(),
+            'sub_matter_id' => SubMatter::factory(),
+            'office_id' => Office::factory(),
             'entry_date' => Carbon::parse($this->faker->dateTimeBetween('-1 months', '+5 months'))->startOfDay(),
             'duration' => $this->faker->randomFloat(2, 0.1, 0.8),
             'narrative' => $this->faker->sentence(),
-            'template_name' => $templateName,
-            'is_template' => $isTemplate,
-            'is_draft' => $this->faker->numberBetween(0, 1),
-            'is_billable' => $this->faker->numberBetween(0, 1),
+            'template_name' => $this->faker->optional()->word(),
+            'is_template' => $this->faker->boolean(),
+            'is_draft' => $this->faker->boolean(),
+            'is_billable' => $this->faker->boolean(),
         ];
     }
 }

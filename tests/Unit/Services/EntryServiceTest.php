@@ -2,15 +2,14 @@
 
 namespace Tests\Unit\Services;
 
-use App\Services\EntryService;
-use App\Models\Entry;
 use App\Models\Client;
+use App\Models\Entry;
 use App\Models\Matter;
-use App\Models\SubMatter;
 use App\Models\Office;
-use Tests\TestCase;
+use App\Models\SubMatter;
+use App\Services\EntryService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Carbon\Carbon;
+use Tests\TestCase;
 
 class EntryServiceTest extends TestCase
 {
@@ -21,7 +20,7 @@ class EntryServiceTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->service = new EntryService();
+        $this->service = new EntryService;
     }
 
     public function test_get_entry_by_date_returns_entries_for_given_date()
@@ -80,6 +79,7 @@ class EntryServiceTest extends TestCase
             'narrative' => 'First entry',
         ]);
 
+        // Ensure the second entry has a later created_at
         $entry2 = Entry::factory()->create([
             'client_id' => $client->id,
             'matter_id' => $matter->id,
@@ -87,6 +87,7 @@ class EntryServiceTest extends TestCase
             'office_id' => $office->id,
             'entry_date' => $date,
             'narrative' => 'Second entry',
+            'created_at' => now()->addSecond(),
         ]);
 
         $result = $this->service->getEntryByDate($date);

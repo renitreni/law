@@ -1,5 +1,5 @@
 @extends('layouts.guest.index')
-@section('title',"Contact | Meshari Alhumaidi Law Firm")
+@section('title',"Contact | Law Practice Management")
 @section('contents')
 @include('includes.breadcrumbs',['page'=>"Contact"])
 <section class="ftco-section contact-section">
@@ -51,7 +51,7 @@
                 <div class="col-md-3">
                     @php
                     $emails = [
-                        "info@mesharialhumlaw.com",
+                        "info@lawpractice.com",
                     ]
                     @endphp
                     <span>Email:</span>
@@ -127,7 +127,7 @@
                 <div class="col-md-3">
                     @php
                     $emails = [
-                        "info@mesharialhumlaw.com",
+                        "info@lawpractice.com",
                     ]
                     @endphp
                     <span>Email:</span>
@@ -183,7 +183,7 @@
                 <div class="col-md-3">
                     @php
                     $emails = [
-                        "info@mesharialhumlaw.com",
+                        "info@lawpractice.com",
                     ]
                     @endphp
                     <span>Email:</span>

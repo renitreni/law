@@ -7,56 +7,63 @@ use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
-
-    public function index(string $lang) : View
+    public function index(string $lang): View
     {
         App::setLocale($lang);
-        return view('welcome')->with('lang',$lang);
+
+        return view('welcome')->with('lang', $lang);
     }
 
-    public function about(string $lang) : View
+    public function about(string $lang): View
     {
         App::setLocale($lang);
-        return view('about')->with('lang',$lang);
+
+        return view('about')->with('lang', $lang);
     }
 
-    public function attorneys(string $lang) : View
+    public function attorneys(string $lang): View
     {
         App::setLocale($lang);
-        $json = json_decode(file_get_contents(public_path('json/attorneys.json'),true));
-        return view('attorneys')->with(['lang'=>$lang, "attorneys"=>$json->attorneys]);
+        $json = json_decode(file_get_contents(public_path('json/attorneys.json'), true));
+
+        return view('attorneys')->with(['lang' => $lang, 'attorneys' => $json->attorneys]);
     }
 
-    public function services(string $lang) : View
+    public function services(string $lang): View
     {
         App::setLocale($lang);
-        $json = json_decode(file_get_contents(public_path('json/services.json'),false));
-        return view('services')->with(['lang'=>$lang,'services'=>$json]);
+        $json = json_decode(file_get_contents(public_path('json/services.json'), false));
+
+        return view('services')->with(['lang' => $lang, 'services' => $json]);
     }
 
-    public function gallery(string $lang) : View
+    public function gallery(string $lang): View
     {
         App::setLocale($lang);
-        return view('gallery')->with('lang',$lang);
+
+        return view('gallery')->with('lang', $lang);
     }
 
-    public function contact(string $lang) : View
+    public function contact(string $lang): View
     {
         App::setLocale($lang);
-        return view('contact')->with('lang',$lang);
+
+        return view('contact')->with('lang', $lang);
     }
 
-    public function inquire(string $lang) : View
+    public function inquire(string $lang): View
     {
         App::setLocale($lang);
-        return view('inquire')->with('lang',$lang);
+
+        return view('inquire')->with('lang', $lang);
     }
 
-    public function service(string $lang, string $service) : View
+    public function service(string $lang, string $service): View
     {
         App::setLocale($lang);
-        $json = json_decode(file_get_contents(public_path('json/services.json'),false));
+        $json = json_decode(file_get_contents(public_path('json/services.json'), false));
         $data = $json->$service;
-        return view('service',['lang'=>$lang ,'service'=>$data]);
+
+        return view('service', ['lang' => $lang, 'service' => $data]);
     }
 }

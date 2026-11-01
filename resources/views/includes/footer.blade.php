@@ -5,13 +5,11 @@
                 <div class="row">
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h4 class="text-uppercase mb-4 font-weight-bold">
-                            Meshari Alhumaidi
+                            Law Practice Management
                         </h4>
                         <small>
-                            Meshari Al Humaidi stands out as a premier law firm adept at managing client cases
-                            throughout the Kingdom of Saudi Arabia. It is renowned for its team of seasoned lawyers
-                            with extensive expertise in legal practice. We treasure our clients, and our services
-                            are our strength. Your trust in us is our pleasure.
+                            A comprehensive legal case management system for law firms. Manage cases, clients,
+                            courts, and documents with ease and precision.
                         </small>
                     </div>
 
@@ -39,7 +37,7 @@
 
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                        <p style="font-size: 14px;;"><i class='bx bxs-location-plus'></i> <a target="_blank" style="color: #fff" href="https://maps.app.goo.gl/H19eJMsRxmgocP9Y6">P.O.Box : 2588,
+                        <p style="font-size: 14px;;"><i class='bx bxs-location-plus'></i> <a target="_blank" style="color: #fff" href="#">P.O.Box : 2588,
                             Postal Code: 31991, Kingdom of Saudi Arabia.</a> </p>
                         <p style="font-size: 14px;;"><i class='bx bxs-phone' style='color:#ffffff'></i> 0500550113
                             (Riyadh Branch)</p>
@@ -48,7 +46,7 @@
                         <p style="font-size: 14px;;"><i class='bx bxs-phone' style='color:#ffffff'></i> 0500922283
                             (Hafr Al Batin Branch)</p>
                         <p style="font-size: 14px;;"><i class='bx bx-envelope'
-                                style='color:#ffffff;margin-right:6px;'></i><a style="color: #fff" href="mailto:info@mesharialhumlaw.com">info@mesharialhumlaw.com</a></p>
+                                style='color:#ffffff;margin-right:6px;'></i><a style="color: #fff" href="mailto:info@lawpractice.com">info@lawpractice.com</a></p>
                     </div>
 
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -72,7 +70,7 @@
                         </a>
 
                         <!-- Linkedin -->
-                        <a href="https://www.linkedin.com/company/meshari-alhumaidi-law/" class="m-1" href="#!" role="button">
+                        <a href="https://www.linkedin.com/company/law-practice-management/" class="m-1" href="#!" role="button">
                             <i class='bx bxl-linkedin-square bx-sm' style='color:#ffffff' ></i>
                         </a>
                     </div>
@@ -81,8 +79,8 @@
         </div>
 
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-            © 2024 Copyright:
-            <a class="text-white" href="#">Meshari Alhumaidi Law Firm.</a>
+            © {{ date('Y') }} Copyright:
+            <a class="text-white" href="#">Law Practice Management.</a>
         </div>
     </footer>
 </div>

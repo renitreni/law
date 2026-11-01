@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Inquiry;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -13,7 +14,7 @@ class InquiryLivewire extends Component
 
     public $viewData = null;
 
-    #[\Livewire\Attributes\On('view')]
+    #[On('view')]
     public function view($rowId): void
     {
         $this->viewData = Inquiry::where('id', $rowId)->first();
