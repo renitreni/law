@@ -1,6 +1,6 @@
 {
-  "_AppLayout-70511508.js": {
-    "file": "assets/AppLayout-70511508.js",
+  "_AppLayout-9af9d2a7.js": {
+    "file": "assets/AppLayout-9af9d2a7.js",
     "imports": [
       "resources/js/app.jsx"
     ]
@@ -30,6 +30,12 @@
   },
   "resources/js/app.jsx": {
     "dynamicImports": [
+      "resources/js/pages/Case/Add.jsx",
+      "resources/js/pages/Case/Edit.jsx",
+      "resources/js/pages/Case/Index.jsx",
+      "resources/js/pages/Gallery/Index.jsx",
+      "resources/js/pages/Inquiry/Index.jsx",
+      "resources/js/pages/Invoice/Index.jsx",
       "resources/js/pages/LawCase/Client/Create.jsx",
       "resources/js/pages/LawCase/Client/Edit.jsx",
       "resources/js/pages/LawCase/Client/Index.jsx",
@@ -44,157 +50,261 @@
       "resources/js/pages/LawCase/File/Index.jsx",
       "resources/js/pages/LawCase/Index.jsx",
       "resources/js/pages/LawCase/Show.jsx",
+      "resources/js/pages/Matter/Index.jsx",
+      "resources/js/pages/Options/Index.jsx",
+      "resources/js/pages/Timesheet/Index.jsx",
+      "resources/js/pages/User/Index.jsx",
       "resources/js/pages/Welcome.jsx"
     ],
-    "file": "assets/app-4d871cb7.js",
+    "file": "assets/app-3c7d43be.js",
     "imports": [
       "__commonjsHelpers-725317a4.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.jsx"
   },
-  "resources/js/pages/LawCase/Client/Create.jsx": {
-    "file": "assets/Create-7599469f.js",
+  "resources/js/pages/Case/Add.jsx": {
+    "file": "assets/Add-2f8b1de2.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Case/Add.jsx"
+  },
+  "resources/js/pages/Case/Edit.jsx": {
+    "file": "assets/Edit-1c582b08.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-9af9d2a7.js",
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Case/Edit.jsx"
+  },
+  "resources/js/pages/Case/Index.jsx": {
+    "file": "assets/Index-c30baccd.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-9af9d2a7.js",
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Case/Index.jsx"
+  },
+  "resources/js/pages/Gallery/Index.jsx": {
+    "file": "assets/Index-7dc2f29a.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-9af9d2a7.js",
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Gallery/Index.jsx"
+  },
+  "resources/js/pages/Inquiry/Index.jsx": {
+    "file": "assets/Index-2f186d47.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-9af9d2a7.js",
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Inquiry/Index.jsx"
+  },
+  "resources/js/pages/Invoice/Index.jsx": {
+    "file": "assets/Index-35d3807f.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-9af9d2a7.js",
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Invoice/Index.jsx"
+  },
+  "resources/js/pages/LawCase/Client/Create.jsx": {
+    "file": "assets/Create-b4376255.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Client/Create.jsx"
   },
   "resources/js/pages/LawCase/Client/Edit.jsx": {
-    "file": "assets/Edit-b4c36b80.js",
+    "file": "assets/Edit-6ec22173.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Client/Edit.jsx"
   },
   "resources/js/pages/LawCase/Client/Index.jsx": {
-    "file": "assets/Index-204e791f.js",
+    "file": "assets/Index-def33b2f.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Client/Index.jsx"
   },
   "resources/js/pages/LawCase/Client/Show.jsx": {
-    "file": "assets/Show-7dc0b6b8.js",
+    "file": "assets/Show-d0496d81.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Client/Show.jsx"
   },
   "resources/js/pages/LawCase/Court/Create.jsx": {
-    "file": "assets/Create-e20033e1.js",
+    "file": "assets/Create-76b48470.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Court/Create.jsx"
   },
   "resources/js/pages/LawCase/Court/Edit.jsx": {
-    "file": "assets/Edit-8bed00a8.js",
+    "file": "assets/Edit-a85d4695.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Court/Edit.jsx"
   },
   "resources/js/pages/LawCase/Court/Index.jsx": {
-    "file": "assets/Index-a7bb6df0.js",
+    "file": "assets/Index-d2d05134.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Court/Index.jsx"
   },
   "resources/js/pages/LawCase/Court/Show.jsx": {
-    "file": "assets/Show-669e5b32.js",
+    "file": "assets/Show-bd82f785.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Court/Show.jsx"
   },
   "resources/js/pages/LawCase/Create.jsx": {
-    "file": "assets/Create-a38f8e4f.js",
+    "file": "assets/Create-1484871e.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Create.jsx"
   },
   "resources/js/pages/LawCase/Edit.jsx": {
-    "file": "assets/Edit-7d47d587.js",
+    "file": "assets/Edit-ffa0408f.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Edit.jsx"
   },
   "resources/js/pages/LawCase/File/Create.jsx": {
-    "file": "assets/Create-0ee7b235.js",
+    "file": "assets/Create-e1bf2300.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/File/Create.jsx"
   },
   "resources/js/pages/LawCase/File/Index.jsx": {
-    "file": "assets/Index-379eaf18.js",
+    "file": "assets/Index-d787706c.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/File/Index.jsx"
   },
   "resources/js/pages/LawCase/Index.jsx": {
-    "file": "assets/Index-6db893c6.js",
+    "file": "assets/Index-b67c5451.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Index.jsx"
   },
   "resources/js/pages/LawCase/Show.jsx": {
-    "file": "assets/Show-1028836c.js",
+    "file": "assets/Show-237eae7d.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-70511508.js",
+      "_AppLayout-9af9d2a7.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Show.jsx"
   },
+  "resources/js/pages/Matter/Index.jsx": {
+    "file": "assets/Index-0ed91304.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-9af9d2a7.js",
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Matter/Index.jsx"
+  },
+  "resources/js/pages/Options/Index.jsx": {
+    "file": "assets/Index-d05822c0.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-9af9d2a7.js",
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Options/Index.jsx"
+  },
+  "resources/js/pages/Timesheet/Index.jsx": {
+    "file": "assets/Index-bf0f52ee.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-9af9d2a7.js",
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Timesheet/Index.jsx"
+  },
+  "resources/js/pages/User/Index.jsx": {
+    "file": "assets/Index-7d682009.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-9af9d2a7.js",
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/User/Index.jsx"
+  },
   "resources/js/pages/Welcome.jsx": {
-    "file": "assets/Welcome-d6990e57.js",
+    "file": "assets/Welcome-3bed2184.js",
     "imports": [
       "resources/js/app.jsx",
       "__commonjsHelpers-725317a4.js"

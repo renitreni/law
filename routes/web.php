@@ -1,19 +1,17 @@
 <?php
 
 use App\Http\Controllers\CaseClientController;
+use App\Http\Controllers\CaseController;
 use App\Http\Controllers\CaseCourtController;
 use App\Http\Controllers\CaseFileController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LawCaseController;
-use App\Livewire\CaseFeature\AddCaseLivewire;
-use App\Livewire\CaseFeature\EditCaseLivewire;
-use App\Livewire\CaseLivewire;
-use App\Livewire\GalleryLivewire;
-use App\Livewire\InquiryLivewire;
-use App\Livewire\InvoiceLivewire;
-use App\Livewire\MatterLivewire;
-use App\Livewire\OptionsLivewire;
-use App\Livewire\TimesheetLivewire;
-use App\Livewire\UserLivewire;
+use App\Http\Controllers\MatterController;
+use App\Http\Controllers\OptionsController;
+use App\Http\Controllers\TimesheetController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -35,17 +33,27 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('files', CaseFileController::class)->names('law-cases.files');
     });
 
-    Route::get('/timesheet', TimesheetLivewire::class)->name('timesheet');
-    Route::get('/options', OptionsLivewire::class)->name('options');
-    Route::get('/matters', MatterLivewire::class)->name('matters');
+    Route::get('/timesheet', [TimesheetController::class, 'index'])->name('timesheet');
+    Route::resource('options', OptionsController::class)->only(['index', 'store', 'destroy'])->names('options')->parameters(['options' => 'client']);
+    Route::resource('matters', MatterController::class)->only(['index', 'store', 'destroy'])->names('matters')->parameters(['matters' => 'matter']);
+    
+    Route::prefix('matters/{matter}')->group(function () {
+        Route::post('sub-matters', [MatterController::class, 'storeSubMatter'])->name('matters.storeSubMatter');
+        Route::delete('sub-matters/{subMatter}', [MatterController::class, 'destroySubMatter'])->name('matters.destroySubMatter');
+    });
+    
     Route::prefix('case')->group(function () {
-        Route::get('/', CaseLivewire::class)->name('case');
-        Route::get('/add', AddCaseLivewire::class)->name('add_case');
-        Route::get('/edit/{id}', EditCaseLivewire::class)->name('edit_case');
+        Route::get('/', [CaseController::class, 'index'])->name('case');
+        Route::get('/add', [CaseController::class, 'create'])->name('add_case');
+        Route::post('/', [CaseController::class, 'store'])->name('case.store');
+        Route::get('/edit/{lawCase}', [CaseController::class, 'edit'])->name('edit_case');
+        Route::put('/{lawCase}', [CaseController::class, 'update'])->name('case.update');
+        Route::delete('/{lawCase}', [CaseController::class, 'destroy'])->name('case.destroy');
         Route::get('/download/{file}', fn (string $file) => response()->download(Storage::path("public/case/{$file}")))->name('download_file');
     });
-    Route::get('/inquiry', InquiryLivewire::class)->name('inquiry');
-    Route::get('/invoice', InvoiceLivewire::class)->name('invoice');
-    Route::get('/photos', GalleryLivewire::class)->name('gallery');
-    Route::get('/user', UserLivewire::class)->name('user');
+    
+    Route::get('/inquiry', [InquiryController::class, 'index'])->name('inquiry');
+    Route::resource('invoice', InvoiceController::class)->only(['index', 'store'])->names('invoice');
+    Route::resource('photos', GalleryController::class)->only(['index', 'store', 'destroy'])->names('gallery');
+    Route::get('/user', [UserController::class, 'index'])->name('user');
 });

@@ -2,36 +2,25 @@
 
 namespace Tests\Feature;
 
-use App\Livewire\TimesheetLivewire;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Livewire\Livewire;
 use Tests\TestCase;
 
 class TimesheetTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_timesheet_page_can_be_rendered()
+    public function test_timesheet_page_can_be_rendered(): void
     {
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->get('/timesheet');
 
         $response->assertStatus(200);
-        $response->assertSeeLivewire(TimesheetLivewire::class);
+        $response->assertInertia(fn ($page) => $page->component('Timesheet/Index'));
     }
 
-    public function test_timesheet_livewire_component_mounts()
-    {
-        $user = User::factory()->create();
-
-        Livewire::actingAs($user)
-            ->test(TimesheetLivewire::class)
-            ->assertStatus(200);
-    }
-
-    public function test_all_admin_blade_routes_render_without_500()
+    public function test_all_admin_routes_render_without_500(): void
     {
         $user = User::factory()->create();
 
@@ -53,7 +42,7 @@ class TimesheetTest extends TestCase
         }
     }
 
-    public function test_guest_routes_render_without_500()
+    public function test_guest_routes_render_without_500(): void
     {
         $guestRoutes = [
             '/',

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('law_cases', function (Blueprint $table) {
             $table->id();
-            $table->string('case_plaintiff')->nullable()->default('N/A');
-            $table->string('case_defendant')->nullable()->default('N/A');
+            $table->string('case_plaintiff')->nullable();
+            $table->string('case_defendant')->nullable();
             $table->text('case_description')->nullable();
-            $table->string('case_category')->nullable()->default('N/A');
-            $table->string('case_status')->nullable()->default('N/A');
-            $table->string('case_attorney')->nullable()->default('N/A');
+            $table->string('case_category')->nullable();
+            $table->string('case_status')->nullable();
+            $table->string('case_attorney')->nullable();
             $table->date('case_date')->nullable();
             $table->softDeletes();
             $table->timestamps();

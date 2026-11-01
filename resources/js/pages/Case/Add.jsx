@@ -1,0 +1,27 @@
+import React from 'react';
+import { useForm, Head, Link } from '@inertiajs/react';
+import AppLayout from '../../Layouts/AppLayout';
+
+export default function CaseAdd() {
+    const { data, setData, post, processing, errors } = useForm({ case_plaintiff: '', case_defendant: '', case_category: '', case_status: 'Open', case_description: '', case_attorney: '', case_date: '', case_opponent: '' });
+    const handleSubmit = (e) => { e.preventDefault(); post(route('law-cases.store')); };
+    return (
+        <AppLayout title="Add Case - Law Practice Management">
+            <Head><title>Add Case - Law Practice Management</title></Head>
+            <div className="page-header"><div><h1 className="page-title">Add Case</h1><p className="page-subtitle">Create a new law case</p></div></div>
+            <div className="row"><div className="col-12 col-lg-8">
+                <div className="card border-light shadow-sm"><div className="card-header"><h2 className="card-title">Case Information</h2></div><div className="card-body">
+                    <form onSubmit={handleSubmit}><div className="row g-3">
+                        <div className="col-md-6"><label className="form-label-custom">Plaintiff <span className="text-danger">*</span></label><input type="text" className={`form-control-custom ${errors.case_plaintiff ? 'is-invalid-custom' : ''}`} value={data.case_plaintiff} onChange={(e) => setData('case_plaintiff', e.target.value)} placeholder="Enter plaintiff name" required />{errors.case_plaintiff && <div className="form-feedback-custom invalid-custom"><i className="bi bi-exclamation-circle-fill"></i> {errors.case_plaintiff}</div>}</div>
+                        <div className="col-md-6"><label className="form-label-custom">Defendant <span className="text-danger">*</span></label><input type="text" className={`form-control-custom ${errors.case_defendant ? 'is-invalid-custom' : ''}`} value={data.case_defendant} onChange={(e) => setData('case_defendant', e.target.value)} placeholder="Enter defendant name" required />{errors.case_defendant && <div className="form-feedback-custom invalid-custom"><i className="bi bi-exclamation-circle-fill"></i> {errors.case_defendant}</div>}</div>
+                        <div className="col-md-6"><label className="form-label-custom">Category <span className="text-danger">*</span></label><select className={`form-select-custom ${errors.case_category ? 'is-invalid-custom' : ''}`} value={data.case_category} onChange={(e) => setData('case_category', e.target.value)} required><option value="">Select category</option><option value="Civil">Civil</option><option value="Criminal">Criminal</option><option value="Family">Family</option><option value="Corporate">Corporate</option><option value="Real Estate">Real Estate</option></select>{errors.case_category && <div className="form-feedback-custom invalid-custom"><i className="bi bi-exclamation-circle-fill"></i> {errors.case_category}</div>}</div>
+                        <div className="col-md-6"><label className="form-label-custom">Status <span className="text-danger">*</span></label><select className={`form-select-custom ${errors.case_status ? 'is-invalid-custom' : ''}`} value={data.case_status} onChange={(e) => setData('case_status', e.target.value)} required><option value="Open">Open</option><option value="In Progress">In Progress</option><option value="Closed">Closed</option><option value="Pending">Pending</option></select>{errors.case_status && <div className="form-feedback-custom invalid-custom"><i className="bi bi-exclamation-circle-fill"></i> {errors.case_status}</div>}</div>
+                        <div className="col-md-6"><label className="form-label-custom">Case Date <span className="text-danger">*</span></label><input type="date" className={`form-control-custom ${errors.case_date ? 'is-invalid-custom' : ''}`} value={data.case_date} onChange={(e) => setData('case_date', e.target.value)} required />{errors.case_date && <div className="form-feedback-custom invalid-custom"><i className="bi bi-exclamation-circle-fill"></i> {errors.case_date}</div>}</div>
+                        <div className="col-md-6"><label className="form-label-custom">Attorney</label><input type="text" className="form-control-custom" value={data.case_attorney} onChange={(e) => setData('case_attorney', e.target.value)} placeholder="Attorney name" /></div>
+                        <div className="col-md-6"><label className="form-label-custom">Opponent</label><input type="text" className="form-control-custom" value={data.case_opponent} onChange={(e) => setData('case_opponent', e.target.value)} placeholder="Opponent name" /></div>
+                        <div className="col-12"><label className="form-label-custom">Description</label><textarea className="form-control-custom" rows="4" value={data.case_description} onChange={(e) => setData('case_description', e.target.value)} placeholder="Case description..." /></div>
+                    </div><div className="d-flex gap-2 mt-4"><button type="submit" className="btn-custom btn-custom-primary" disabled={processing}>{processing ? <><span className="spinner-border spinner-border-sm me-2"></span>Creating...</> : <><i className="bi bi-check-lg"></i> Create Case</>}</button><Link href="/case" className="btn-custom btn-custom-secondary"><i className="bi bi-x-lg"></i> Cancel</Link></div></form>
+                </div></div></div></div>
+        </AppLayout>
+    );
+}

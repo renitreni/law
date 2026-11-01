@@ -12,6 +12,7 @@ class InvoiceService extends Model
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
+        'invoice_id',
         'service',
         'amount',
     ];
