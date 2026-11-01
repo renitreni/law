@@ -4,6 +4,7 @@ use App\Http\Controllers\CaseClientController;
 use App\Http\Controllers\CaseController;
 use App\Http\Controllers\CaseCourtController;
 use App\Http\Controllers\CaseFileController;
+use App\Http\Controllers\DebugController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\InvoiceController;
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 Auth::routes();
+
+// Debug route
+Route::get('/debug', DebugController::class);
 
 // Inertia test route
 Route::get('/inertia-test', function () {
