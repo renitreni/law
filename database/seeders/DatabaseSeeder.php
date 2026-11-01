@@ -99,7 +99,7 @@ class DatabaseSeeder extends Seeder
                 ->count(rand(0, 2))
                 ->create([
                     'law_cases_id' => $lawCase->id,
-                    'uploaded_by' => $this->faker->randomElement([$admin->name, $attorney1->name, $attorney2->name]),
+                    'uploaded_by' => fake()->randomElement([$admin->name, $attorney1->name, $attorney2->name]),
                 ]);
         }
 
