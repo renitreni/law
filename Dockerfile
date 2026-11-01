@@ -41,6 +41,7 @@ COPY vite.config.js ./
 COPY resources/sass/ resources/sass/
 COPY resources/js/ resources/js/
 COPY resources/css/ resources/css/
+COPY resources/vendor/ resources/vendor/
 RUN npm ci && npm run build
 
 # Copy application code
