@@ -32,16 +32,52 @@ export default function AppLayout({ children, title = 'Law Practice Management' 
                                     <span>Cases</span>
                                 </a>
                             </li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-menu-section">
-                        <div class="sidebar-menu-title">Components</div>
-                        <ul class="sidebar-menu-list">
                             <li class="sidebar-menu-item">
-                                <a href="/law-cases" class="sidebar-menu-link" id="menu-basictables" title="Case List">
-                                    <i class="bi bi-table"></i>
-                                    <span>Case List</span>
+                                <a href="/timesheet" class="sidebar-menu-link" id="menu-timesheet" title="Timesheet">
+                                    <i class="bi bi-clock-history"></i>
+                                    <span>Timesheet</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="/matters" class="sidebar-menu-link" id="menu-matters" title="Matters">
+                                    <i class="bi bi-folder2-open"></i>
+                                    <span>Matters</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="/options" class="sidebar-menu-link" id="menu-options" title="Clients">
+                                    <i class="bi bi-people"></i>
+                                    <span>Clients</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="/invoice" class="sidebar-menu-link" id="menu-invoice" title="Invoices">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                    <span>Invoices</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="/case" class="sidebar-menu-link" id="menu-case" title="Case">
+                                    <i class="bi bi-journal-medical"></i>
+                                    <span>Case</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="/inquiry" class="sidebar-menu-link" id="menu-inquiry" title="Inquiry">
+                                    <i class="bi bi-chat"></i>
+                                    <span>Inquiry</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="/photos" class="sidebar-menu-link" id="menu-gallery" title="Gallery">
+                                    <i class="bi bi-images"></i>
+                                    <span>Gallery</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="/user" class="sidebar-menu-link" id="menu-user" title="Users">
+                                    <i class="bi bi-person"></i>
+                                    <span>Users</span>
                                 </a>
                             </li>
                         </ul>

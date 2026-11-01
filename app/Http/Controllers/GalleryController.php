@@ -33,7 +33,7 @@ class GalleryController extends Controller
         ]);
 
         foreach ($request->file('photos') as $photo) {
-            $filename = uniqid() . '_' . date('Ymd') . '.' . $photo->getClientOriginalExtension();
+            $filename = uniqid().'_'.date('Ymd').'.'.$photo->getClientOriginalExtension();
             $photo->storeAs('public/gallery', $filename);
             Gallery::create([
                 'photo_name' => $filename,
@@ -49,8 +49,8 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $photo): RedirectResponse
     {
-        if ($photo->photo_name && Storage::disk('public')->exists('gallery/' . $photo->photo_name)) {
-            Storage::disk('public')->delete('gallery/' . $photo->photo_name);
+        if ($photo->photo_name && Storage::disk('public')->exists('gallery/'.$photo->photo_name)) {
+            Storage::disk('public')->delete('gallery/'.$photo->photo_name);
         }
 
         $photo->delete();

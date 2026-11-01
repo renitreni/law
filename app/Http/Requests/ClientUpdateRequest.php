@@ -24,7 +24,7 @@ class ClientUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'code' => 'required|string|max:50|unique:clients,code,' . $this->route('client'),
+            'code' => 'required|string|max:50|unique:clients,code,'.$this->route('client'),
         ];
     }
 }

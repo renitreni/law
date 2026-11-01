@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Models\Invoice;
-use App\Models\InvoiceService;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -59,7 +58,7 @@ class InvoiceControllerTest extends TestCase
             'phoneNumber' => '1234567890',
             'address' => '123 Test St',
         ]);
-        
+
         $invoice = Invoice::where('name', 'Test Client')->first();
         $this->assertDatabaseHas('invoice_services', [
             'invoice_id' => $invoice->id,

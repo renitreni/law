@@ -36,12 +36,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/timesheet', [TimesheetController::class, 'index'])->name('timesheet');
     Route::resource('options', OptionsController::class)->only(['index', 'store', 'destroy'])->names('options')->parameters(['options' => 'client']);
     Route::resource('matters', MatterController::class)->only(['index', 'store', 'destroy'])->names('matters')->parameters(['matters' => 'matter']);
-    
+
     Route::prefix('matters/{matter}')->group(function () {
         Route::post('sub-matters', [MatterController::class, 'storeSubMatter'])->name('matters.storeSubMatter');
         Route::delete('sub-matters/{subMatter}', [MatterController::class, 'destroySubMatter'])->name('matters.destroySubMatter');
     });
-    
+
     Route::prefix('case')->group(function () {
         Route::get('/', [CaseController::class, 'index'])->name('case');
         Route::get('/add', [CaseController::class, 'create'])->name('add_case');
@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/{lawCase}', [CaseController::class, 'destroy'])->name('case.destroy');
         Route::get('/download/{file}', fn (string $file) => response()->download(Storage::path("public/case/{$file}")))->name('download_file');
     });
-    
+
     Route::get('/inquiry', [InquiryController::class, 'index'])->name('inquiry');
     Route::resource('invoice', InvoiceController::class)->only(['index', 'store'])->names('invoice');
     Route::resource('photos', GalleryController::class)->only(['index', 'store', 'destroy'])->names('gallery');
