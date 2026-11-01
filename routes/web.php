@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LawCaseController;
 use App\Livewire\CaseFeature\AddCaseLivewire;
 use App\Livewire\CaseFeature\EditCaseLivewire;
 use App\Livewire\CaseLivewire;
@@ -23,6 +24,8 @@ Route::get('/inertia-test', function () {
 })->name('inertia.test');
 
 Route::middleware(['auth'])->group(function () {
+    Route::resource('law-cases', LawCaseController::class);
+
     Route::get('/timesheet', TimesheetLivewire::class)->name('timesheet');
     Route::get('/options', OptionsLivewire::class)->name('options');
     Route::get('/matters', MatterLivewire::class)->name('matters');
