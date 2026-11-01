@@ -6,6 +6,9 @@ if [ -z "$APP_KEY" ]; then
     php artisan key:generate --force
 fi
 
+# Run composer post-install scripts (package discovery, etc.)
+php artisan package:discover --ansi
+
 # Create storage link
 php artisan storage:link --force
 

@@ -33,7 +33,7 @@ WORKDIR /var/www
 # Copy composer files, artisan, and bootstrap (needed for post-install scripts)
 COPY composer.json composer.lock artisan ./
 COPY bootstrap/ bootstrap/
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-progress
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-progress --no-scripts
 
 # Copy package files and install JS dependencies + build assets
 COPY package.json package-lock.json ./
