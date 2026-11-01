@@ -31,7 +31,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 WORKDIR /var/www
 
 # Copy composer files, artisan, and bootstrap (needed for post-install scripts)
-COPY composer.json composer.lock artisan bootstrap/ ./
+COPY composer.json composer.lock artisan ./
+COPY bootstrap/ bootstrap/
 RUN composer install --no-dev --optimize-autoloader --no-interaction --no-progress
 
 # Copy package files and install JS dependencies + build assets
