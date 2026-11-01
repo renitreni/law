@@ -13,8 +13,14 @@ use App\Livewire\UserLivewire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use Inertia\Inertia;
 
 Auth::routes();
+
+// Inertia test route
+Route::get('/inertia-test', function () {
+    return Inertia::render('Welcome', ['message' => 'Inertia + React works!']);
+})->name('inertia.test');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/timesheet', TimesheetLivewire::class)->name('timesheet');
