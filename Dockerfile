@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     libpng-dev \
     libonig-dev \
+    libicu-dev \
     libxml2-dev \
     libzip-dev \
     libjpeg-dev \
