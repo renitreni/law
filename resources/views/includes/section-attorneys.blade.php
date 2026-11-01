@@ -58,8 +58,8 @@
                     <div class="flipper">
                         <div class="front" style="background-image: url('https://th.bing.com/th/id/OIP.yFV51JyqTKL68yxtSVx2rAHaHa?w=600&h=600&rs=1&pid=ImgDetMain');">
                             <div class="box">
-                                <h2>Meshari Alhumadi</h2>
-                                <p>General Manager of Meshari Alhumadi Group
+                                <h2>Ahmed Al-Mansour</h2>
+                                <p>Senior Partner & Founder
                                 </p>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                                 <div class="image align-self-center">
                                     <img src="https://th.bing.com/th/id/OIP.yFV51JyqTKL68yxtSVx2rAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" alt="">
                                 </div>
-                                <div class="name align-self-center ml-3">Meshari Alhumadi  <span class="position">Professional lawyer</span></div>
+                                <div class="name align-self-center ml-3">Ahmed Al-Mansour  <span class="position">Professional lawyer</span></div>
                             </div>
                         </div>
                     </div>

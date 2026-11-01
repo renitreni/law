@@ -4,8 +4,8 @@ namespace Tests\Unit\Models;
 
 use App\Models\CaseCourt;
 use App\Models\LawCase;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class CaseCourtTest extends TestCase
 {

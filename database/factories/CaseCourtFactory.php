@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\CaseCourt;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CaseCourt>
+ * @extends Factory<CaseCourt>
  */
 class CaseCourtFactory extends Factory
 {
@@ -17,7 +18,7 @@ class CaseCourtFactory extends Factory
     public function definition(): array
     {
         return [
-            'court_name' => $this->faker->company() . ' Court',
+            'court_name' => $this->faker->company().' Court',
             'court_date' => $this->faker->date(),
             'court_address' => $this->faker->address(),
         ];

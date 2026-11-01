@@ -14,10 +14,9 @@
     <!-- content -->
     <div class="hero-content">
         <div>
-            <h4> MESHARI ALHUMAIDI LAW FIRM</h4>
+            <h4> Law Practice Management</h4>
             <!-- <h6> LAW FIRM </h6> -->
-            <p>We have help thousands of people to get relief from national wide fights wrongfull denials. Now they
-                trusted legalcare attorneys.</p>
+            <p>Manage your legal cases, clients, and documents with ease and precision.</p>
 
             <div data-aos="fade-up" class="call-to-action">
                 <a class="btn btn-primary" href="{{ route('inquire',['lang'=>$lang]) }}">

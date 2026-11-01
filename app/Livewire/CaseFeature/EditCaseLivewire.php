@@ -2,27 +2,33 @@
 
 namespace App\Livewire\CaseFeature;
 
-use Carbon\Carbon;
-use App\Models\LawCase;
-use Livewire\Component;
-use App\Models\CaseCourt;
-use App\Models\CaseClient;
 use App\Livewire\Forms\AddCaseForm;
+use App\Models\CaseClient;
+use App\Models\CaseCourt;
 use App\Models\CaseFiles;
+use App\Models\LawCase;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class EditCaseLivewire extends Component
 {
     use WithFileUploads;
+
     public AddCaseForm $addForm;
+
     public array $courts = [];
+
     public array $files = [];
+
     public int $id;
+
     public bool $isEdit = false;
+
     public $newFiles;
 
-    public function mount(int|string $id) : void
+    public function mount(int|string $id): void
     {
         $case = LawCase::with('client', 'files', 'court')->findOrFail($id);
         $this->id = $case->id;
@@ -32,10 +38,10 @@ class EditCaseLivewire extends Component
 
     public function back()
     {
-        return $this->redirect(route('case'),navigate:true);
+        return $this->redirect(route('case'), navigate: true);
     }
 
-    protected function insertData(LawCase $case):void
+    protected function insertData(LawCase $case): void
     {
         $this->addForm->case_plaintiff = $case->case_plaintiff;
         $this->addForm->case_defendant = $case->case_defendant;
@@ -49,82 +55,86 @@ class EditCaseLivewire extends Component
         $this->addForm->client_email = $case->client->client_email;
         $this->addForm->client_company = $case->client->client_company;
 
-        foreach($case->court as $court){
+        foreach ($case->court as $court) {
             $this->courts[] = [
-                'id'=>$court->id,
+                'id' => $court->id,
                 'court_name' => $court->court_name,
                 'court_address' => $court->court_address,
-                'court_date' => $court->court_date
+                'court_date' => $court->court_date,
             ];
         }
 
-        foreach($case->files as $file){
+        foreach ($case->files as $file) {
             $this->files[] = [
                 'id' => $file->id,
                 'filename' => $file->filename,
-                'uploaded_by' => $file->uploaded_by
+                'uploaded_by' => $file->uploaded_by,
             ];
         }
     }
 
-    public function saveChanges(int $id){
+    public function saveChanges(int $id)
+    {
         LawCase::findOrFail($id)->update($this->addForm->getCase());
-        CaseClient::where('law_cases_id',$id)->update($this->addForm->getClient($id));
+        CaseClient::where('law_cases_id', $id)->update($this->addForm->getClient($id));
 
-        foreach($this->courts as $court){
-            if($court['id'] === "" || empty($court['id']) ){
+        foreach ($this->courts as $court) {
+            if ($court['id'] === '' || empty($court['id'])) {
                 CaseCourt::create(array_merge(
                     $court,
-                    ['law_cases_id'=>$id]
+                    ['law_cases_id' => $id]
                 ));
             }
-            CaseCourt::where('id',$court['id'])->update($court);
+            CaseCourt::where('id', $court['id'])->update($court);
         }
-        $this->dispatch('updatedCase','Case updated.');
+        $this->dispatch('updatedCase', 'Case updated.');
+
         return redirect()->back();
     }
 
     public function deleteFile(CaseFiles $file)
     {
-        Storage::disk('public')->delete('case/' . $file->filename);
+        Storage::disk('public')->delete('case/'.$file->filename);
         $file->delete();
-        $this->dispatch('deleteCase','Successfully deleted a file.');
-        return redirect()->route('edit_case',['id'=>$this->id]);
-    }
+        $this->dispatch('deleteCase', 'Successfully deleted a file.');
 
+        return redirect()->route('edit_case', ['id' => $this->id]);
+    }
 
     public function delete(LawCase $id)
     {
         $id->delete();
-        $this->dispatch('deleteCase','Successfully deleted a case.');
-        return $this->redirect(route('case'),navigate:true);
+        $this->dispatch('deleteCase', 'Successfully deleted a case.');
+
+        return $this->redirect(route('case'), navigate: true);
     }
 
-    public function add():void
+    public function add(): void
     {
         $this->courts[] = [
-            'id'=> "",
-            'court_name' => "",
-            'court_address' => "",
-            'court_date' => Carbon::now()
+            'id' => '',
+            'court_name' => '',
+            'court_address' => '',
+            'court_date' => Carbon::now(),
         ];
     }
 
     public function uploadNewFile()
     {
-        if(!empty($this->newFiles)){
-            foreach($this->newFiles as $file){
+        if (! empty($this->newFiles)) {
+            foreach ($this->newFiles as $file) {
                 $filename = $file->getClientOriginalName();
-                $file->storeAs('public/case',$filename);
+                $file->storeAs('public/case', $filename);
                 CaseFiles::create([
                     'law_cases_id' => $this->id,
                     'filename' => $filename,
-                    'uploaded_by' => auth()->user()->name
+                    'uploaded_by' => auth()->user()->name,
                 ]);
             }
 
-            $this->dispatch('updatedCase','Successfully added a file.');
-            return redirect()->route('edit_case',['id'=>$this->id]);
+            $this->dispatch('updatedCase', 'Successfully added a file.');
+
+            return redirect()->route('edit_case', ['id' => $this->id]);
         }
     }
 }

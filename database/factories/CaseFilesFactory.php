@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\CaseFiles;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CaseFiles>
+ * @extends Factory<CaseFiles>
  */
 class CaseFilesFactory extends Factory
 {
@@ -17,7 +18,7 @@ class CaseFilesFactory extends Factory
     public function definition(): array
     {
         return [
-            'filename' => $this->faker->uuid() . '.pdf',
+            'filename' => $this->faker->uuid().'.pdf',
             'uploaded_by' => $this->faker->name(),
         ];
     }

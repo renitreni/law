@@ -4,8 +4,8 @@ namespace Tests\Unit\Models;
 
 use App\Models\Announcement;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class AnnouncementTest extends TestCase
 {

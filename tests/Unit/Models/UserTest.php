@@ -2,10 +2,11 @@
 
 namespace Tests\Unit\Models;
 
-use App\Models\User;
 use App\Models\Announcement;
-use Tests\TestCase;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
+use Tests\TestCase;
 
 class UserTest extends TestCase
 {
@@ -49,6 +50,6 @@ class UserTest extends TestCase
             'email_verified_at' => '2024-01-15 10:30:00',
         ]);
 
-        $this->assertInstanceOf(\Illuminate\Support\Carbon::class, $user->email_verified_at);
+        $this->assertInstanceOf(Carbon::class, $user->email_verified_at);
     }
 }

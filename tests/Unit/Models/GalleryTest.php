@@ -3,8 +3,8 @@
 namespace Tests\Unit\Models;
 
 use App\Models\Gallery;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class GalleryTest extends TestCase
 {

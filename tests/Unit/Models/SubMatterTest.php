@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Models;
 
-use App\Models\SubMatter;
 use App\Models\Matter;
-use Tests\TestCase;
+use App\Models\SubMatter;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class SubMatterTest extends TestCase
 {

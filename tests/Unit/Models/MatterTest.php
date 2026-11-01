@@ -4,8 +4,8 @@ namespace Tests\Unit\Models;
 
 use App\Models\Matter;
 use App\Models\SubMatter;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class MatterTest extends TestCase
 {

@@ -1,4 +1,4 @@
-<div data-content="Meshari Alhumaidi Law Firm Branches" class="container history p-5">
+<div data-content="Law Practice Management Branches" class="container history p-5">
     <div class="row">
         <div data-aos="fade-up" data-aos-duration="300" class="card col-md-4">
             <img src="https://images.unsplash.com/photo-1614002128779-35f1ffaa5b50?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

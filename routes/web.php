@@ -1,24 +1,18 @@
 <?php
 
+use App\Livewire\CaseFeature\AddCaseLivewire;
+use App\Livewire\CaseFeature\EditCaseLivewire;
 use App\Livewire\CaseLivewire;
-use App\Livewire\UserLivewire;
-use App\Livewire\MatterLivewire;
 use App\Livewire\GalleryLivewire;
 use App\Livewire\InquiryLivewire;
 use App\Livewire\InvoiceLivewire;
+use App\Livewire\MatterLivewire;
 use App\Livewire\OptionsLivewire;
 use App\Livewire\TimesheetLivewire;
+use App\Livewire\UserLivewire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Livewire\CaseFeature\AddCaseLivewire;
-use App\Livewire\CaseFeature\EditCaseLivewire;
-
-Route::get('/', function () {
-    return redirect(route('welcome', ['lang' => 'en']));
-});
-
-
+use Illuminate\Support\Facades\Storage;
 
 Auth::routes();
 
@@ -30,22 +24,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', CaseLivewire::class)->name('case');
         Route::get('/add', AddCaseLivewire::class)->name('add_case');
         Route::get('/edit/{id}', EditCaseLivewire::class)->name('edit_case');
-        Route::get('/download/{file}', fn(string $file)=> response()->download(Illuminate\Support\Facades\Storage::path("public/case/{$file}")))->name('download_file');
+        Route::get('/download/{file}', fn (string $file) => response()->download(Storage::path("public/case/{$file}")))->name('download_file');
     });
     Route::get('/inquiry', InquiryLivewire::class)->name('inquiry');
     Route::get('/invoice', InvoiceLivewire::class)->name('invoice');
     Route::get('/photos', GalleryLivewire::class)->name('gallery');
     Route::get('/user', UserLivewire::class)->name('user');
-});
-
-
-Route::prefix("/{lang?}")->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('welcome');
-    Route::get('/about', [HomeController::class, 'about'])->name('about');
-    Route::get('/attorneys', [HomeController::class, 'attorneys'])->name('attorneys');
-    Route::get('/list-services', [HomeController::class, 'services'])->name('services');
-    Route::get('/gallery', [HomeController::class, 'gallery'])->name('galleries');
-    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-    Route::get('/inquire', [HomeController::class, 'inquire'])->name('inquire');
-    Route::get('/list-services/{service}', [HomeController::class, 'service'])->name('service');
 });

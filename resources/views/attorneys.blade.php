@@ -1,5 +1,5 @@
 @extends('layouts.guest.index')
-@section('title',"Attorneys | Meshari Alhumaidi Law Firm")
+@section('title',"Attorneys | Law Practice Management")
 @section('contents')
 @include('includes.breadcrumbs',['page'=>'Attorneys'])
 <div class="container">

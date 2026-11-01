@@ -1,11 +1,11 @@
 <div data-aos="fade-right" data-content="Consistent for 20 Years" class="container history p-5">
-    <p>For nearly two decades, Meshari Al Humaidi Law Firm has consistently occupied a prominent position in the
+    <p>For nearly two decades, Law Practice Management has consistently occupied a prominent position in the
         legal services domain. The firm has achieved remarkable successes and earned recognition from various
         corporations, government institutions, and esteemed embassies.</p>
 
     <p>Our accomplishments arise from a dedicated commitment to surpassing client expectations, ensuring they find
         added value in their interactions with our firm. This commitment is embodied in several core principles
-        embraced by Meshari Al Humaidi Law Firm.</p>
+        embraced by Law Practice Management.</p>
 </div>
 
 <div class="container mt-5">

@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\CaseClient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CaseClient>
+ * @extends Factory<CaseClient>
  */
 class CaseClientFactory extends Factory
 {

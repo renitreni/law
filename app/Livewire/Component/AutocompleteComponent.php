@@ -70,7 +70,7 @@ class AutocompleteComponent extends Component
             $this->keywording = '';
             $this->selected = '';
             $this->data = [];
-        } else if ($specific == null) {
+        } elseif ($specific == null) {
             $this->keywording = '';
             $this->selected = '';
             $this->data = [];

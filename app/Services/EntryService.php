@@ -10,8 +10,10 @@ class EntryService
 {
     public function getEntryByDate($param)
     {
+        $date = Carbon::parse($param)->format('Y-m-d');
+
         return Entry::query()
-            ->where('entry_date', Carbon::parse($param))
+            ->whereDate('entry_date', $date)
             ->orderBy('created_at', 'desc')
             ->get()
             ->toArray();
@@ -19,7 +21,7 @@ class EntryService
 
     public function create($timeEntry, $isDraft)
     {
-        $entry = new Entry();
+        $entry = new Entry;
         $entry->client_id = $timeEntry['client_id'];
 
         $matter = SubMatter::find($timeEntry['sub_matter_id']);
@@ -32,7 +34,7 @@ class EntryService
         $entry->entry_date = $timeEntry['entry_date'];
         $entry->duration = $timeEntry['duration'];
         $entry->narrative = $timeEntry['narrative'];
-        $entry->template_name = $timeEntry['template_name'];
+        $entry->template_name = $timeEntry['template_name'] ?? null;
         $entry->is_template = $timeEntry['is_template'] ?? null;
         $entry->is_draft = $isDraft;
         $entry->is_billable = $timeEntry['is_billable'];

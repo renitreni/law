@@ -20,10 +20,10 @@ final class GalleryTable extends PowerGridComponent
 {
     public function setUp(): array
     {
-        //$this->showCheckBox();
+        // $this->showCheckBox();
 
         return [
-            //Header::make()->showSearchInput(),
+            // Header::make()->showSearchInput(),
             Footer::make()
                 ->showPerPage()
                 ->showRecordCount(),

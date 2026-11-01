@@ -1,5 +1,5 @@
 @extends('layouts.guest.index')
-@section('title',"Services | Meshari Alhumaidi Law Firm")
+@section('title',"Services | Law Practice Management")
 @section('contents')
 @include('includes.breadcrumbs',['page'=> $service->service,'isService'=>true])
 <section class="container">

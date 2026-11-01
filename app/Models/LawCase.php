@@ -22,17 +22,18 @@ class LawCase extends Model
         'case_date',
     ];
 
-    public function client() : HasOne
+    public function client(): HasOne
     {
-        return $this->hasOne(CaseClient::class,'law_cases_id','id');
+        return $this->hasOne(CaseClient::class, 'law_cases_id', 'id');
     }
 
     public function files(): HasMany
     {
-        return $this->hasMany(CaseFiles::class,'law_cases_id','id');
+        return $this->hasMany(CaseFiles::class, 'law_cases_id', 'id');
     }
-    public function court() : HasMany
+
+    public function court(): HasMany
     {
-        return $this->hasMany(CaseCourt::class,'law_cases_id','id');
+        return $this->hasMany(CaseCourt::class, 'law_cases_id', 'id');
     }
 }
