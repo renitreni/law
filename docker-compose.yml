@@ -10,6 +10,8 @@ services:
       - "127.0.0.1:8081:80"
     env_file:
       - .env
+    environment:
+      APP_KEY: "base64:ksYjY9P8o6giXp5HkhNT3c+pyhLvyYlCuWgVW5EOWIE="
     networks:
       - law-net
     depends_on:

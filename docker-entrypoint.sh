@@ -6,6 +6,9 @@ if [ -z "$APP_KEY" ]; then
     php artisan key:generate --force
 fi
 
+# Clear config to pick up new key
+php artisan config:clear
+
 # Run composer post-install scripts (package discovery, etc.)
 php artisan package:discover --ansi
 
