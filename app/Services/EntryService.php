@@ -46,23 +46,33 @@ class EntryService
             ->get();
     }
 
-    public function create($timeEntry, $isDraft)
+    public function create(array $timeEntry, bool $isDraft): Entry
     {
-        $entry = new Entry;
-        $entry->client_id = $timeEntry['client_id'];
+        return $this->fillEntry(new Entry, $timeEntry, $isDraft);
+    }
 
+    public function update(Entry $entry, array $timeEntry, bool $isDraft): Entry
+    {
+        return $this->fillEntry($entry, $timeEntry, $isDraft);
+    }
+
+    private function fillEntry(Entry $entry, array $timeEntry, bool $isDraft): Entry
+    {
         $subMatter = SubMatter::findOrFail($timeEntry['sub_matter_id']);
 
+        $entry->client_id = $timeEntry['client_id'];
         $entry->matter_id = $subMatter->matter_id;
         $entry->sub_matter_id = $subMatter->id;
         $entry->office_id = $timeEntry['office_id'];
         $entry->entry_date = $timeEntry['entry_date'];
         $entry->duration = $timeEntry['duration'];
-        $entry->narrative = $timeEntry['narrative'];
+        $entry->narrative = $timeEntry['narrative'] ?? '';
         $entry->template_name = $timeEntry['template_name'] ?? null;
-        $entry->is_template = $timeEntry['is_template'] ?? null;
+        $entry->is_template = $timeEntry['is_template'] ?? false;
         $entry->is_draft = $isDraft;
-        $entry->is_billable = $timeEntry['is_billable'];
+        $entry->is_billable = $timeEntry['is_billable'] ?? false;
         $entry->save();
+
+        return $entry;
     }
 }

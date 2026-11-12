@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TimeEntryRequest;
 use App\Http\Resources\CalendarSummaryResource;
 use App\Models\Client;
+use App\Models\Entry;
 use App\Models\Matter;
 use App\Models\Office;
 use App\Services\EntryService;
@@ -26,11 +28,29 @@ class TimesheetController extends Controller
         $clients = Client::select('id', 'name', 'code')->orderBy('name')->get();
         $matters = Matter::with('subMatters:id,matter_id,name,code')->select('id', 'name', 'code')->orderBy('name')->get();
         $offices = Office::select('id', 'name', 'code')->orderBy('name')->get();
+        $templates = Entry::query()
+            ->where('is_template', true)
+            ->select([
+                'id',
+                'template_name',
+                'client_id',
+                'matter_id',
+                'sub_matter_id',
+                'office_id',
+                'duration',
+                'narrative',
+                'is_billable',
+            ])
+            ->latest('id')
+            ->get()
+            ->unique('template_name')
+            ->values();
 
         return Inertia::render('Timesheet/Index', [
             'clients' => $clients,
             'matters' => $matters,
             'offices' => $offices,
+            'templates' => $templates,
         ]);
     }
 
@@ -75,5 +95,25 @@ class TimesheetController extends Controller
         return response()->json([
             'data' => (new EntryService)->getEntryByDate($data['date']),
         ]);
+    }
+
+    /**
+     * Store a new time entry.
+     */
+    public function store(TimeEntryRequest $request, EntryService $entryService): JsonResponse
+    {
+        $entry = $entryService->create($request->validated(), $request->boolean('is_draft'));
+
+        return response()->json(['data' => $entry->fresh()], 201);
+    }
+
+    /**
+     * Update an existing time entry.
+     */
+    public function update(TimeEntryRequest $request, Entry $entry, EntryService $entryService): JsonResponse
+    {
+        $entry = $entryService->update($entry, $request->validated(), $request->boolean('is_draft'));
+
+        return response()->json(['data' => $entry->fresh()]);
     }
 }

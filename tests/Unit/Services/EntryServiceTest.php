@@ -222,4 +222,69 @@ class EntryServiceTest extends TestCase
 
         $this->assertEmpty($this->service->getEntryByDate('2024-01-15'));
     }
+
+    public function test_create_returns_the_saved_entry_instance(): void
+    {
+        $client = Client::factory()->create();
+        $matter = Matter::factory()->create();
+        $subMatter = SubMatter::factory()->create(['matter_id' => $matter->id]);
+        $office = Office::factory()->create();
+
+        $entry = $this->service->create([
+            'client_id' => $client->id,
+            'sub_matter_id' => $subMatter->id,
+            'office_id' => $office->id,
+            'entry_date' => '2024-01-15',
+            'duration' => 1.5,
+            'narrative' => 'Returned entry',
+            'is_billable' => true,
+        ], false);
+
+        $this->assertInstanceOf(Entry::class, $entry);
+        $this->assertTrue($entry->exists);
+        $this->assertSame('Returned entry', $entry->narrative);
+        $this->assertSame($matter->id, $entry->matter_id);
+        $this->assertFalse((bool) $entry->is_draft);
+        $this->assertFalse((bool) $entry->is_template);
+    }
+
+    public function test_update_changes_fields_and_keeps_parent_matter_mapping(): void
+    {
+        $client = Client::factory()->create();
+        $matter = Matter::factory()->create();
+        $subMatter = SubMatter::factory()->create(['matter_id' => $matter->id]);
+        $office = Office::factory()->create();
+
+        $entry = Entry::factory()->create([
+            'client_id' => $client->id,
+            'matter_id' => $matter->id,
+            'sub_matter_id' => $subMatter->id,
+            'office_id' => $office->id,
+            'entry_date' => '2024-01-15',
+            'duration' => 1,
+            'is_draft' => true,
+        ]);
+
+        $newMatter = Matter::factory()->create();
+        $newSubMatter = SubMatter::factory()->create(['matter_id' => $newMatter->id]);
+
+        $updated = $this->service->update($entry, [
+            'client_id' => $client->id,
+            'sub_matter_id' => $newSubMatter->id,
+            'office_id' => $office->id,
+            'entry_date' => '2024-01-20',
+            'duration' => 2.5,
+            'narrative' => 'Updated narrative',
+            'is_billable' => false,
+        ], false);
+
+        $this->assertSame($entry->id, $updated->id);
+        $this->assertSame('2024-01-20', $updated->entry_date);
+        $this->assertEquals(2.5, $updated->duration);
+        $this->assertSame('Updated narrative', $updated->narrative);
+        $this->assertSame($newMatter->id, $updated->matter_id);
+        $this->assertSame($newSubMatter->id, $updated->sub_matter_id);
+        $this->assertFalse((bool) $updated->is_draft);
+        $this->assertFalse((bool) $updated->is_billable);
+    }
 }

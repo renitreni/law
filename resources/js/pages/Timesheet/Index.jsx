@@ -3,7 +3,7 @@ import { usePage, Link } from '@inertiajs/react';
 import AppLayout from '../../Layouts/AppLayout';
 import TimeEntryCalendar from './TimeEntryCalendar';
 
-export default function TimesheetIndex({ clients, matters, offices }) {
+export default function TimesheetIndex({ clients, matters, offices, templates }) {
     const { flash = {} } = usePage().props;
 
     return (
@@ -81,7 +81,12 @@ export default function TimesheetIndex({ clients, matters, offices }) {
                     <h2 className="card-title">Time Entry Calendar</h2>
                 </div>
                 <div className="card-body">
-                    <TimeEntryCalendar />
+                    <TimeEntryCalendar
+                        clients={clients}
+                        matters={matters}
+                        offices={offices}
+                        templates={templates}
+                    />
                 </div>
             </div>
         </AppLayout>

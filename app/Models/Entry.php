@@ -24,6 +24,12 @@ class Entry extends Model
         'is_billable',
     ];
 
+    protected $casts = [
+        'is_template' => 'boolean',
+        'is_draft' => 'boolean',
+        'is_billable' => 'boolean',
+    ];
+
     protected $with = ['clients', 'submatters', 'offices'];
 
     public function clients()

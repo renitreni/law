@@ -38,6 +38,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/timesheet/calendar', [TimesheetController::class, 'calendar'])->name('timesheet.calendar');
     Route::get('/timesheet/entries', [TimesheetController::class, 'entries'])->name('timesheet.entries');
+    Route::post('/timesheet/entries', [TimesheetController::class, 'store'])->name('timesheet.entries.store');
+    Route::put('/timesheet/entries/{entry}', [TimesheetController::class, 'update'])->name('timesheet.entries.update');
     Route::get('/timesheet', [TimesheetController::class, 'index'])->name('timesheet');
     Route::resource('options', OptionsController::class)->only(['index', 'store', 'destroy'])->names('options')->parameters(['options' => 'client']);
     Route::resource('matters', MatterController::class)->only(['index', 'store', 'destroy'])->names('matters')->parameters(['matters' => 'matter']);

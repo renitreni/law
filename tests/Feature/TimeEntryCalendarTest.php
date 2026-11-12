@@ -182,4 +182,188 @@ class TimeEntryCalendarTest extends TestCase
             ->get(route('timesheet.entries', ['date' => '01/10/2024']))
             ->assertSessionHasErrors(['date']);
     }
+
+    public function test_entry_write_endpoints_require_authentication(): void
+    {
+        $this->post(route('timesheet.entries.store'), [])->assertRedirect(route('login'));
+
+        $entry = $this->createTimeEntry();
+
+        $this->put(route('timesheet.entries.update', $entry), [])->assertRedirect(route('login'));
+    }
+
+    public function test_store_creates_a_posted_time_entry(): void
+    {
+        $response = $this->actingAs($this->user)->post(route('timesheet.entries.store'), [
+            'client_id' => $this->client->id,
+            'sub_matter_id' => $this->subMatter->id,
+            'office_id' => $this->office->id,
+            'entry_date' => '2024-01-10',
+            'duration' => 2.5,
+            'narrative' => 'Client consultation',
+            'is_billable' => 1,
+            'is_draft' => 0,
+            'is_template' => 0,
+        ]);
+
+        $response->assertCreated()
+            ->assertJsonPath('data.entry_date', '2024-01-10')
+            ->assertJsonPath('data.duration', 2.5)
+            ->assertJsonPath('data.is_draft', false)
+            ->assertJsonPath('data.clients.id', $this->client->id)
+            ->assertJsonPath('data.submatters.id', $this->subMatter->id)
+            ->assertJsonPath('data.offices.id', $this->office->id);
+
+        $this->assertDatabaseHas('entries', [
+            'client_id' => $this->client->id,
+            'matter_id' => $this->matter->id,
+            'sub_matter_id' => $this->subMatter->id,
+            'office_id' => $this->office->id,
+            'entry_date' => '2024-01-10',
+            'duration' => 2.5,
+            'is_draft' => false,
+            'is_billable' => true,
+        ]);
+    }
+
+    public function test_store_creates_a_draft_time_entry(): void
+    {
+        $response = $this->actingAs($this->user)->post(route('timesheet.entries.store'), [
+            'client_id' => $this->client->id,
+            'sub_matter_id' => $this->subMatter->id,
+            'office_id' => $this->office->id,
+            'entry_date' => '2024-01-10',
+            'duration' => 1,
+            'is_billable' => 0,
+            'is_draft' => 1,
+            'is_template' => 0,
+        ]);
+
+        $response->assertCreated()->assertJsonPath('data.is_draft', true);
+
+        $this->assertDatabaseHas('entries', ['is_draft' => true, 'is_billable' => false]);
+    }
+
+    public function test_store_requires_template_name_when_saving_as_template(): void
+    {
+        $this->actingAs($this->user)->post(route('timesheet.entries.store'), [
+            'client_id' => $this->client->id,
+            'sub_matter_id' => $this->subMatter->id,
+            'office_id' => $this->office->id,
+            'entry_date' => '2024-01-10',
+            'duration' => 1,
+            'is_billable' => 1,
+            'is_draft' => 0,
+            'is_template' => 1,
+        ])->assertSessionHasErrors(['template_name']);
+
+        $this->actingAs($this->user)->post(route('timesheet.entries.store'), [
+            'client_id' => $this->client->id,
+            'sub_matter_id' => $this->subMatter->id,
+            'office_id' => $this->office->id,
+            'entry_date' => '2024-01-10',
+            'duration' => 1,
+            'is_billable' => 1,
+            'is_draft' => 0,
+            'is_template' => 1,
+            'template_name' => 'Consultation',
+        ])->assertCreated()->assertJsonPath('data.is_template', true);
+
+        $this->assertDatabaseHas('entries', ['template_name' => 'Consultation', 'is_template' => true]);
+    }
+
+    public function test_store_rejects_invalid_payloads(): void
+    {
+        $this->actingAs($this->user)->post(route('timesheet.entries.store'), [
+            'client_id' => 999999,
+            'sub_matter_id' => 999999,
+            'office_id' => 999999,
+            'entry_date' => 'not-a-date',
+            'duration' => 0,
+            'is_billable' => 1,
+            'is_draft' => 0,
+            'is_template' => 0,
+        ])->assertSessionHasErrors([
+            'client_id',
+            'sub_matter_id',
+            'office_id',
+            'entry_date',
+            'duration',
+        ]);
+    }
+
+    public function test_update_changes_fields_and_post_status(): void
+    {
+        $entry = $this->createTimeEntry([
+            'entry_date' => '2024-01-10',
+            'duration' => 1,
+            'is_draft' => true,
+            'narrative' => 'Old narrative',
+        ]);
+
+        $newClient = Client::factory()->create();
+        $newMatter = Matter::factory()->create();
+        $newSubMatter = SubMatter::factory()->create(['matter_id' => $newMatter->id]);
+        $newOffice = Office::factory()->create();
+
+        $response = $this->actingAs($this->user)->put(route('timesheet.entries.update', $entry), [
+            'client_id' => $newClient->id,
+            'sub_matter_id' => $newSubMatter->id,
+            'office_id' => $newOffice->id,
+            'entry_date' => '2024-01-12',
+            'duration' => 3.5,
+            'narrative' => 'Updated narrative',
+            'is_billable' => 0,
+            'is_draft' => 0,
+            'is_template' => 0,
+        ]);
+
+        $response->assertOk()
+            ->assertJsonPath('data.id', $entry->id)
+            ->assertJsonPath('data.entry_date', '2024-01-12')
+            ->assertJsonPath('data.duration', 3.5)
+            ->assertJsonPath('data.is_draft', false)
+            ->assertJsonPath('data.clients.id', $newClient->id)
+            ->assertJsonPath('data.submatters.id', $newSubMatter->id);
+
+        $this->assertDatabaseHas('entries', [
+            'id' => $entry->id,
+            'client_id' => $newClient->id,
+            'matter_id' => $newMatter->id,
+            'sub_matter_id' => $newSubMatter->id,
+            'office_id' => $newOffice->id,
+            'entry_date' => '2024-01-12',
+            'duration' => 3.5,
+            'narrative' => 'Updated narrative',
+            'is_draft' => false,
+            'is_billable' => false,
+        ]);
+    }
+
+    public function test_index_passes_unique_templates_to_the_page(): void
+    {
+        $this->createTimeEntry([
+            'is_template' => true,
+            'template_name' => 'Consultation',
+            'duration' => 1.5,
+        ]);
+        $this->createTimeEntry([
+            'is_template' => true,
+            'template_name' => 'Consultation',
+            'duration' => 2,
+        ]);
+        $this->createTimeEntry([
+            'is_template' => true,
+            'template_name' => 'Hearing',
+            'duration' => 4,
+        ]);
+
+        $response = $this->actingAs($this->user)->get(route('timesheet'));
+
+        $response->assertInertia(fn ($page) => $page
+            ->component('Timesheet/Index')
+            ->has('templates', 2)
+            ->where('templates.0.template_name', 'Hearing')
+        );
+    }
 }

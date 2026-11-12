@@ -9,6 +9,7 @@ import {
     parseDate,
     shiftAnchor,
 } from './calendarUtils';
+import TimeEntryModal from './TimeEntryModal';
 import './TimeEntryCalendar.css';
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -103,6 +104,8 @@ function EntryDetails({
     loading,
     error,
     onRetry,
+    onEdit,
+    onNew,
 }) {
     const formattedDate = parseDate(selectedDate).toLocaleDateString('en-US', {
         month: 'long',
@@ -114,7 +117,12 @@ function EntryDetails({
         <section aria-live="polite" aria-label="Selected day entries">
             <div className="calendar-details-header">
                 <h3 className="calendar-details-title">Entries for {formattedDate}</h3>
-                {loading && <span className="calendar-status">Loading…</span>}
+                <div className="d-flex align-items-center gap-2">
+                    {loading && <span className="calendar-status">Loading…</span>}
+                    <button type="button" className="btn btn-sm btn-primary" onClick={onNew}>
+                        <i className="bi bi-plus-lg" aria-hidden="true"></i> New Time Entry
+                    </button>
+                </div>
             </div>
 
             {error && (
@@ -156,6 +164,16 @@ function EntryDetails({
                         </div>
 
                         {entry.narrative && <p className="calendar-detail-narrative">{entry.narrative}</p>}
+
+                        <div className="calendar-detail-actions">
+                            <button
+                                type="button"
+                                className="btn btn-sm btn-outline-primary"
+                                onClick={() => onEdit(entry)}
+                            >
+                                <i className="bi bi-pencil" aria-hidden="true"></i> Edit
+                            </button>
+                        </div>
                     </article>
                 ))}
             </div>
@@ -163,7 +181,7 @@ function EntryDetails({
     );
 }
 
-export default function TimeEntryCalendar() {
+export default function TimeEntryCalendar({ clients, matters, offices, templates }) {
     const [view, setView] = useState('month');
     const [anchorDate, setAnchorDate] = useState(() => new Date());
     const [selectedDate, setSelectedDate] = useState(() => formatDate(new Date()));
@@ -175,6 +193,7 @@ export default function TimeEntryCalendar() {
     const [detailsError, setDetailsError] = useState('');
     const [summaryReloadToken, setSummaryReloadToken] = useState(0);
     const [detailsReloadToken, setDetailsReloadToken] = useState(0);
+    const [modal, setModal] = useState({ open: false, entry: null });
 
     const range = useMemo(() => getVisibleRange(view, anchorDate), [view, anchorDate]);
     const startDate = formatDate(range.start);
@@ -260,6 +279,23 @@ export default function TimeEntryCalendar() {
         setSelectedDate(formatDate(today));
     };
 
+    const openNewModal = () => setModal({ open: true, entry: null });
+
+    const openEditModal = (entry) => setModal({ open: true, entry });
+
+    const closeModal = () => setModal({ open: false, entry: null });
+
+    const handleSaved = (savedEntry, savedDate) => {
+        closeModal();
+
+        if (savedDate && savedDate !== selectedDate) {
+            setSelectedDate(savedDate);
+        }
+
+        setSummaryReloadToken((token) => token + 1);
+        setDetailsReloadToken((token) => token + 1);
+    };
+
     return (
         <div className="time-entry-calendar">
             <div className="calendar-toolbar d-flex flex-column flex-lg-row align-items-lg-center">
@@ -343,6 +379,20 @@ export default function TimeEntryCalendar() {
                 loading={detailsLoading}
                 error={detailsError}
                 onRetry={() => setDetailsReloadToken((token) => token + 1)}
+                onEdit={openEditModal}
+                onNew={openNewModal}
+            />
+
+            <TimeEntryModal
+                show={modal.open}
+                entry={modal.entry}
+                clients={clients}
+                matters={matters}
+                offices={offices}
+                templates={templates}
+                defaultDate={selectedDate}
+                onClose={closeModal}
+                onSaved={handleSaved}
             />
         </div>
     );

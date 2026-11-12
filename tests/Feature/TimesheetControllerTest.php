@@ -34,6 +34,7 @@ class TimesheetControllerTest extends TestCase
             ->has('clients')
             ->has('matters')
             ->has('offices')
+            ->has('templates')
         );
     }
 }
