@@ -19,46 +19,70 @@ use App\Models\SubMatter;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
      *
+     * Fixed accounts use firstOrCreate so the seeder stays idempotent
+     * and can be re-run safely in local/staging environments.
+     *
      * @return void
      */
     public function run()
     {
-        // Create 5 user accounts
-        $admin = User::factory()->create([
-            'name' => 'Admin User',
-            'email' => 'admin@yaramay.online',
-            'password' => Hash::make('Admin_2026!'),
-        ]);
+        // Create 5 user accounts (idempotent — safe to re-run)
+        $admin = User::firstOrCreate(
+            ['email' => 'admin@yaramay.online'],
+            [
+                'name' => 'Admin User',
+                'password' => Hash::make('Admin_2026!'),
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+            ]
+        );
 
-        $attorney1 = User::factory()->create([
-            'name' => 'Maha Aljubaire',
-            'email' => 'atty.mahaaljubaire@yaramay.online',
-            'password' => Hash::make('Atty_maha_2026!'),
-        ]);
+        $attorney1 = User::firstOrCreate(
+            ['email' => 'atty.mahaaljubaire@yaramay.online'],
+            [
+                'name' => 'Maha Aljubaire',
+                'password' => Hash::make('Atty_maha_2026!'),
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+            ]
+        );
 
-        $info = User::factory()->create([
-            'name' => 'Info Desk',
-            'email' => 'info@yaramay.online',
-            'password' => Hash::make('Info_2026!'),
-        ]);
+        $info = User::firstOrCreate(
+            ['email' => 'info@yaramay.online'],
+            [
+                'name' => 'Info Desk',
+                'password' => Hash::make('Info_2026!'),
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+            ]
+        );
 
-        $attorney2 = User::factory()->create([
-            'name' => 'John Attorney',
-            'email' => 'john.attorney@yaramay.online',
-            'password' => Hash::make('John_2026!'),
-        ]);
+        $attorney2 = User::firstOrCreate(
+            ['email' => 'john.attorney@yaramay.online'],
+            [
+                'name' => 'John Attorney',
+                'password' => Hash::make('John_2026!'),
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+            ]
+        );
 
-        $clerk = User::factory()->create([
-            'name' => 'Sarah Clerk',
-            'email' => 'sarah.clerk@yaramay.online',
-            'password' => Hash::make('Sarah_2026!'),
-        ]);
+        $clerk = User::firstOrCreate(
+            ['email' => 'sarah.clerk@yaramay.online'],
+            [
+                'name' => 'Sarah Clerk',
+                'password' => Hash::make('Sarah_2026!'),
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+            ]
+        );
 
         // Create matters with submatters
         $matters = Matter::factory()
