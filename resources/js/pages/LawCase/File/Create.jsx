@@ -10,7 +10,7 @@ export default function FileCreate({ lawCase }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route('law-cases.files.store', lawCase), {
+        post(`/law-cases/${lawCase.id}/files`, {
             forceFormData: true,
         });
     };

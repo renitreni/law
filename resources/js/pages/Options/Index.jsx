@@ -8,7 +8,7 @@ export default function OptionsIndex({ clients }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route('options.store'), { onSuccess: () => reset() });
+        post('/options', { onSuccess: () => reset() });
     };
 
     return (
@@ -47,7 +47,7 @@ export default function OptionsIndex({ clients }) {
                                         <tr key={client.id}>
                                             <td>{client.name}</td><td>{client.code}</td>
                                             <td><div className="d-flex justify-content-center gap-1">
-                                                <form onSubmit={(e) => { e.preventDefault(); if (confirm('Are you sure you want to delete this client?')) e.currentTarget.submit(); }} action={route('options.destroy', client)} method="POST">
+                                                <form onSubmit={(e) => { e.preventDefault(); if (confirm('Are you sure you want to delete this client?')) e.currentTarget.submit(); }} action={`/options/${client.id}`} method="POST">
                                                     <input type="hidden" name="_method" value="DELETE" />
                                                     <input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"]')?.content || ''} />
                                                     <button type="submit" className="table-btn-action delete" title="Delete"><i className="bi bi-trash"></i></button>
@@ -61,7 +61,7 @@ export default function OptionsIndex({ clients }) {
                                 <span className="table-pagination-info">Showing {clients.from} to {clients.to} of {clients.total} entries</span>
                                 <nav aria-label="Page navigation"><ul className="pagination mb-0 gap-1">
                                     {clients.prev_page_url && <li className="page-item"><a className="page-link border-0" href={clients.prev_page_url}><i className="bi bi-chevron-left"></i></a></li>}
-                                    {Array.from({ length: clients.last_page }, (_, i) => i + 1).map((page) => <li key={page} className={`page-item ${clients.current_page === page ? 'active' : ''}`}><a className="page-link border-0" href={`${route('options.index')}?page=${page}`}>{page}</a></li>)}
+                                    {Array.from({ length: clients.last_page }, (_, i) => i + 1).map((page) => <li key={page} className={`page-item ${clients.current_page === page ? 'active' : ''}`}><a className="page-link border-0" href={`/options?page=${page}`}>{page}</a></li>)}
                                     {clients.next_page_url && <li className="page-item"><a className="page-link border-0" href={clients.next_page_url}><i className="bi bi-chevron-right"></i></a></li>}
                                 </ul></nav>
                             </div>

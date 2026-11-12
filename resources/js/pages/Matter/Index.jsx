@@ -6,10 +6,10 @@ export default function MatterIndex({ matters }) {
     const { flash = {} } = usePage().props;
     const [expandedMatter, setExpandedMatter] = React.useState(null);
     const { data: matterData, setData: setMatterData, post: postMatter, processing: matterProcessing, errors: matterErrors, reset: resetMatter } = useForm({ name: '', code: '' });
-    const handleMatterSubmit = (e) => { e.preventDefault(); postMatter(route('matters.store'), { onSuccess: () => resetMatter() }); };
+    const handleMatterSubmit = (e) => { e.preventDefault(); postMatter('/matters', { onSuccess: () => resetMatter() }); };
     const [subMatterForm, setSubMatterForm] = React.useState({ matterId: null, name: '', code: '' });
     const { data: subMatterData, setData: setSubMatterData, post: postSubMatter, processing: subMatterProcessing, errors: subMatterErrors, reset: resetSubMatter } = useForm({ name: '', code: '' });
-    const handleSubMatterSubmit = (e) => { e.preventDefault(); postSubMatter(route('matters.storeSubMatter', subMatterForm.matterId), { onSuccess: () => { resetSubMatter(); setSubMatterForm({ matterId: null, name: '', code: '' }); } }); };
+    const handleSubMatterSubmit = (e) => { e.preventDefault(); postSubMatter(`/matters/${subMatterForm.matterId}/sub-matters`, { onSuccess: () => { resetSubMatter(); setSubMatterForm({ matterId: null, name: '', code: '' }); } }); };
     const openSubMatterModal = (matterId) => { setSubMatterForm({ matterId, name: '', code: '' }); resetSubMatter(); };
 
     return (
@@ -35,14 +35,14 @@ export default function MatterIndex({ matters }) {
                                         <button className={`accordion-button ${expandedMatter !== matter.id ? 'collapsed' : ''}`} type="button" data-bs-toggle="collapse" data-bs-target={"#matter-" + matter.id} onClick={() => setExpandedMatter(expandedMatter === matter.id ? null : matter.id)}>
                                             <div className="d-flex justify-content-between w-100"><div><strong>{matter.name}</strong><span className="badge bg-primary ms-2">{matter.code.toUpperCase()}</span></div><div className="d-flex gap-1">
                                                 <button type="button" className="btn btn-sm btn-outline-primary" onClick={() => openSubMatterModal(matter.id)} data-bs-toggle="modal" data-bs-target="#subMatterModal"><i className="bi bi-plus-lg"></i> Add Sub Matter</button>
-                                                <form onSubmit={(e) => { e.preventDefault(); if (confirm('Are you sure you want to delete this matter?')) e.currentTarget.submit(); }} action={route('matters.destroy', matter)} method="POST"><input type="hidden" name="_method" value="DELETE" /><input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"]')?.content || ''} /><button type="submit" className="btn btn-sm btn-outline-danger" title="Delete"><i className="bi bi-trash"></i></button></form>
+                                                <form onSubmit={(e) => { e.preventDefault(); if (confirm('Are you sure you want to delete this matter?')) e.currentTarget.submit(); }} action={`/matters/${matter.id}`} method="POST"><input type="hidden" name="_method" value="DELETE" /><input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"]')?.content || ''} /><button type="submit" className="btn btn-sm btn-outline-danger" title="Delete"><i className="bi bi-trash"></i></button></form>
                                             </div></div>
                                         </button>
                                     </h3>
                                     <div id={"matter-" + matter.id} className={"accordion-collapse collapse " + (expandedMatter === matter.id ? 'show' : '')}>
                                         <div className="accordion-body">
                                             <div className="table-responsive"><table className="table table-sm"><thead><tr><th>Sub Matter Name</th><th>Code</th><th className="text-center">Actions</th></tr></thead><tbody>{matter.subMatters?.map((subMatter) => (
-                                                <tr key={subMatter.id}><td>{subMatter.name}</td><td>{subMatter.code.toUpperCase()}</td><td><form onSubmit={(e) => { e.preventDefault(); if (confirm('Are you sure you want to delete this sub matter?')) e.currentTarget.submit(); }} action={route('matters.destroySubMatter', [matter, subMatter])} method="POST"><input type="hidden" name="_method" value="DELETE" /><input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"]')?.content || ''} /><button type="submit" className="table-btn-action delete" title="Delete"><i className="bi bi-trash"></i></button></form></td></tr>
+                                                <tr key={subMatter.id}><td>{subMatter.name}</td><td>{subMatter.code.toUpperCase()}</td><td><form onSubmit={(e) => { e.preventDefault(); if (confirm('Are you sure you want to delete this sub matter?')) e.currentTarget.submit(); }} action={`/matters/${matter.id}/sub-matters/${subMatter.id}`} method="POST"><input type="hidden" name="_method" value="DELETE" /><input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"]')?.content || ''} /><button type="submit" className="table-btn-action delete" title="Delete"><i className="bi bi-trash"></i></button></form></td></tr>
                                             ))}</tbody></table></div>
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@ export default function MatterIndex({ matters }) {
                         </div>
                         <div className="table-footer-control mt-3">
                             <span className="table-pagination-info">Showing {matters.from} to {matters.to} of {matters.total} entries</span>
-                            <nav aria-label="Page navigation"><ul className="pagination mb-0 gap-1">{matters.prev_page_url && <li className="page-item"><a className="page-link border-0" href={matters.prev_page_url}><i className="bi bi-chevron-left"></i></a></li>}{Array.from({ length: matters.last_page }, (_, i) => i + 1).map((page) => <li key={page} className={`page-item ${matters.current_page === page ? 'active' : ''}`}><a className="page-link border-0" href={`${route('matters.index')}?page=${page}`}>{page}</a></li>)}{matters.next_page_url && <li className="page-item"><a className="page-link border-0" href={matters.next_page_url}><i className="bi bi-chevron-right"></i></a></li>}</ul></nav>
+                            <nav aria-label="Page navigation"><ul className="pagination mb-0 gap-1">{matters.prev_page_url && <li className="page-item"><a className="page-link border-0" href={matters.prev_page_url}><i className="bi bi-chevron-left"></i></a></li>}{Array.from({ length: matters.last_page }, (_, i) => i + 1).map((page) => <li key={page} className={`page-item ${matters.current_page === page ? 'active' : ''}`}><a className="page-link border-0" href={`/matters?page=${page}`}>{page}</a></li>)}{matters.next_page_url && <li className="page-item"><a className="page-link border-0" href={matters.next_page_url}><i className="bi bi-chevron-right"></i></a></li>}</ul></nav>
                         </div>
                     </div>
                 </div>

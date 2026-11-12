@@ -4,7 +4,7 @@ import AppLayout from '../../Layouts/AppLayout';
 
 export default function CaseEdit({ case: lawCase }) {
     const { data, setData, put, processing, errors } = useForm({ case_plaintiff: lawCase.case_plaintiff, case_defendant: lawCase.case_defendant, case_category: lawCase.case_category, case_status: lawCase.case_status, case_description: lawCase.case_description, case_attorney: lawCase.case_attorney, case_date: lawCase.case_date ? lawCase.case_date.split('T')[0] : '', case_opponent: lawCase.case_opponent });
-    const handleSubmit = (e) => { e.preventDefault(); put(route('law-cases.update', lawCase.id)); };
+    const handleSubmit = (e) => { e.preventDefault(); put(`/law-cases/${lawCase.id}`); };
     const handleDelete = () => { if (confirm('Are you sure you want to delete this case?')) { const form = document.createElement('form'); form.method = 'POST'; form.action = '/law-cases/' + lawCase.id; const methodInput = document.createElement('input'); methodInput.type = 'hidden'; methodInput.name = '_method'; methodInput.value = 'DELETE'; const tokenInput = document.createElement('input'); tokenInput.type = 'hidden'; tokenInput.name = '_token'; tokenInput.value = document.querySelector('meta[name="csrf-token"]')?.content || ''; form.appendChild(methodInput); form.appendChild(tokenInput); document.body.appendChild(form); form.submit(); } };
     return (
         <AppLayout title="Edit Case - Law Practice Management">

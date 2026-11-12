@@ -4,7 +4,7 @@ import AppLayout from '../../Layouts/AppLayout';
 
 export default function CaseAdd() {
     const { data, setData, post, processing, errors } = useForm({ case_plaintiff: '', case_defendant: '', case_category: '', case_status: 'Open', case_description: '', case_attorney: '', case_date: '', case_opponent: '' });
-    const handleSubmit = (e) => { e.preventDefault(); post(route('law-cases.store')); };
+    const handleSubmit = (e) => { e.preventDefault(); post('/law-cases'); };
     return (
         <AppLayout title="Add Case - Law Practice Management">
             <Head><title>Add Case - Law Practice Management</title></Head>

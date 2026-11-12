@@ -12,7 +12,7 @@ export default function InvoiceIndex({ invoices }) {
     const addService = () => { const newServices = [...services, { service: '', amount: 0 }]; setServices(newServices); setData('services', newServices); };
     const removeService = (index) => { const newServices = services.filter((_, i) => i !== index); setServices(newServices); setData('services', newServices); };
     const updateService = (index, field, value) => { const newServices = [...services]; newServices[index] = { ...newServices[index], [field]: value }; setServices(newServices); setData('services', newServices); };
-    const handleSubmit = (e) => { e.preventDefault(); post(route('invoice.store'), { onSuccess: () => { reset(); setServices([{ service: '', amount: 0 }]); } }); };
+    const handleSubmit = (e) => { e.preventDefault(); post('/invoice', { onSuccess: () => { reset(); setServices([{ service: '', amount: 0 }]); } }); };
 
     return (
         <AppLayout title="Invoice - Law Practice Management">

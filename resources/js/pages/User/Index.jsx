@@ -38,7 +38,7 @@ export default function UserIndex({ users }) {
                     <span className="table-pagination-info">Showing {users.from} to {users.to} of {users.total} entries</span>
                     <nav aria-label="Page navigation"><ul className="pagination mb-0 gap-1">
                         {users.prev_page_url && <li className="page-item"><a className="page-link border-0" href={users.prev_page_url}><i className="bi bi-chevron-left"></i></a></li>}
-                        {Array.from({ length: users.last_page }, (_, i) => i + 1).map((page) => <li key={page} className={`page-item ${users.current_page === page ? 'active' : ''}`}><a className="page-link border-0" href={`${route('user.index')}?page=${page}`}>{page}</a></li>)}
+                        {Array.from({ length: users.last_page }, (_, i) => i + 1).map((page) => <li key={page} className={`page-item ${users.current_page === page ? 'active' : ''}`}><a className="page-link border-0" href={`/user?page=${page}`}>{page}</a></li>)}
                         {users.next_page_url && <li className="page-item"><a className="page-link border-0" href={users.next_page_url}><i className="bi bi-chevron-right"></i></a></li>}
                     </ul></nav>
                 </div>

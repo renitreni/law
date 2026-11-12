@@ -16,7 +16,7 @@ export default function Create() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route('law-cases.store'));
+        post('/law-cases');
     };
 
     return (

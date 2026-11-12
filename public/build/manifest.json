@@ -1,12 +1,12 @@
 {
-  "_AppLayout-9ba383c5.js": {
-    "file": "assets/AppLayout-9ba383c5.js",
+  "_AppLayout-aeb602c2.js": {
+    "file": "assets/AppLayout-aeb602c2.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_axios-37ad9085.js": {
-    "file": "assets/axios-37ad9085.js"
+  "_axios-6de2fd62.js": {
+    "file": "assets/axios-6de2fd62.js"
   },
   "resources/css/app.css": {
     "file": "assets/app-4edc88c0.css",
@@ -21,9 +21,9 @@
     "css": [
       "assets/app-95f6970f.css"
     ],
-    "file": "assets/app-86690c27.js",
+    "file": "assets/app-42a41644.js",
     "imports": [
-      "_axios-37ad9085.js"
+      "_axios-6de2fd62.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.js"
@@ -53,261 +53,291 @@
       "resources/js/pages/Matter/Index.jsx",
       "resources/js/pages/Options/Index.jsx",
       "resources/js/pages/Timesheet/Index.jsx",
+      "resources/js/pages/Timesheet/TimeEntryCalendar.jsx",
+      "resources/js/pages/Timesheet/TimeEntryModal.jsx",
       "resources/js/pages/User/Index.jsx",
       "resources/js/pages/Welcome.jsx"
     ],
-    "file": "assets/app-8df70612.js",
+    "file": "assets/app-6215365d.js",
     "imports": [
-      "_axios-37ad9085.js"
+      "_axios-6de2fd62.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.jsx"
   },
   "resources/js/pages/Case/Add.jsx": {
-    "file": "assets/Add-107034e5.js",
+    "file": "assets/Add-050084d8.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Case/Add.jsx"
   },
   "resources/js/pages/Case/Edit.jsx": {
-    "file": "assets/Edit-d3cc8a30.js",
+    "file": "assets/Edit-6e60d648.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Case/Edit.jsx"
   },
   "resources/js/pages/Case/Index.jsx": {
-    "file": "assets/Index-b2ffeac2.js",
+    "file": "assets/Index-29914241.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Case/Index.jsx"
   },
   "resources/js/pages/Gallery/Index.jsx": {
-    "file": "assets/Index-9554f396.js",
+    "file": "assets/Index-9e1d7685.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Gallery/Index.jsx"
   },
   "resources/js/pages/Inquiry/Index.jsx": {
-    "file": "assets/Index-6bbb8d7c.js",
+    "file": "assets/Index-76d48b8f.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Inquiry/Index.jsx"
   },
   "resources/js/pages/Invoice/Index.jsx": {
-    "file": "assets/Index-009be6a2.js",
+    "file": "assets/Index-b8c09046.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Invoice/Index.jsx"
   },
   "resources/js/pages/LawCase/Client/Create.jsx": {
-    "file": "assets/Create-20267982.js",
+    "file": "assets/Create-9ec4d70c.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Client/Create.jsx"
   },
   "resources/js/pages/LawCase/Client/Edit.jsx": {
-    "file": "assets/Edit-600b98f1.js",
+    "file": "assets/Edit-7ec5c9ba.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Client/Edit.jsx"
   },
   "resources/js/pages/LawCase/Client/Index.jsx": {
-    "file": "assets/Index-cc584ba1.js",
+    "file": "assets/Index-ef32df0b.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Client/Index.jsx"
   },
   "resources/js/pages/LawCase/Client/Show.jsx": {
-    "file": "assets/Show-f5efa886.js",
+    "file": "assets/Show-eb045fd4.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Client/Show.jsx"
   },
   "resources/js/pages/LawCase/Court/Create.jsx": {
-    "file": "assets/Create-ae5fd514.js",
+    "file": "assets/Create-1b61ebf6.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Court/Create.jsx"
   },
   "resources/js/pages/LawCase/Court/Edit.jsx": {
-    "file": "assets/Edit-088c0d2d.js",
+    "file": "assets/Edit-8dd13c13.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Court/Edit.jsx"
   },
   "resources/js/pages/LawCase/Court/Index.jsx": {
-    "file": "assets/Index-3c81567b.js",
+    "file": "assets/Index-a9ffe86d.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Court/Index.jsx"
   },
   "resources/js/pages/LawCase/Court/Show.jsx": {
-    "file": "assets/Show-c7651a10.js",
+    "file": "assets/Show-9d68b3e4.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Court/Show.jsx"
   },
   "resources/js/pages/LawCase/Create.jsx": {
-    "file": "assets/Create-958dc103.js",
+    "file": "assets/Create-89df77b2.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Create.jsx"
   },
   "resources/js/pages/LawCase/Edit.jsx": {
-    "file": "assets/Edit-ec272b85.js",
+    "file": "assets/Edit-fe485c05.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Edit.jsx"
   },
   "resources/js/pages/LawCase/File/Create.jsx": {
-    "file": "assets/Create-0e11dc2f.js",
+    "file": "assets/Create-50e6b412.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/File/Create.jsx"
   },
   "resources/js/pages/LawCase/File/Index.jsx": {
-    "file": "assets/Index-6216287c.js",
+    "file": "assets/Index-b02099c3.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/File/Index.jsx"
   },
   "resources/js/pages/LawCase/Index.jsx": {
-    "file": "assets/Index-48f14abb.js",
+    "file": "assets/Index-6865f38c.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Index.jsx"
   },
   "resources/js/pages/LawCase/Show.jsx": {
-    "file": "assets/Show-36824c45.js",
+    "file": "assets/Show-1f3fbb97.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/LawCase/Show.jsx"
   },
   "resources/js/pages/Matter/Index.jsx": {
-    "file": "assets/Index-adceba2a.js",
+    "file": "assets/Index-dba98dec.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Matter/Index.jsx"
   },
   "resources/js/pages/Options/Index.jsx": {
-    "file": "assets/Index-763f6835.js",
+    "file": "assets/Index-0d3803e1.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Options/Index.jsx"
   },
   "resources/js/pages/Timesheet/Index.jsx": {
-    "file": "assets/Index-6a8ab5d6.js",
+    "file": "assets/Index-e47e146d.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_AppLayout-aeb602c2.js",
+      "resources/js/pages/Timesheet/TimeEntryCalendar.jsx",
+      "_axios-6de2fd62.js",
+      "resources/js/pages/Timesheet/TimeEntryModal.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Timesheet/Index.jsx"
   },
-  "resources/js/pages/User/Index.jsx": {
-    "file": "assets/Index-2e504903.js",
+  "resources/js/pages/Timesheet/TimeEntryCalendar.css": {
+    "file": "assets/TimeEntryCalendar-777207f4.css",
+    "src": "resources/js/pages/Timesheet/TimeEntryCalendar.css"
+  },
+  "resources/js/pages/Timesheet/TimeEntryCalendar.jsx": {
+    "css": [
+      "assets/TimeEntryCalendar-777207f4.css"
+    ],
+    "file": "assets/TimeEntryCalendar-7968f0f8.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AppLayout-9ba383c5.js",
-      "_axios-37ad9085.js"
+      "_axios-6de2fd62.js",
+      "resources/js/pages/Timesheet/TimeEntryModal.jsx"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Timesheet/TimeEntryCalendar.jsx"
+  },
+  "resources/js/pages/Timesheet/TimeEntryModal.jsx": {
+    "file": "assets/TimeEntryModal-6687a201.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_axios-6de2fd62.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Timesheet/TimeEntryModal.jsx"
+  },
+  "resources/js/pages/User/Index.jsx": {
+    "file": "assets/Index-8759c3a0.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-aeb602c2.js",
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/User/Index.jsx"
   },
   "resources/js/pages/Welcome.jsx": {
-    "file": "assets/Welcome-e219a84d.js",
+    "file": "assets/Welcome-61bf5fc9.js",
     "imports": [
       "resources/js/app.jsx",
-      "_axios-37ad9085.js"
+      "_axios-6de2fd62.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Welcome.jsx"

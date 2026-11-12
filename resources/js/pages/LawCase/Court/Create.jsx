@@ -12,7 +12,7 @@ export default function CourtCreate({ lawCase }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route('law-cases.courts.store', lawCase));
+        post(`/law-cases/${lawCase.id}/courts`);
     };
 
     return (

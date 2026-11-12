@@ -14,7 +14,7 @@ export default function GalleryIndex({ photos }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route('gallery.store'), { forceFormData: true, onSuccess: () => reset() });
+        post('/photos', { forceFormData: true, onSuccess: () => reset() });
     };
 
     return (
@@ -55,7 +55,7 @@ export default function GalleryIndex({ photos }) {
                                         <img src={`/storage/gallery/${photo.photo_name}`} alt={photo.photo_name} className="card-img-top" style={{height: '200px', objectFit: 'cover'}} />
                                         <div className="card-body p-2 d-flex justify-content-between">
                                             <small className="text-muted text-truncate">{photo.photo_name}</small>
-                                            <form onSubmit={(e) => { e.preventDefault(); if (confirm('Delete this photo?')) e.currentTarget.submit(); }} action={route('gallery.destroy', photo)} method="POST">
+                                            <form onSubmit={(e) => { e.preventDefault(); if (confirm('Delete this photo?')) e.currentTarget.submit(); }} action={`/photos/${photo.id}`} method="POST">
                                                 <input type="hidden" name="_method" value="DELETE" />
                                                 <input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"]')?.content || ''} />
                                                 <button type="submit" className="btn btn-sm btn-outline-danger p-1" title="Delete"><i className="bi bi-trash"></i></button>
@@ -70,7 +70,7 @@ export default function GalleryIndex({ photos }) {
                         <span className="table-pagination-info">Showing {photos.from} to {photos.to} of {photos.total} entries</span>
                         <nav aria-label="Page navigation"><ul className="pagination mb-0 gap-1">
                             {photos.prev_page_url && <li className="page-item"><a className="page-link border-0" href={photos.prev_page_url}><i className="bi bi-chevron-left"></i></a></li>}
-                            {Array.from({ length: photos.last_page }, (_, i) => i + 1).map((page) => <li key={page} className={`page-item ${photos.current_page === page ? 'active' : ''}`}><a className="page-link border-0" href={`${route('gallery.index')}?page=${page}`}>{page}</a></li>)}
+                            {Array.from({ length: photos.last_page }, (_, i) => i + 1).map((page) => <li key={page} className={`page-item ${photos.current_page === page ? 'active' : ''}`}><a className="page-link border-0" href={`/photos?page=${page}`}>{page}</a></li>)}
                             {photos.next_page_url && <li className="page-item"><a className="page-link border-0" href={photos.next_page_url}><i className="bi bi-chevron-right"></i></a></li>}
                         </ul></nav>
                     </div>

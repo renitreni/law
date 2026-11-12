@@ -12,7 +12,7 @@ export default function ClientEdit({ lawCase, client }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        put(route('law-cases.clients.update', [lawCase, client]));
+        put(`/law-cases/${lawCase.id}/clients/${client.id}`);
     };
 
     return (

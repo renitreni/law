@@ -16,7 +16,7 @@ export default function Edit({ case: lawCase }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        put(route('law-cases.update', lawCase.id));
+        put(`/law-cases/${lawCase.id}`);
     };
 
     return (
