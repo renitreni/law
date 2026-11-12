@@ -1,0 +1,19 @@
+# Local development override for the `law` stack.
+#
+# Bind-mounts the host repo into the app container so code changes
+# (including seeders) are live without rebuilding the image, and forces
+# a local-friendly environment (no HTTPS redirect from EnsureHttps,
+# APP_URL pointing at the published localhost port).
+#
+# Usage:
+#   docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
+#   docker exec law_app php artisan db:seed --force
+
+services:
+  app:
+    volumes:
+      - .:/var/www
+    environment:
+      APP_ENV: "local"
+      APP_DEBUG: "true"
+      APP_URL: "http://localhost:8081"
