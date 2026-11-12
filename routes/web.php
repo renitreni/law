@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
+Route::get('/', fn () => view('landing'))->name('home');
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
 
