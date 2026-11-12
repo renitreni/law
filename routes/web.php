@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CaseClientController;
 use App\Http\Controllers\CaseController;
 use App\Http\Controllers\CaseCourtController;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 Auth::routes();
+Route::get('/logout', [LoginController::class, 'logout']);
 
 // Inertia test route
 Route::get('/inertia-test', function () {
