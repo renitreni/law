@@ -20,6 +20,11 @@ class CalendarSummaryResourceTest extends TestCase
 
         $array = $resource->toArray($this->createMock(Request::class));
 
+        $this->assertSame('2024-01-15', $array['date']);
+        $this->assertSame(5.5, $array['posted']);
+        $this->assertSame(2.0, $array['draft']);
+        $this->assertSame(4.0, $array['billable']);
+        $this->assertSame(3.5, $array['non_billable']);
         $this->assertArrayHasKey('title', $array);
         $this->assertArrayHasKey('start', $array);
         $this->assertEquals('2024-01-15', $array['start']);

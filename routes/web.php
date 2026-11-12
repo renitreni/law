@@ -36,6 +36,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('files', CaseFileController::class)->names('law-cases.files');
     });
 
+    Route::get('/timesheet/calendar', [TimesheetController::class, 'calendar'])->name('timesheet.calendar');
+    Route::get('/timesheet/entries', [TimesheetController::class, 'entries'])->name('timesheet.entries');
     Route::get('/timesheet', [TimesheetController::class, 'index'])->name('timesheet');
     Route::resource('options', OptionsController::class)->only(['index', 'store', 'destroy'])->names('options')->parameters(['options' => 'client']);
     Route::resource('matters', MatterController::class)->only(['index', 'store', 'destroy'])->names('matters')->parameters(['matters' => 'matter']);

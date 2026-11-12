@@ -23,6 +23,19 @@ class EntryServiceTest extends TestCase
         $this->service = new EntryService;
     }
 
+    protected function createTimeEntry(array $overrides = []): Entry
+    {
+        $matter = Matter::factory()->create();
+        $subMatter = SubMatter::factory()->create(['matter_id' => $matter->id]);
+
+        return Entry::factory()->create(array_merge([
+            'client_id' => Client::factory(),
+            'matter_id' => $matter->id,
+            'sub_matter_id' => $subMatter->id,
+            'office_id' => Office::factory(),
+        ], $overrides));
+    }
+
     public function test_get_entry_by_date_returns_entries_for_given_date()
     {
         $client = Client::factory()->create();
@@ -155,5 +168,58 @@ class EntryServiceTest extends TestCase
         $this->assertDatabaseHas('entries', [
             'is_draft' => true,
         ]);
+    }
+
+    public function test_get_calendar_summary_aggregates_the_requested_range(): void
+    {
+        $this->createTimeEntry([
+            'entry_date' => '2024-01-15',
+            'duration' => 2.5,
+            'is_draft' => false,
+            'is_billable' => true,
+        ]);
+        $this->createTimeEntry([
+            'entry_date' => '2024-01-15',
+            'duration' => 1.5,
+            'is_draft' => true,
+            'is_billable' => false,
+        ]);
+        $this->createTimeEntry(['entry_date' => '2024-01-16', 'duration' => 4]);
+
+        $result = $this->service->getCalendarSummary('2024-01-01', '2024-01-15');
+
+        $this->assertCount(1, $result);
+        $this->assertSame('2024-01-15', $result->first()->entry_date);
+        $this->assertSame(2.5, (float) $result->first()->posted);
+        $this->assertSame(1.5, (float) $result->first()->draft);
+        $this->assertSame(2.5, (float) $result->first()->billable);
+        $this->assertSame(1.5, (float) $result->first()->non_billable);
+    }
+
+    public function test_get_calendar_summary_excludes_templates_and_soft_deleted_entries(): void
+    {
+        $this->createTimeEntry([
+            'entry_date' => '2024-01-15',
+            'duration' => 2,
+            'is_template' => true,
+        ]);
+
+        $deletedEntry = $this->createTimeEntry([
+            'entry_date' => '2024-01-15',
+            'duration' => 3,
+        ]);
+        $deletedEntry->delete();
+
+        $this->assertCount(0, $this->service->getCalendarSummary('2024-01-01', '2024-01-31'));
+    }
+
+    public function test_get_entry_by_date_excludes_templates(): void
+    {
+        $this->createTimeEntry([
+            'entry_date' => '2024-01-15',
+            'is_template' => true,
+        ]);
+
+        $this->assertEmpty($this->service->getEntryByDate('2024-01-15'));
     }
 }

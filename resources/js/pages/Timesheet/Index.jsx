@@ -1,6 +1,7 @@
 import React from 'react';
 import { usePage, Link } from '@inertiajs/react';
 import AppLayout from '../../Layouts/AppLayout';
+import TimeEntryCalendar from './TimeEntryCalendar';
 
 export default function TimesheetIndex({ clients, matters, offices }) {
     const { flash = {} } = usePage().props;
@@ -80,10 +81,7 @@ export default function TimesheetIndex({ clients, matters, offices }) {
                     <h2 className="card-title">Time Entry Calendar</h2>
                 </div>
                 <div className="card-body">
-                    <div className="alert alert-info">
-                        <i className="bi bi-info-circle me-2"></i>
-                        Calendar integration coming soon. Use the quick actions above to manage cases and invoices.
-                    </div>
+                    <TimeEntryCalendar />
                 </div>
             </div>
         </AppLayout>

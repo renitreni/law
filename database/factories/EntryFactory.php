@@ -31,9 +31,9 @@ class EntryFactory extends Factory
             'duration' => $this->faker->randomFloat(2, 0.1, 0.8),
             'narrative' => $this->faker->sentence(),
             'template_name' => $this->faker->optional()->word(),
-            'is_template' => $this->faker->boolean(),
-            'is_draft' => $this->faker->boolean(),
-            'is_billable' => $this->faker->boolean(),
+            'is_template' => false,
+            'is_draft' => false,
+            'is_billable' => true,
         ];
     }
 }

@@ -25,6 +25,12 @@ class CalendarSummaryResource extends JsonResource
             HTML;
 
         return [
+            'date' => Carbon::parse($this->entry_date)->format('Y-m-d'),
+            'posted' => (float) $this->posted,
+            'draft' => (float) $this->draft,
+            'billable' => (float) $this->billable,
+            'non_billable' => (float) $this->non_billable,
+            // Retained for the legacy Livewire FullCalendar payload.
             'title' => $content,
             'start' => Carbon::parse($this->entry_date)->format('Y-m-d'),
         ];
