@@ -29,10 +29,12 @@ done
 # Publish Livewire assets (fixes "assets out of date" warning)
 php artisan vendor:publish --tag=livewire:assets --force
 
-# Cache config, routes, views
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+# Cache config, routes, views outside local development
+if [ "${APP_ENV:-}" != "local" ]; then
+    php artisan config:cache
+    php artisan route:cache
+    php artisan view:cache
+fi
 
 # Fix permissions
 chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache

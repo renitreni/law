@@ -24,12 +24,10 @@ class EntryService
         $entry = new Entry;
         $entry->client_id = $timeEntry['client_id'];
 
-        $matter = SubMatter::find($timeEntry['sub_matter_id']);
+        $subMatter = SubMatter::findOrFail($timeEntry['sub_matter_id']);
 
-        $timeEntry['matter_id'] = $matter->id;
-
-        $entry->matter_id = $timeEntry['matter_id'];
-        $entry->sub_matter_id = $timeEntry['sub_matter_id'];
+        $entry->matter_id = $subMatter->matter_id;
+        $entry->sub_matter_id = $subMatter->id;
         $entry->office_id = $timeEntry['office_id'];
         $entry->entry_date = $timeEntry['entry_date'];
         $entry->duration = $timeEntry['duration'];
