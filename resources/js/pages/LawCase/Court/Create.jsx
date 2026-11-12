@@ -100,9 +100,9 @@ export default function CourtCreate({ lawCase }) {
                                 <div class="d-flex gap-2 mt-4">
                                     <button type="submit" class="btn-custom btn-custom-primary" disabled={processing}>
                                         {processing ? (
-                                            '<span class="spinner-border spinner-border-sm me-2"></span>Adding...'
+                                            <><span className="spinner-border spinner-border-sm me-2"></span>Adding...</>
                                         ) : (
-                                            '<i class="bi bi-check-lg"></i> Add Court Appearance'
+                                            <><i className="bi bi-check-lg"></i> Add Court Appearance</>
                                         )}
                                     </button>
                                     <Link href={`/law-cases/${lawCase.id}/courts`} class="btn-custom btn-custom-secondary">

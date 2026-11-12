@@ -83,9 +83,9 @@ export default function FileCreate({ lawCase }) {
                                 <div class="d-flex gap-2 mt-4">
                                     <button type="submit" class="btn-custom btn-custom-primary" disabled={processing}>
                                         {processing ? (
-                                            '<span class="spinner-border spinner-border-sm me-2"></span>Uploading...'
+                                            <><span className="spinner-border spinner-border-sm me-2"></span>Uploading...</>
                                         ) : (
-                                            '<i class="bi bi-upload"></i> Upload File'
+                                            <><i className="bi bi-upload"></i> Upload File</>
                                         )}
                                     </button>
                                     <Link href={`/law-cases/${lawCase.id}/files`} class="btn-custom btn-custom-secondary">

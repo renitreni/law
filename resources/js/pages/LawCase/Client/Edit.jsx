@@ -100,9 +100,9 @@ export default function ClientEdit({ lawCase, client }) {
                                 <div class="d-flex gap-2 mt-4">
                                     <button type="submit" class="btn-custom btn-custom-primary" disabled={processing}>
                                         {processing ? (
-                                            '<span class="spinner-border spinner-border-sm me-2"></span>Updating...'
+                                            <><span className="spinner-border spinner-border-sm me-2"></span>Updating...</>
                                         ) : (
-                                            '<i class="bi bi-check-lg"></i> Update Client'
+                                            <><i className="bi bi-check-lg"></i> Update Client</>
                                         )}
                                     </button>
                                     <Link href={`/law-cases/${lawCase.id}/clients`} class="btn-custom btn-custom-secondary">

@@ -100,9 +100,9 @@ export default function CourtEdit({ lawCase, court }) {
                                 <div class="d-flex gap-2 mt-4">
                                     <button type="submit" class="btn-custom btn-custom-primary" disabled={processing}>
                                         {processing ? (
-                                            '<span class="spinner-border spinner-border-sm me-2"></span>Updating...'
+                                            <><span className="spinner-border spinner-border-sm me-2"></span>Updating...</>
                                         ) : (
-                                            '<i class="bi bi-check-lg"></i> Update Court Appearance'
+                                            <><i className="bi bi-check-lg"></i> Update Court Appearance</>
                                         )}
                                     </button>
                                     <Link href={`/law-cases/${lawCase.id}/courts`} class="btn-custom btn-custom-secondary">

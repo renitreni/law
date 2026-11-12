@@ -174,9 +174,9 @@ export default function Create() {
                                 <div class="d-flex gap-2 mt-4">
                                     <button type="submit" class="btn-custom btn-custom-primary" disabled={processing}>
                                         {processing ? (
-                                            '<span class="spinner-border spinner-border-sm me-2"></span>Creating...'
+                                            <><span className="spinner-border spinner-border-sm me-2"></span>Creating...</>
                                         ) : (
-                                            '<i class="bi bi-check-lg"></i> Create Case'
+                                            <><i className="bi bi-check-lg"></i> Create Case</>
                                         )}
                                     </button>
                                     <a href="/law-cases" class="btn-custom btn-custom-secondary">

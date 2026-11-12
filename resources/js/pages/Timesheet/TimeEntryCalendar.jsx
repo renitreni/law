@@ -313,7 +313,7 @@ export default function TimeEntryCalendar() {
                 </div>
             )}
 
-            <div className="d-none d-md-block calendar-weekdays" aria-hidden="true">
+            <div className="calendar-weekdays" aria-hidden="true">
                 {WEEKDAYS.map((weekday) => (
                     <div className="calendar-weekday" key={weekday}>{weekday}</div>
                 ))}
